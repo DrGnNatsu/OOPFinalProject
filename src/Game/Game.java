@@ -1,7 +1,11 @@
 package Game;
 
 public class Game {
+    private GamePanel gamePanel;
+    private GameWindow gameWindow;
     public Game() {
-        GameWindow gameWindow = new GameWindow();
+        gamePanel = new GamePanel();
+        gameWindow = new GameWindow(gamePanel);
+
     }
 }
