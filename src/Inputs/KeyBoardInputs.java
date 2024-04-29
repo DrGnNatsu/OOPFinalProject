@@ -1,8 +1,14 @@
 package Inputs;
 
+import Game.GamePanel;
+
 import java.awt.event.*;
 
 public class KeyBoardInputs implements KeyListener {
+    private GamePanel gamePanel;
+    public KeyBoardInputs(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
+    }
     public void keyTyped(KeyEvent e) {
 
     }
@@ -14,17 +20,17 @@ public class KeyBoardInputs implements KeyListener {
     public void keyReleased(KeyEvent e) {
 
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_UP:
-                System.out.println("UP");
+            case KeyEvent.VK_W:
+                gamePanel.doChangeYAxis(-10);
                 break;
-            case KeyEvent.VK_DOWN:
-                System.out.println("DOWN");
+            case KeyEvent.VK_S:
+                gamePanel.doChangeYAxis(+10);
                 break;
-            case KeyEvent.VK_LEFT:
-                System.out.println("LEFT");
+            case KeyEvent.VK_A:
+                gamePanel.doChangeXAxis(-10);
                 break;
-            case KeyEvent.VK_RIGHT:
-                System.out.println("RIGHT");
+            case KeyEvent.VK_D:
+                gamePanel.doChangeXAxis(10);
                 break;
             default:
                 System.out.println("Invalid Key");
