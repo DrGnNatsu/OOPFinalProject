@@ -1,9 +1,8 @@
 package Game;
 
 import javax.swing.*;
-
-
 public class GameWindow {
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     public GameWindow(GamePanel gamePanel) {
         JFrame jframe = new JFrame("Game");
         jframe.setSize(800, 600);
@@ -12,4 +11,8 @@ public class GameWindow {
         jframe.setLocationRelativeTo(null);
         jframe.setVisible(true);
     }
+    public GameWindow(){
+
+    }
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 }

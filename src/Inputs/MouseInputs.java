@@ -3,6 +3,7 @@ import Game.GamePanel;
 
 import java.awt.event.*;
 public class MouseInputs implements MouseListener, MouseMotionListener{
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     private GamePanel gamePanel;
     public MouseInputs(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -40,6 +41,7 @@ public class MouseInputs implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        gamePanel.setRectanglePosition(e.getX() - 50, e.getY() - 50);
+        //gamePanel.setRectanglePosition(e.getX(), e.getY());
     }
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 }

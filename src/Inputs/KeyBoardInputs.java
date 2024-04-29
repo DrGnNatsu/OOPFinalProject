@@ -5,6 +5,7 @@ import Game.GamePanel;
 import java.awt.event.*;
 
 public class KeyBoardInputs implements KeyListener {
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     private GamePanel gamePanel;
     public KeyBoardInputs(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -18,7 +19,6 @@ public class KeyBoardInputs implements KeyListener {
     }
 
     public void keyReleased(KeyEvent e) {
-
         switch (e.getKeyCode()) {
             case KeyEvent.VK_W:
                 gamePanel.doChangeYAxis(-10);
@@ -36,7 +36,6 @@ public class KeyBoardInputs implements KeyListener {
                 System.out.println("Invalid Key");
                 break;
         }
-
     }
-
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 }
