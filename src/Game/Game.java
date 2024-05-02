@@ -17,12 +17,14 @@ public class Game {
         gameWindow = new GameWindow(gamePanel);
         start();
     }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Start the game used the game thread
     public void start(){
         gameThread = new Thread(this::run);
         gameThread.start();
     }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Run the game & check FPS to repaint the game panel
     public void run(){
@@ -30,12 +32,14 @@ public class Game {
         double lastTime = System.nanoTime();
         double now;
         while (true){
+            // Calculate the time to refresh the game panel --> 256 FPS
             now = System.nanoTime();
             if (now - lastTime >= timePerTick){
                 gamePanel.repaint();
                 lastTime = now;
                 frame++;
             }
+            // Check the FPS
             if (System.currentTimeMillis() - lastCheck >= 1000){
                 lastCheck = System.currentTimeMillis();
                 System.out.println("FPS: " + frame);
@@ -43,5 +47,6 @@ public class Game {
             }
         }
     }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 }

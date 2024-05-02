@@ -10,7 +10,10 @@ public class GameWindow {
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setLocationRelativeTo(null);
         jframe.setVisible(true);
+        jframe.setResizable(false);
+        jframe.pack();
     }
+
     public GameWindow(){
 
     }

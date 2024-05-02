@@ -1,6 +1,9 @@
 package Game;
 import Inputs.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class GamePanel extends JPanel {
@@ -13,15 +16,30 @@ public class GamePanel extends JPanel {
     private float xDirection = 1f, yDirection = 1f; // Use to change the speed of the rectangle
     //Create the variables for the color
     private Color color = changeColor();
+    //
+    private BufferedImage image;
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public GamePanel() {
+        setPanelSize();
+        importImage();
         addKeyListener(new KeyBoardInputs(this));
         mouseInputs = new MouseInputs(this);
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
         setFocusable(true);
+
     }
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Set the size of the panel
+    private void setPanelSize() {
+        Dimension dimension = new Dimension(1200, 720);
+        setPreferredSize(dimension);
+        setMinimumSize(dimension);
+        setMaximumSize(dimension);
+    }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Changes the position of the rectangle
     public void doChangeXAxis(int delta) {
@@ -53,10 +71,13 @@ public class GamePanel extends JPanel {
     //Paint the rectangle
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(color);
-        g.fillRect((int) xAxisDelta,(int) yAxisDelta, 100, 100);
+//        g.setColor(color);
+//        g.fillRect((int) xAxisDelta,(int) yAxisDelta, 100, 100);
+
+        g.drawImage(image.getSubimage(0,0,56, 56), 0,0, null);
         updateRectanglePosition();
     }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Change color of the rectangle
     public Color changeColor() {
@@ -65,7 +86,16 @@ public class GamePanel extends JPanel {
         int blue = (int) (Math.random() * 256);
         return new Color(red, green, blue);
     }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    private void importImage() {
+        InputStream inputStream = getClass().getResourceAsStream("/Texture/Entities/generic_char_v02/png/blue/char_blue_1.png");
+        try {
+            image = ImageIO.read(inputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 
