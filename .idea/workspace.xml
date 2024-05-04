@@ -6,30 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOPFinalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOPFinalProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/Knight.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v1.0.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/background/background_layer_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/background/background_layer_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/background/background_layer_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/character/char_blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/fence_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/fence_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/grass_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/grass_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/grass_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/lamp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/rock_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/rock_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/rock_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/shop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/shop_anim.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/decorations/sign.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/oak_woods_tileset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Texture/Entities/oak_woods_v10/readme.TXT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,27 +45,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/[3]Code/GithubDesktop/OOPFinalProject/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5086705",
-    "settings.editor.selected.configurable": "configurable.group.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/[3]Code/GithubDesktop/OOPFinalProject/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5086705&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\[3]Code\GithubDesktop\OOPFinalProject\src" />
@@ -99,8 +77,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -125,6 +103,9 @@
       <workItem from="1714652873595" duration="819000" />
       <workItem from="1714654117077" duration="2855000" />
       <workItem from="1714658904776" duration="6561000" />
+      <workItem from="1714697360047" duration="1297000" />
+      <workItem from="1714805003701" duration="4626000" />
+      <workItem from="1714834692293" duration="8000" />
     </task>
     <servers />
   </component>

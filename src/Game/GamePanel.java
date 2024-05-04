@@ -17,7 +17,8 @@ public class GamePanel extends JPanel {
     //Create the variables for the color
     private Color color = changeColor();
     //
-    private BufferedImage image;
+    private BufferedImage image, subImage;
+    private BufferedImage[] idleAnimation = new BufferedImage[6];
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -73,8 +74,8 @@ public class GamePanel extends JPanel {
         super.paintComponent(g);
 //        g.setColor(color);
 //        g.fillRect((int) xAxisDelta,(int) yAxisDelta, 100, 100);
-
-        g.drawImage(image.getSubimage(0,0,56, 56), 0,0, null);
+        subImage = image.getSubimage(56 * 4,56 * 2,56, 56);
+        g.drawImage(subImage, (int) xAxisDelta, (int) yAxisDelta, 56 * 2, 56 * 2, null);
         updateRectanglePosition();
     }
 
@@ -94,6 +95,12 @@ public class GamePanel extends JPanel {
             image = ImageIO.read(inputStream);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                inputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
