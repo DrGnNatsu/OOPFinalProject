@@ -14,17 +14,19 @@ public class GamePanel extends JPanel {
     //Create the variables for the rectangle
     private float xAxisDelta, yAxisDelta;
     private float xDirection = 1f, yDirection = 1f; // Use to change the speed of the rectangle
-    //Create the variables for the color
-    private Color color = changeColor();
-    //
-    private BufferedImage image, subImage;
+    //Create the image
+    private BufferedImage image;
     private BufferedImage[] idleAnimation = new BufferedImage[6];
+    private BufferedImage[][] animation = new BufferedImage[10][8];
+    //Create the animation tick to change animation
+    private int animationTick, animationIndex, animationSpeed = 32;
+
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public GamePanel() {
         setPanelSize();
-        importImage();
+        loadIdleAnimation();
         addKeyListener(new KeyBoardInputs(this));
         mouseInputs = new MouseInputs(this);
         addMouseListener(mouseInputs);
@@ -42,53 +44,28 @@ public class GamePanel extends JPanel {
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Changes the position of the rectangle
+    //Changes the position
     public void doChangeXAxis(int delta) {
         xAxisDelta += delta;
     }
     public void doChangeYAxis(int delta) {
         yAxisDelta += delta;
     }
-    public void setRectanglePosition(int x, int y) {
+    public void setPosition(int x, int y) {
         xAxisDelta = x;
         yAxisDelta = y;
     }
-    private void updateRectanglePosition() {
-        //Change the direction of the rectangle
-        //When the rectangle move to edge of screen, we set the direction to opposite using *= -1 & change the color
-        xAxisDelta += xDirection;
-        if(xAxisDelta + 100 > getWidth()  || xAxisDelta < 0) {
-            xDirection *= -1;
-            color = changeColor();
-        }
-        yAxisDelta += yDirection;
-        if(yAxisDelta + 100 > getHeight()  || yAxisDelta < 0) {
-            yDirection *= -1;
-            color = changeColor();
-        }
-    }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Paint the rectangle
+    //Paint
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-//        g.setColor(color);
-//        g.fillRect((int) xAxisDelta,(int) yAxisDelta, 100, 100);
-        subImage = image.getSubimage(56 * 4,56 * 2,56, 56);
-        g.drawImage(subImage, (int) xAxisDelta, (int) yAxisDelta, 56 * 2, 56 * 2, null);
-        updateRectanglePosition();
+        updateIdleAnimation();
+        g.drawImage(idleAnimation[animationIndex], (int) xAxisDelta, (int) yAxisDelta, 56 * 2, 56 * 2, null);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Change color of the rectangle
-    public Color changeColor() {
-        int red = (int) (Math.random() * 256);
-        int green = (int) (Math.random() * 256);
-        int blue = (int) (Math.random() * 256);
-        return new Color(red, green, blue);
-    }
-
-    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Import the image
     private void importImage() {
         InputStream inputStream = getClass().getResourceAsStream("/Texture/Entities/generic_char_v02/png/blue/char_blue_1.png");
         try {
@@ -100,6 +77,37 @@ public class GamePanel extends JPanel {
                 inputStream.close();
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        }
+    }
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Load the idle animation
+    private void loadIdleAnimation() {
+        InputStream inputStream = getClass().getResourceAsStream("/Texture/Entities/generic_char_v02/png/blue/char_blue_1.png");
+        try {
+            image = ImageIO.read(inputStream);
+            for (int i = 0; i < 6; i++) {
+                idleAnimation[i] = image.getSubimage(56 * i, 0, 56, 56);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                inputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Update the IDLE animation
+    private void updateIdleAnimation() {
+        animationTick++;
+        if (animationTick > animationSpeed) {
+            animationTick = 0;
+            animationIndex++;
+            if (animationIndex >= 6) {
+                animationIndex = 0;
             }
         }
     }
