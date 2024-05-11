@@ -6,6 +6,8 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import static Utilization.ConstantVariables.PlayerConstant.*;
+
 public class GamePanel extends JPanel {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialise the variables
@@ -17,9 +19,12 @@ public class GamePanel extends JPanel {
     //Create the image
     private BufferedImage image;
     private BufferedImage[] idleAnimation = new BufferedImage[6];
-    private BufferedImage[][] animation = new BufferedImage[10][8];
+    private BufferedImage[][] animation = new BufferedImage[14][10];
     //Create the animation tick to change animation
-    private int animationTick, animationIndex, animationSpeed = 32;
+    private int animationTick, animationIndex;
+    private final int animationSpeed = 16;
+    //Define player action
+    private int playerAction = IDLE;
 
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -32,8 +37,8 @@ public class GamePanel extends JPanel {
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
         setFocusable(true);
-
     }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Set the size of the panel
     private void setPanelSize() {
@@ -60,7 +65,7 @@ public class GamePanel extends JPanel {
     //Paint
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        updateIdleAnimation();
+        updateAnimation();
         g.drawImage(idleAnimation[animationIndex], (int) xAxisDelta, (int) yAxisDelta, 56 * 2, 56 * 2, null);
     }
 
@@ -101,7 +106,7 @@ public class GamePanel extends JPanel {
     }
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update the IDLE animation
-    private void updateIdleAnimation() {
+    private void updateAnimation() {
         animationTick++;
         if (animationTick > animationSpeed) {
             animationTick = 0;
