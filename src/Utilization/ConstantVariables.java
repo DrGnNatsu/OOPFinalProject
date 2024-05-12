@@ -9,6 +9,13 @@ public class ConstantVariables {
         public static final int PLAYER_SPEED = 4;
 
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        //Player direction
+        public static final int LEFT = 0;
+        public static final int RIGHT = 1;
+        public static final int UP = 2;
+        public static final int DOWN = 3;
+
+        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //Animation
         public static final int PLAYER_IDLE_ANIMATION = 6;
         public static final int PLAYER_ATTACK_ANIMATION = 8;
@@ -43,6 +50,7 @@ public class ConstantVariables {
         public static final int WALL_SLIDING = 12;
         public static final int CRITICAL = 13;
         public static final int CLIMBING = 14;
+
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //Get sprite amount
         public static int getSpriteAmount(int playerAction) {
@@ -65,6 +73,7 @@ public class ConstantVariables {
                 default -> 0;
             };
         }
+
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     }
 }

@@ -15,23 +15,30 @@ public class GamePanel extends JPanel {
     private MouseInputs mouseInputs;
     //Create the variables for the rectangle
     private float xAxisDelta, yAxisDelta;
-    private float xDirection = 1f, yDirection = 1f; // Use to change the speed of the rectangle
     //Create the image
     private BufferedImage image;
-    private BufferedImage[] idleAnimation = new BufferedImage[6];
-    private BufferedImage[][] animation = new BufferedImage[14][10];
+    private BufferedImage[][] animation = new BufferedImage[11][8];
     //Create the animation tick to change animation
     private int animationTick, animationIndex;
     private final int animationSpeed = 16;
     //Define player action
     private int playerAction = IDLE;
+    //Define player direction
+    private int playerDirection = -1;
+    private boolean playerMoving = false;
 
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public GamePanel() {
         setPanelSize();
-        loadIdleAnimation();
+        //Import the image with the right file sprite.
+        if (playerAction <= 10) {
+            importImage("/Texture/Entities/generic_char_v02/png/blue/char_blue_1.png");
+        } else {    // Load the other animations
+            importImage("/Texture/Entities/generic_char_v02/png/blue/char_blue_2.png");
+        }
+        loadAnimation();
         addKeyListener(new KeyBoardInputs(this));
         mouseInputs = new MouseInputs(this);
         addMouseListener(mouseInputs);
@@ -49,7 +56,34 @@ public class GamePanel extends JPanel {
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Changes the position
+    //Sets the player direction
+    public void setDirection(int direction) {
+        this.playerDirection = direction;
+        playerMoving = true;
+    }
+
+    public void setMoving(boolean moving) {
+        this.playerMoving = moving;
+    }
+
+    public void setAnimation(){
+        if (playerMoving) {
+            playerAction = WALK;
+        } else {
+            playerAction = IDLE;
+        }
+    }
+
+    public void updatePosition() {
+        if (playerMoving) {
+            switch (playerDirection) {
+                case LEFT -> xAxisDelta -= 5;
+                case RIGHT -> xAxisDelta += 5;
+                case UP -> yAxisDelta -= 5;
+                case DOWN -> yAxisDelta += 5;
+            }
+        }
+    }
     public void doChangeXAxis(int delta) {
         xAxisDelta += delta;
     }
@@ -66,13 +100,15 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         updateAnimation();
-        g.drawImage(idleAnimation[animationIndex], (int) xAxisDelta, (int) yAxisDelta, 56 * 2, 56 * 2, null);
+        setAnimation();
+        updatePosition();
+        g.drawImage(animation[2][animationIndex], (int) xAxisDelta, (int) yAxisDelta, 56 * 2, 56 * 2, null);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Import the image
-    private void importImage() {
-        InputStream inputStream = getClass().getResourceAsStream("/Texture/Entities/generic_char_v02/png/blue/char_blue_1.png");
+    private void importImage(String path) {
+        InputStream inputStream = getClass().getResourceAsStream(path);
         try {
             image = ImageIO.read(inputStream);
         } catch (Exception e) {
@@ -86,32 +122,22 @@ public class GamePanel extends JPanel {
         }
     }
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Load the idle animation
-    private void loadIdleAnimation() {
-        InputStream inputStream = getClass().getResourceAsStream("/Texture/Entities/generic_char_v02/png/blue/char_blue_1.png");
-        try {
-            image = ImageIO.read(inputStream);
-            for (int i = 0; i < 6; i++) {
-                idleAnimation[i] = image.getSubimage(56 * i, 0, 56, 56);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                inputStream.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+    //Load the animation
+    private void loadAnimation() {
+        for (int i = 0; i < animation.length; i++) {
+            for (int j = 0; j < animation[i].length; j++) {
+                animation[i][j] = image.getSubimage(j * 56, i * 56, 56, 56);
             }
         }
     }
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Update the IDLE animation
+    //Update the animation
     private void updateAnimation() {
         animationTick++;
         if (animationTick > animationSpeed) {
             animationTick = 0;
             animationIndex++;
-            if (animationIndex >= 6) {
+            if (animationIndex >= getSpriteAmount(playerAction)) {
                 animationIndex = 0;
             }
         }
