@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inputs/KeyBoardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inputs/KeyBoardInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +118,8 @@
       <workItem from="1714958992261" duration="6663000" />
       <workItem from="1715431728183" duration="4949000" />
       <workItem from="1715516847576" duration="2153000" />
-      <workItem from="1715519363404" duration="1124000" />
+      <workItem from="1715519363404" duration="1163000" />
+      <workItem from="1715530610113" duration="3465000" />
     </task>
     <servers />
   </component>

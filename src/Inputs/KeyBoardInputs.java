@@ -7,7 +7,7 @@ import static Utilization.ConstantVariables.PlayerConstant.*;
 
 public class KeyBoardInputs implements KeyListener {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    private GamePanel gamePanel;
+    private final GamePanel gamePanel;
     public KeyBoardInputs(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
     }

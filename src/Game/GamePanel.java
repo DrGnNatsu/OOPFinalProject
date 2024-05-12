@@ -12,21 +12,20 @@ public class GamePanel extends JPanel {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialise the variables
     //Create mouse
-    private MouseInputs mouseInputs;
-    //Create the variables for the rectangle
+    private final MouseInputs mouseInputs;
+    //Create the variables for the x and y-axis
     private float xAxisDelta, yAxisDelta;
     //Create the image
     private BufferedImage image;
     private BufferedImage[][] animation = new BufferedImage[11][8];
     //Create the animation tick to change animation
     private int animationTick, animationIndex;
-    private final int animationSpeed = 16;
+    private final int animationSpeed = 36; // 36 frames per second
     //Define player action
     private int playerAction = IDLE;
     //Define player direction
     private int playerDirection = -1;
     private boolean playerMoving = false;
-
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -68,7 +67,7 @@ public class GamePanel extends JPanel {
 
     public void setAnimation(){
         if (playerMoving) {
-            playerAction = WALK;
+            playerAction = RUN;
         } else {
             playerAction = IDLE;
         }
@@ -77,32 +76,12 @@ public class GamePanel extends JPanel {
     public void updatePosition() {
         if (playerMoving) {
             switch (playerDirection) {
-                case LEFT -> xAxisDelta -= 5;
-                case RIGHT -> xAxisDelta += 5;
-                case UP -> yAxisDelta -= 5;
-                case DOWN -> yAxisDelta += 5;
+                case LEFT -> xAxisDelta -= 1;
+                case RIGHT -> xAxisDelta += 1;
+                case UP -> yAxisDelta -= 1;
+                case DOWN -> yAxisDelta += 1;
             }
         }
-    }
-    public void doChangeXAxis(int delta) {
-        xAxisDelta += delta;
-    }
-    public void doChangeYAxis(int delta) {
-        yAxisDelta += delta;
-    }
-    public void setPosition(int x, int y) {
-        xAxisDelta = x;
-        yAxisDelta = y;
-    }
-
-    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Paint
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        updateAnimation();
-        setAnimation();
-        updatePosition();
-        g.drawImage(animation[2][animationIndex], (int) xAxisDelta, (int) yAxisDelta, 56 * 2, 56 * 2, null);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -141,6 +120,21 @@ public class GamePanel extends JPanel {
                 animationIndex = 0;
             }
         }
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Game update
+    public void gameUpdate() {
+        setAnimation();
+        updatePosition();
+        updateAnimation();
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Paint
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(animation[playerAction][animationIndex], (int) xAxisDelta, (int) yAxisDelta, 56 * 2, 56 * 2, null);
     }
 }
 

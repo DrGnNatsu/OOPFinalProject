@@ -70,7 +70,7 @@ public class ConstantVariables {
                 case WALL_SLIDING -> PLAYER_WALL_SLIDING_ANIMATION;
                 case CRITICAL -> PLAYER_CRITICAL_ANIMATION;
                 case CLIMBING -> PLAYER_CLIMBING_ANIMATION;
-                default -> 0;
+                default -> IDLE;
             };
         }
 
