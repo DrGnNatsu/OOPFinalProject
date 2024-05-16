@@ -23,10 +23,10 @@ public class ConstantVariables {
         public static final int PLAYER_JUMP_ANIMATION = 8;
         public static final int PLAYER_LAND_ANIMATION = 8;
         public static final int PLAYER_DAMAGED_ANIMATION = 4;
-        public static final int PLAYER_DEATH_ANIMATION = 8;
+        public static final int PLAYER_DEATH_ANIMATION = 12;
         public static final int PLAYER_SPELL_CAST_ANIMATION = 8;
         public static final int PLAYER_CROUCH_ANIMATION = 3;
-        public static final int PLAYER_DEFENCE_ANIMATION = 3;
+        public static final int PLAYER_DEFENSE_ANIMATION = 3;
         public static final int PLAYER_WALK_ANIMATION = 10;
         public static final int PLAYER_SLIDING_ANIMATION = 8;
         public static final int PLAYER_WALL_SLIDING_ANIMATION = 8;
@@ -44,7 +44,7 @@ public class ConstantVariables {
         public static final int DEATH = 6;
         public static final int SPELL_CAST = 7;
         public static final int CROUCH = 8;
-        public static final int DEFENCE = 9;
+        public static final int DEFENSE = 9;
         public static final int WALK = 10;
         public static final int SLIDING = 11;
         public static final int WALL_SLIDING = 12;
@@ -64,7 +64,7 @@ public class ConstantVariables {
                 case DEATH -> PLAYER_DEATH_ANIMATION;
                 case SPELL_CAST -> PLAYER_SPELL_CAST_ANIMATION;
                 case CROUCH -> PLAYER_CROUCH_ANIMATION;
-                case DEFENCE -> PLAYER_DEFENCE_ANIMATION;
+                case DEFENSE -> PLAYER_DEFENSE_ANIMATION;
                 case WALK -> PLAYER_WALK_ANIMATION;
                 case SLIDING -> PLAYER_SLIDING_ANIMATION;
                 case WALL_SLIDING -> PLAYER_WALL_SLIDING_ANIMATION;

@@ -1,5 +1,9 @@
 package Game;
 
+import Entities.Player;
+
+import java.awt.*;
+
 public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
@@ -13,12 +17,22 @@ public class Game {
     // Create the UPS and tick variables
     private final int UPS = 512;
     private int tick = 0;
+    //Create the player
+    private Player player;
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Game() {
-        gamePanel = new GamePanel();
+        initializeClasses();
+        gamePanel = new GamePanel(this);
         gameWindow = new GameWindow(gamePanel);
         start();
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Initialize the classes
+    public void initializeClasses(){
+        player = new Player(100, 100);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -31,7 +45,13 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update the game panel
     public void updateGamePanel(){
-        gamePanel.gameUpdate();
+        player.update();
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Render the animation
+    public void renderAnimation(Graphics g){
+        player.renderAnimations(g);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -81,7 +101,18 @@ public class Game {
                 frame = 0;
             }
         }
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //When the window focus is lost
+    public void windowFocusLost(){
+        player.resetDirection();
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Get the player
+    public Player getPlayer() {
+        return player;
+    }
 }
