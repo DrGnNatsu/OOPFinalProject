@@ -1,0 +1,68 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map/Background.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "Borrow",
+        "Map",
+        "OakWood"
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "Borrow/BorrowLand.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.86
+        },
+        "BorrowLand.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Map/Background.tmx": {
+            "scale": 1.89,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 258.4656084656085,
+                "y": 170.63492063492066
+            }
+        },
+        "OakWood/OakWoodLand.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.86
+        },
+        "OakWoodLand.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.externalTilesetPath": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/tiled/Map",
+    "last.imagePath": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/src/Texture/Entities/Borrow",
+    "map.fixedSize": false,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 24,
+    "map.tileWidth": 24,
+    "openFiles": [
+        "Map/Background.tmx",
+        "Borrow/BorrowLand.tsx",
+        "OakWood/OakWoodLand.tsx"
+    ],
+    "project": "BackGround.tiled-project",
+    "recentFiles": [
+        "OakWood/OakWoodLand.tsx",
+        "Borrow/BorrowLand.tsx",
+        "Map/Background.tmx",
+        "OakWoodLand.tsx",
+        "BorrowLand.tsx"
+    ],
+    "tileset.lastUsedFilter": "All Files (*)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 32,
+        "width": 32
+    }
+}
