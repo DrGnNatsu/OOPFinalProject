@@ -30,9 +30,9 @@ public class Player extends Entity{
         super(x, y);
         //Import the image with the right file sprite.
         if (playerAction <= 10) {
-            importImage("/Texture/Entities/generic_char_v02/png/blue/char_blue_1.png");
+            importImage("/Texture/Entities/GenericChar/png/blue/CharBlue1.png");
         } else {    // Load the other animations
-            importImage("/Texture/Entities/generic_char_v02/png/blue/char_blue_2.png");
+            importImage("/Texture/Entities/GenericChar/png/blue/CharBlue2.png");
         }
         //Load the animation
         loadAnimation();
