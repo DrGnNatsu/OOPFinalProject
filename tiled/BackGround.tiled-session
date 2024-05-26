@@ -7,8 +7,8 @@
     "expandedProjectPaths": [
         ".",
         "Borrow",
-        "Map",
-        "OakWood"
+        "OakWood",
+        "Map"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -30,14 +30,15 @@
             "scaleInEditor": 1
         },
         "Map/Background.tmx": {
-            "scale": 1.89,
-            "selectedLayer": -1,
+            "scale": 0.6996,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 258.4656084656085,
-                "y": 170.63492063492066
+                "x": 770.4402515723269,
+                "y": 207.26129216695256
             }
         },
         "Map/BorrowTree.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "OakWood/OakWoodLand.tsx": {
@@ -59,18 +60,18 @@
     "map.tileWidth": 24,
     "openFiles": [
         "Map/Background.tmx",
-        "Borrow/BorrowLand.tsx",
-        "OakWood/OakWoodLand.tsx"
+        "Borrow/BorrowTree2.tsx",
+        "Borrow/BorrowSalt.tsx"
     ],
     "project": "BackGround.tiled-project",
     "recentFiles": [
-        "Borrow/BorrowTree2.tsx",
-        "Map/BorrowTree.tsx",
         "Borrow/BorrowSalt.tsx",
+        "Borrow/BorrowTree2.tsx",
+        "Map/Background.tmx",
+        "Map/BorrowTree.tsx",
         "OakWood/OakWoodLand.tsx",
         "Borrow/BorrowLand.tsx",
         "OakWoodLand.tsx",
-        "Map/Background.tmx",
         "BorrowLand.tsx"
     ],
     "tileset.lastUsedFilter": "All Files (*)",

@@ -14,11 +14,19 @@ public class Game {
     private final int FPS = 256;
     private int frame = 0;
     private long lastCheck = System.currentTimeMillis() ;
-    // Create the UPS and tick variables
+    //Create the UPS and tick variables
     private final int UPS = 512;
     private int tick = 0;
     //Create the player
     private Player player;
+    //Create tiles
+    public final static int TILE_SIZE = 24;
+    public final static float TILE_SCALE = 1.5f;
+    public final static int TILE_SIZE_SCALE = (int) (TILE_SIZE * TILE_SCALE);
+    public final static int TILE_WIDTH = 32;
+    public final static int TILE_HEIGHT = 22;
+    public final static int GAME_WIDTH = TILE_WIDTH * TILE_SIZE_SCALE;
+    public final static int GAME_HEIGHT = TILE_HEIGHT * TILE_SIZE_SCALE;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor

@@ -1,9 +1,10 @@
 package Entities;
 
-import javax.imageio.ImageIO;
+import Utilization.LoadSaveFile;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.InputStream;
+
 
 import static Utilization.ConstantVariables.PlayerConstant.*;
 
@@ -29,11 +30,7 @@ public class Player extends Entity{
         //Call the constructor from the Entity class
         super(x, y);
         //Import the image with the right file sprite.
-        if (playerAction <= 10) {
-            importImage("/Texture/Entities/GenericChar/png/blue/CharBlue1.png");
-        } else {    // Load the other animations
-            importImage("/Texture/Entities/GenericChar/png/blue/CharBlue2.png");
-        }
+        chooseImage();
         //Load the animation
         loadAnimation();
     }
@@ -120,21 +117,18 @@ public class Player extends Entity{
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Choose image to load
+    private void chooseImage(){
+        if (playerAction <= 10) {
+            importImage(LoadSaveFile.PLAYER_ATLAS1);
+        } else {
+            importImage(LoadSaveFile.PLAYER_ATLAS2);
+        }
+    }
     //Import the image
     private void importImage(String path) {
-        InputStream inputStream = getClass().getResourceAsStream(path);
-        try {
-            image = ImageIO.read(inputStream);
-            loadAnimation();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                inputStream.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        this.image = LoadSaveFile.GetSpriteAtlas(path);
+        loadAnimation();
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -185,5 +179,13 @@ public class Player extends Entity{
 
     public void setDefense(boolean defense) {
         this.defense = defense;
+    }
+
+    public int getPlayerAction() {
+        return playerAction;
+    }
+
+    public void setPlayerAction(int playerAction) {
+        this.playerAction = playerAction;
     }
 }
