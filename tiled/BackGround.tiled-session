@@ -15,7 +15,15 @@
         "Borrow/BorrowLand.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
-            "scaleInEditor": 0.86
+            "scaleInEditor": 1
+        },
+        "Borrow/BorrowSalt.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Borrow/BorrowTree2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "BorrowLand.tsx": {
             "scaleInDock": 1,
@@ -29,10 +37,13 @@
                 "y": 170.63492063492066
             }
         },
+        "Map/BorrowTree.tsx": {
+            "scaleInEditor": 1
+        },
         "OakWood/OakWoodLand.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
-            "scaleInEditor": 0.86
+            "scaleInEditor": 1
         },
         "OakWoodLand.tsx": {
             "dynamicWrapping": true,
@@ -53,16 +64,19 @@
     ],
     "project": "BackGround.tiled-project",
     "recentFiles": [
+        "Borrow/BorrowTree2.tsx",
+        "Map/BorrowTree.tsx",
+        "Borrow/BorrowSalt.tsx",
         "OakWood/OakWoodLand.tsx",
         "Borrow/BorrowLand.tsx",
-        "Map/Background.tmx",
         "OakWoodLand.tsx",
+        "Map/Background.tmx",
         "BorrowLand.tsx"
     ],
     "tileset.lastUsedFilter": "All Files (*)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 32,
-        "width": 32
+        "height": 24,
+        "width": 24
     }
 }
