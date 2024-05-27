@@ -3,15 +3,19 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Map/Background.tmx",
+    "activeFile": "Map/LevelOne.tmx",
     "expandedProjectPaths": [
-        ".",
+        "Map",
         "Borrow",
-        "OakWood",
-        "Map"
+        ".",
+        "OakWood"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "Borrow/BorrowBrush.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "Borrow/BorrowLand.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
@@ -21,8 +25,12 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
-        "Borrow/BorrowTree2.tsx": {
+        "Borrow/BorrowTree.tsx": {
             "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Borrow/BorrowTree2.tsx": {
+            "scaleInDock": 0.8659,
             "scaleInEditor": 1
         },
         "BorrowLand.tsx": {
@@ -31,19 +39,27 @@
         },
         "Map/Background.tmx": {
             "scale": 0.6996,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 770.4402515723269,
-                "y": 207.26129216695256
+                "x": 281.58947970268724,
+                "y": 132.21841052029737
             }
         },
         "Map/BorrowTree.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "Map/LevelOne.tmx": {
+            "scale": 0.9764,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 538.2015567390414,
+                "y": 398.9143793527242
+            }
+        },
         "OakWood/OakWoodLand.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1,
+            "scaleInDock": 0.6494,
             "scaleInEditor": 1
         },
         "OakWoodLand.tsx": {
@@ -52,25 +68,33 @@
             "scaleInEditor": 1
         }
     },
-    "last.externalTilesetPath": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/tiled/Map",
+    "last.externalTilesetPath": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/tiled/Borrow",
     "last.imagePath": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/src/Texture/Entities/Borrow",
-    "map.fixedSize": false,
+    "map.fixedSize": true,
+    "map.height": 32,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 24,
     "map.tileWidth": 24,
+    "map.width": 48,
     "openFiles": [
-        "Map/Background.tmx",
         "Borrow/BorrowTree2.tsx",
-        "Borrow/BorrowSalt.tsx"
+        "Borrow/BorrowSalt.tsx",
+        "Map/LevelOne.tmx",
+        "Borrow/BorrowBrush.tsx",
+        "Borrow/BorrowTree.tsx",
+        "Borrow/BorrowLand.tsx"
     ],
     "project": "BackGround.tiled-project",
     "recentFiles": [
-        "Borrow/BorrowSalt.tsx",
         "Borrow/BorrowTree2.tsx",
+        "Borrow/BorrowSalt.tsx",
+        "Borrow/BorrowLand.tsx",
+        "Borrow/BorrowTree.tsx",
+        "Borrow/BorrowBrush.tsx",
+        "Map/LevelOne.tmx",
         "Map/Background.tmx",
         "Map/BorrowTree.tsx",
         "OakWood/OakWoodLand.tsx",
-        "Borrow/BorrowLand.tsx",
         "OakWoodLand.tsx",
         "BorrowLand.tsx"
     ],

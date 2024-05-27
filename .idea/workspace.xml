@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOPFinalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOPFinalProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextureCreated/Background.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Levels/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiled/BackGround.tiled-session" beforeDir="false" afterPath="$PROJECT_DIR$/tiled/BackGround.tiled-session" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +71,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.5086705&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -76,8 +80,23 @@
       <recent name="D:\[3]Code\GithubDesktop\OOPFinalProject\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/TextureCreated" />
       <recent name="D:\[3]Code\GithubDesktop\OOPFinalProject\src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="OOPFinalProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -125,11 +144,26 @@
       <workItem from="1715917251815" duration="1656000" />
       <workItem from="1716377473856" duration="856000" />
       <workItem from="1716715478563" duration="3141000" />
+      <workItem from="1716771265039" duration="12083000" />
+      <workItem from="1716789454581" duration="2281000" />
+      <workItem from="1716804705027" duration="1231000" />
+      <workItem from="1716805952770" duration="1609000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -138,7 +172,20 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="levelData[i][j]" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

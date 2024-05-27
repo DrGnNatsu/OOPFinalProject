@@ -1,6 +1,7 @@
 package Game;
 
 import Entities.Player;
+import Levels.LevelManager;
 
 import java.awt.*;
 
@@ -19,12 +20,15 @@ public class Game {
     private int tick = 0;
     //Create the player
     private Player player;
+    //Create the level
+    private LevelManager levelManager;
+
     //Create tiles
     public final static int TILE_SIZE = 24;
-    public final static float TILE_SCALE = 1.5f;
+    public final static float TILE_SCALE = 1.0f;
     public final static int TILE_SIZE_SCALE = (int) (TILE_SIZE * TILE_SCALE);
-    public final static int TILE_WIDTH = 32;
-    public final static int TILE_HEIGHT = 22;
+    public final static int TILE_WIDTH = 48;
+    public final static int TILE_HEIGHT = 32;
     public final static int GAME_WIDTH = TILE_WIDTH * TILE_SIZE_SCALE;
     public final static int GAME_HEIGHT = TILE_HEIGHT * TILE_SIZE_SCALE;
 
@@ -41,6 +45,7 @@ public class Game {
     //Initialize the classes
     public void initializeClasses(){
         player = new Player(100, 100);
+        levelManager = new LevelManager(this);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -54,11 +59,13 @@ public class Game {
     //Update the game panel
     public void updateGamePanel(){
         player.update();
+        levelManager.update();
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Render the animation
     public void renderAnimation(Graphics g){
+        levelManager.draw(g);
         player.renderAnimations(g);
     }
 
