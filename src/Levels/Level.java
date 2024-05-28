@@ -5,6 +5,7 @@ public class Level {
     //Create the level
     private int[][] levelData;
 
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Level(int[][] levelData){
@@ -27,4 +28,6 @@ public class Level {
     public void setLevelData(int[][] levelData) {
         this.levelData = levelData;
     }
+
+
 }

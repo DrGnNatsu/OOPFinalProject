@@ -1,7 +1,9 @@
 package Game;
 
 import Entities.Player;
+import Levels.DrawLevel;
 import Levels.LevelManager;
+import Utilization.LoadSaveFile;
 
 import java.awt.*;
 
@@ -22,6 +24,8 @@ public class Game {
     private Player player;
     //Create the level
     private LevelManager levelManager;
+    //Create the draw level
+    private DrawLevel DrawLevel;
 
     //Create tiles
     public final static int TILE_SIZE = 24;
@@ -46,6 +50,7 @@ public class Game {
     public void initializeClasses(){
         player = new Player(100, 100);
         levelManager = new LevelManager(this);
+        DrawLevel = new DrawLevel(this);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -65,6 +70,7 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Render the animation
     public void renderAnimation(Graphics g){
+        DrawLevel.draw(g);
         levelManager.draw(g);
         player.renderAnimations(g);
     }

@@ -6,13 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOPFinalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOPFinalProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextureCreated/Background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Levels/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextureCreated/test.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tiled/BackGround.tiled-session" beforeDir="false" afterPath="$PROJECT_DIR$/tiled/BackGround.tiled-session" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiled/Map/LevelOne.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/tiled/Map/LevelOne.tmx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +149,11 @@
       <workItem from="1716771265039" duration="12083000" />
       <workItem from="1716789454581" duration="2281000" />
       <workItem from="1716804705027" duration="1231000" />
-      <workItem from="1716805952770" duration="1609000" />
+      <workItem from="1716805952770" duration="6608000" />
+      <workItem from="1716829432324" duration="269000" />
+      <workItem from="1716830928494" duration="380000" />
+      <workItem from="1716875251054" duration="114000" />
+      <workItem from="1716875590050" duration="1400000" />
     </task>
     <servers />
   </component>

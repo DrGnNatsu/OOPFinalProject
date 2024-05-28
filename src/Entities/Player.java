@@ -127,7 +127,7 @@ public class Player extends Entity{
     }
     //Import the image
     private void importImage(String path) {
-        this.image = LoadSaveFile.GetSpriteAtlas(path);
+        this.image = LoadSaveFile.importMap(path);
         loadAnimation();
     }
 

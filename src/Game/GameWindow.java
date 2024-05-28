@@ -12,10 +12,10 @@ public class GameWindow {
         jframe.setSize(800, 600);
         jframe.add(gamePanel);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jframe.setLocationRelativeTo(null);
         jframe.setVisible(true);
         jframe.setResizable(true);
         jframe.pack();
+        jframe.setLocationRelativeTo(null);
 
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //Add the key listener

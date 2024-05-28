@@ -5,10 +5,10 @@
     },
     "activeFile": "Map/LevelOne.tmx",
     "expandedProjectPaths": [
+        "OakWood",
         "Map",
-        "Borrow",
         ".",
-        "OakWood"
+        "Borrow"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -50,16 +50,16 @@
             "scaleInEditor": 1
         },
         "Map/LevelOne.tmx": {
-            "scale": 0.9764,
-            "selectedLayer": 3,
+            "scale": 0.7941,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 538.2015567390414,
-                "y": 398.9143793527242
+                "x": 477.8995088779751,
+                "y": 345.67434831885146
             }
         },
         "OakWood/OakWoodLand.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 0.6494,
+            "scaleInDock": 1.3447,
             "scaleInEditor": 1
         },
         "OakWoodLand.tsx": {
