@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 
 import static Utilization.ConstantVariables.PlayerConstant.*;
 import static Utilization.SupportMethods.canMove;
+import static Utilization.SupportMethods.getEntityXPositionNextToWall;
 
 
 public class Player extends Entity{
@@ -32,6 +33,12 @@ public class Player extends Entity{
     //Create variables for the hitbox
     private final float xDrawOffset = 16 * Game.PLAYER_SCALE;
     private final float yDrawOffset = 24 * Game.PLAYER_SCALE;
+    //Create variables for the jump and gravity
+    private float airSpeed = 0f;
+    private final float gravity = 0.05f * Game.PLAYER_SCALE;
+    private final float jumpSpeed = -2.5f * Game.PLAYER_SCALE;
+    private final float fallSpeedAfterJump = 0.1f * Game.PLAYER_SCALE;
+    private boolean jump = false;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -70,7 +77,7 @@ public class Player extends Entity{
         else playerAction = IDLE;
 
         if (attack) playerAction = ATTACK;
-        if (defense) playerAction = DEFENSE;
+        //if (defense) playerAction = DEFENSE;
 
         if (startAnimation != playerAction) resetAnimationTick();
     }
@@ -78,26 +85,39 @@ public class Player extends Entity{
     private void updatePosition() {
         //Check if the player is moving
         playerMoving = false;
-        if (!left && !right && !up && !down) return;
+        if (!left && !right && !jump) return;
         //Set the speed of the player
-        float xSpeed = 0, ySpeed = 0;
+        float xSpeed = 0;
         //Move the player left and right
-        if (left && !right) xSpeed = -speed;
+        if (left) xSpeed -= speed;
 
-        if (right && !left) xSpeed = speed;
-        //Move the player up and down
-        if (up && !down) ySpeed = -speed;
-
-        if (down && !up) ySpeed = speed;
-
-        //Check if the player can move
-        if (canMove(hitbox.x + xSpeed, hitbox.y + ySpeed, hitbox.width, hitbox.height, levelData)) {
-            hitbox.x += xSpeed;
-            hitbox.y += ySpeed;
-            playerMoving = true;
+        if (right) xSpeed += speed;
+        //
+        if (jump) {
+            if (canMove(hitbox.x, hitbox.y + airSpeed, hitbox.width, hitbox.height, levelData)) {
+                hitbox.y += airSpeed;
+                airSpeed += gravity;
+            } else {
+                airSpeed = 0;
+                jump = false;
+            }
+        } else {
+            updateXPosition(xSpeed);
         }
+        //Check if the player can move
+//        if (canMove(hitbox.x + xSpeed, hitbox.y + ySpeed, hitbox.width, hitbox.height, levelData)) {
+//            hitbox.x += xSpeed;
+//            hitbox.y += ySpeed;
+//            playerMoving = true;
+//        }
 
+    }
 
+    //Update x position
+    private void updateXPosition(float xSpeed){
+        if (canMove(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, levelData))
+            hitbox.x += xSpeed;
+        else hitbox.x = getEntityXPositionNextToWall(hitbox, xSpeed);
     }
     //Reset the player direction
     public void resetDirection(){
@@ -157,9 +177,6 @@ public class Player extends Entity{
         this.image = LoadSaveFile.importMap(path);
         loadAnimation();
     }
-
-    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //get level
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Getters and Setters

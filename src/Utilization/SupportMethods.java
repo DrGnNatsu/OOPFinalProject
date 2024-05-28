@@ -2,6 +2,8 @@ package Utilization;
 
 import Game.Game;
 
+import java.awt.geom.Rectangle2D;
+
 public class SupportMethods {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Check if the player can move
@@ -25,5 +27,22 @@ public class SupportMethods {
         int value  = levelData[(int) yIndex][(int) xIndex];
 
         return value != 0;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Get the entity x position next to the wall
+    public static float getEntityXPositionNextToWall(Rectangle2D.Float hitbox, float xSpeed){
+        //Get the current tile
+        int currentTile = (int) (hitbox.x / Game.TILE_SIZE);
+        int tileXPosition, xOffset;
+        // If xSpeed < 0, No collision on the left
+        if (xSpeed > 0)  {
+            //Right
+            tileXPosition = currentTile * Game.TILE_SIZE;
+            xOffset = (int) (Game.TILE_SIZE - hitbox.width);
+            return tileXPosition + xOffset - 1; //-1 because the edge of hitbox
+        }
+        //Left
+        return currentTile * Game.TILE_SIZE;
     }
 }

@@ -50,7 +50,7 @@ public class Game {
     //Initialize the classes
     public void initializeClasses(){
         levelManager = new LevelManager(this);
-        player = new Player(100, 100 , (int) (56 * PLAYER_SCALE) , (int) (56 * PLAYER_SCALE));
+        player = new Player(100, (TILE_HEIGHT - 10 ) * TILE_SIZE_SCALE , (int) (56 * PLAYER_SCALE) , (int) (56 * PLAYER_SCALE));
         player.getLevelData(levelManager.getLevel1());
         DrawLevel = new DrawLevel(this);
     }
