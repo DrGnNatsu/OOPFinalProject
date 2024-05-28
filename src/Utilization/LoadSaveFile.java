@@ -12,8 +12,6 @@ public class LoadSaveFile {
     //Path for the player sprite
     public static final String PLAYER_ATLAS1 = "/Texture/Entities/GenericChar/png/blue/CharBlue1.png";
     public static final String PLAYER_ATLAS2 = "/Texture/Entities/GenericChar/png/blue/CharBlue2.png";
-    //Path for background
-    //public static final String LEVEL_ONE = "/TextureCreated/rsz_test1.png";
 
     //Path for tiles sprite
     public static final String TILE_ATLAS = "/Texture/Entities/OakWoods/oak_woods_tileset.png";

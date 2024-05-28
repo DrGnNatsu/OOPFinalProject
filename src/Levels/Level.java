@@ -29,5 +29,4 @@ public class Level {
         this.levelData = levelData;
     }
 
-
 }

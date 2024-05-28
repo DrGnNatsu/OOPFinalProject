@@ -29,7 +29,8 @@ public class Game {
 
     //Create tiles
     public final static int TILE_SIZE = 24;
-    public final static float TILE_SCALE = 1.0f;
+    public final static float TILE_SCALE = 1.5f;
+    public final static float PLAYER_SCALE = 3f;
     public final static int TILE_SIZE_SCALE = (int) (TILE_SIZE * TILE_SCALE);
     public final static int TILE_WIDTH = 48;
     public final static int TILE_HEIGHT = 32;
@@ -48,8 +49,9 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialize the classes
     public void initializeClasses(){
-        player = new Player(100, 100);
         levelManager = new LevelManager(this);
+        player = new Player(100, 100 , (int) (56 * PLAYER_SCALE) , (int) (56 * PLAYER_SCALE));
+        player.getLevelData(levelManager.getLevel1());
         DrawLevel = new DrawLevel(this);
     }
 
@@ -71,7 +73,7 @@ public class Game {
     //Render the animation
     public void renderAnimation(Graphics g){
         DrawLevel.draw(g);
-        levelManager.draw(g);
+        //levelManager.draw(g);
         player.renderAnimations(g);
     }
 
@@ -117,7 +119,7 @@ public class Game {
             // Check the FPS and UPS
             if (System.currentTimeMillis() - lastCheck >= 1000){
                 lastCheck = System.currentTimeMillis();
-                System.out.println("FPS: " + frame + " | UPS: " + tick);
+                //System.out.println("FPS: " + frame + " | UPS: " + tick);
                 tick = 0;
                 frame = 0;
             }

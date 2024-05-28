@@ -9,7 +9,6 @@ public class GameWindow {
     public GameWindow(GamePanel gamePanel) {
         //Create the game window
         JFrame jframe = new JFrame("Game");
-        jframe.setSize(800, 600);
         jframe.add(gamePanel);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setVisible(true);

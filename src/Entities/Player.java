@@ -1,12 +1,14 @@
 package Entities;
 
+import Game.Game;
 import Utilization.LoadSaveFile;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-
 import static Utilization.ConstantVariables.PlayerConstant.*;
+import static Utilization.SupportMethods.canMove;
+
 
 public class Player extends Entity{
     //Create the variables for the animations
@@ -25,14 +27,24 @@ public class Player extends Entity{
     private boolean defense = false;
     //Define the player attributes
     private final float speed = 1.0f;
+    //Define level data
+    private int[][] levelData;
+    //Create variables for the hitbox
+    private final float xDrawOffset = 16 * Game.PLAYER_SCALE;
+    private final float yDrawOffset = 24 * Game.PLAYER_SCALE;
 
-    public Player(float x, float y){
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Constructor
+    public Player(float x, float y, int width , int height){
         //Call the constructor from the Entity class
-        super(x, y);
+        super(x, y, width, height);
         //Import the image with the right file sprite.
         chooseImage();
+        //Create the hitbox
+        createHitbox(x, y, 20 * Game.PLAYER_SCALE, 32 * Game.PLAYER_SCALE);
         //Load the animation
         loadAnimation();
+
     }
 
     public void update(){
@@ -42,9 +54,13 @@ public class Player extends Entity{
     }
 
     public void renderAnimations(Graphics g){
-        g.drawImage(animation[playerAction][animationIndex], (int) x, (int) y, 56 * 2, 56 * 2, null);
+        g.drawImage(animation[playerAction][animationIndex], (int) (hitbox.x - xDrawOffset), (int) (hitbox.y - yDrawOffset), width, height, null);
+        drawHitbox(g);
+
     }
 
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Player
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Sets the player direction
     private void setAnimation(){
@@ -60,24 +76,28 @@ public class Player extends Entity{
     }
 
     private void updatePosition() {
+        //Check if the player is moving
+        playerMoving = false;
+        if (!left && !right && !up && !down) return;
+        //Set the speed of the player
+        float xSpeed = 0, ySpeed = 0;
         //Move the player left and right
-        if (left && !right) {
-            x -= speed;
-            playerMoving = true;
-        }
-        if (right && !left) {
-            x += speed;
-            playerMoving = true;
-        }
+        if (left && !right) xSpeed = -speed;
+
+        if (right && !left) xSpeed = speed;
         //Move the player up and down
-        if (up && !down) {
-            y -= speed;
+        if (up && !down) ySpeed = -speed;
+
+        if (down && !up) ySpeed = speed;
+
+        //Check if the player can move
+        if (canMove(hitbox.x + xSpeed, hitbox.y + ySpeed, hitbox.width, hitbox.height, levelData)) {
+            hitbox.x += xSpeed;
+            hitbox.y += ySpeed;
             playerMoving = true;
         }
-        if (down && !up) {
-            y += speed;
-            playerMoving = true;
-        }
+
+
     }
     //Reset the player direction
     public void resetDirection(){
@@ -117,6 +137,13 @@ public class Player extends Entity{
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Get information of level data
+    public void getLevelData(int[][] levelData){
+        this.levelData = levelData;
+    }
+
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Choose image to load
     private void chooseImage(){
         if (playerAction <= 10) {
@@ -130,6 +157,9 @@ public class Player extends Entity{
         this.image = LoadSaveFile.importMap(path);
         loadAnimation();
     }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //get level
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Getters and Setters
