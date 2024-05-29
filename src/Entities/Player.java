@@ -24,7 +24,6 @@ public class Player extends Entity{
     //Define player status
     private boolean playerMoving = false;
     private boolean attack = false;
-    private boolean defense = false;
     //Define the player attributes
     private final float speed = 1.0f;
     //Define level data
@@ -248,11 +247,7 @@ public class Player extends Entity{
     public void setAttack(boolean attack) {
         this.attack = attack;
     }
-
-    public void setDefense(boolean defense) {
-        this.defense = defense;
-    }
-
+    
     public int getPlayerAction() {
         return playerAction;
     }
