@@ -58,8 +58,7 @@ public class SupportMethods {
             //Down - Falling - touching the floor
             tileYPosition = (int) (currentTile * Game.TILE_SIZE * Game.PLAYER_SCALE);
             yOffset = (int) (Game.TILE_SIZE * Game.PLAYER_SCALE - hitbox.height);
-
-            return tileYPosition + yOffset - 1 + Game.TILE_SIZE_SCALE; //-1 because the edge of hitbox
+            return tileYPosition + yOffset - 1 + Game.TILE_SIZE_SCALE; //-1 because the edge of hitbox - bug.
         }
         //Up - Jumping
         return currentTile * Game.TILE_SIZE * Game.PLAYER_SCALE;
