@@ -5,7 +5,6 @@ import Utilization.LoadSaveFile;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import Game.Game;
 
 import static Game.Game.TILE_SIZE_SCALE;
 
@@ -15,10 +14,10 @@ public class LevelManager {
     private Game game;
 
     //Create the level image
-    private BufferedImage[] levelImage = new BufferedImage[315];
-    private int[][] imageStore = new int[32][48];
+    private final BufferedImage[] levelImage = new BufferedImage[315];
+    private final int[][] imageStore = new int[32][48];
     private Level levelOne;
-    private int[][] level1 = new int[][]
+    private final int[][] level1 = new int[][]
             {
                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
