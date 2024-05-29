@@ -247,7 +247,7 @@ public class Player extends Entity{
     public void setAttack(boolean attack) {
         this.attack = attack;
     }
-    
+
     public int getPlayerAction() {
         return playerAction;
     }
