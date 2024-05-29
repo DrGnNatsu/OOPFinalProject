@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Gamestates/Gamestate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gamestates/StateMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/StateMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inputs/KeyBoardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inputs/KeyBoardInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -152,7 +157,7 @@
       <workItem from="1716877119152" duration="12923000" />
       <workItem from="1716943195883" duration="3699000" />
       <workItem from="1716976300531" duration="901000" />
-      <workItem from="1716977282261" duration="10430000" />
+      <workItem from="1716977282261" duration="13202000" />
     </task>
     <servers />
   </component>

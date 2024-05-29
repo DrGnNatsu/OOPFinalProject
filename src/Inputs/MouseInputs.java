@@ -1,6 +1,8 @@
 package Inputs;
 
 import Game.GamePanel;
+import Gamestates.Gamestate;
+
 import java.awt.event.*;
 
 public class MouseInputs implements MouseListener, MouseMotionListener{
@@ -12,14 +14,16 @@ public class MouseInputs implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //Left click
-        if (e.getButton() == MouseEvent.BUTTON1) {
-            gamePanel.getGame().getPlayer().setAttack(true);
+        switch(Gamestate.currentState){
+            case MENU:
+                gamePanel.getGame().getMenu().mouseClicked(e);
+                break;
+            case PLAYING:
+                gamePanel.getGame().getPlaying().mouseClicked(e);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + Gamestate.currentState);
         }
-        //Right click
-//        if (e.getButton() == MouseEvent.BUTTON3) {
-//            gamePanel.getGame().getPlayer().setDefense(true);
-//        }
     }
 
     @Override

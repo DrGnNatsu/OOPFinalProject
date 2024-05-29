@@ -1,9 +1,8 @@
 package Game;
 
-import Entities.Player;
 import Gamestates.Gamestate;
-import Levels.DrawLevel;
-import Levels.LevelManager;
+import Gamestates.Playing;
+import Gamestates.Menu;
 
 import java.awt.*;
 
@@ -20,12 +19,9 @@ public class Game {
     //Create the UPS and tick variables
     private final int UPS = 512;
     private int tick = 0;
-    //Create the player
-    private Player player;
-    //Create the level
-    private LevelManager levelManager;
-    //Create the draw level
-    private DrawLevel DrawLevel;
+    //Create game states
+    private Playing playing;
+    private Menu menu;
 
     //Create tiles
     public final static int TILE_SIZE = 24;
@@ -48,11 +44,10 @@ public class Game {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialize the classes
-    public void initializeClasses(){
-        levelManager = new LevelManager(this);
-        player = new Player(100, (TILE_HEIGHT - 10 ) * TILE_SIZE_SCALE , (int) (56 * PLAYER_SCALE) , (int) (56 * PLAYER_SCALE));
-        player.getLevelData(levelManager.getLevel1());
-        DrawLevel = new DrawLevel(this);
+    private void initializeClasses(){
+        playing = new Playing(this);
+        menu = new Menu(this);
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -68,11 +63,10 @@ public class Game {
         //Switch gamestate
         switch(Gamestate.currentState){
             case MENU:
-                //menu.update();
+                menu.update();
                 break;
             case PLAYING:
-                levelManager.update();
-                player.update();
+                playing.update();
                 break;
             default:
                 break;
@@ -83,14 +77,13 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Render the animation
     public void renderAnimation(Graphics g){
-        //Switch gamestate
+        //Switch game state
         switch(Gamestate.currentState){
             case MENU:
-
+                menu.draw(g);
                 break;
             case PLAYING:
-                DrawLevel.draw(g);
-                player.renderAnimations(g);
+                playing.draw(g);
                 break;
             default:
                 break;
@@ -151,12 +144,27 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //When the window focus is lost
     public void windowFocusLost(){
-        player.resetDirection();
+        if (Gamestate.currentState == Gamestate.PLAYING)
+            playing.getPlayer().resetDirection();
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Get the player
-    public Player getPlayer() {
-        return player;
+    //Getters and Setters
+
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+    public Playing getPlaying() {
+        return playing;
+    }
+
+    public void setPlaying(Playing playing) {
+        this.playing = playing;
     }
 }
