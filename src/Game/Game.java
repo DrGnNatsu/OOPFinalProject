@@ -1,6 +1,7 @@
 package Game;
 
 import Entities.Player;
+import Gamestates.Gamestate;
 import Levels.DrawLevel;
 import Levels.LevelManager;
 
@@ -64,16 +65,37 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update the game panel
     public void updateGamePanel(){
-        player.update();
-        levelManager.update();
+        //Switch gamestate
+        switch(Gamestate.currentState){
+            case MENU:
+                //menu.update();
+                break;
+            case PLAYING:
+                levelManager.update();
+                player.update();
+                break;
+            default:
+                break;
+        }
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Render the animation
     public void renderAnimation(Graphics g){
-        DrawLevel.draw(g);
-        //levelManager.draw(g);
-        player.renderAnimations(g);
+        //Switch gamestate
+        switch(Gamestate.currentState){
+            case MENU:
+
+                break;
+            case PLAYING:
+                DrawLevel.draw(g);
+                player.renderAnimations(g);
+                break;
+            default:
+                break;
+        }
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
