@@ -30,7 +30,8 @@ public class Playing extends State implements StateMethod{
     //Initialize the classes
     private void initializeClasses(){
         levelManager = new LevelManager(game);
-        player = new Player(100, (Game.TILE_HEIGHT - 10 ) * Game.TILE_SIZE_SCALE , (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE));
+        player = new Player(100, (Game.TILE_HEIGHT - 10 ) * Game.TILE_SIZE_SCALE,
+                (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE));
         player.getLevelData(levelManager.getLevel1());
         DrawLevel = new DrawLevel(game);
     }
