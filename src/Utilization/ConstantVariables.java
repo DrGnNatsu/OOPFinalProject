@@ -3,10 +3,6 @@ package Utilization;
 public class ConstantVariables {
     public static class PlayerConstant {
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //Button
-
-
-        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //Animation
         public static final int PLAYER_IDLE_ANIMATION = 6;
         public static final int PLAYER_ATTACK_ANIMATION = 8;
@@ -66,5 +62,18 @@ public class ConstantVariables {
         }
 
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //UI
+    public static class GUI{
+        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        //Button
+        public static class Buttons{
+            public static final int BUTTON_WIDTH_DEFAULT = 64;
+            public static final int BUTTON_HEIGHT_DEFAULT = 16;
+            public static final int BUTTON_WIDTH = BUTTON_WIDTH_DEFAULT * 5;
+            public static final int BUTTON_HEIGHT = BUTTON_HEIGHT_DEFAULT * 5;
+        }
     }
 }

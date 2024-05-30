@@ -17,7 +17,7 @@ public class LoadSaveFile {
     public static final String TILE_ATLAS = "/Texture/Entities/OakWoods/oak_woods_tileset.png";
 
     //Path for the pixel art
-    public static final String BUTTON_MENU = "src/Texture/Entities/ButtonsPixel";
+    public static final String BUTTON_MENU = "/Texture/Entities/ButtonPack";
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the image from the path
