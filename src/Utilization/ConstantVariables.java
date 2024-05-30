@@ -68,12 +68,17 @@ public class ConstantVariables {
     //UI
     public static class GUI{
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //Button
+        //Menu Button
         public static class Buttons{
             public static final int BUTTON_WIDTH_DEFAULT = 64;
             public static final int BUTTON_HEIGHT_DEFAULT = 16;
             public static final int BUTTON_WIDTH = BUTTON_WIDTH_DEFAULT * 5;
             public static final int BUTTON_HEIGHT = BUTTON_HEIGHT_DEFAULT * 5;
+        }
+        //Pause Button
+        public static class PauseButton{
+            public static final int SOUND_SIZE_DEFAULT = 42;
+            public static final int SOUND_SIZE = SOUND_SIZE_DEFAULT * 3 / 2;
         }
     }
 }

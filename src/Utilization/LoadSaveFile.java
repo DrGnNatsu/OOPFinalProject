@@ -16,11 +16,18 @@ public class LoadSaveFile {
     //Path for tiles sprite
     public static final String TILE_ATLAS = "/Texture/Entities/OakWoods/oak_woods_tileset.png";
 
-    //Path for the button
+    //Path for the button on menu
     public static final String BUTTON_MENU = "/Texture/Entities/ButtonPack";
-    //path for the border and inside the menu
+
+    //Path for the border and inside the menu
     public static final String BORDER_MENU_BACKGROUND= "/Texture/Entities/Border/01Border03.png";
     public static final String INSIDE_MENU_BACKGROUND = "/Texture/Entities/CryoGUI/GUI/GUI_4x.png";
+
+    //Path for pause menu
+    public static final String PAUSE_MENU = "/Texture/Entities/BorrowKaarin/pause_menu.png";
+
+    //Path for sound button
+    public static final String SOUND_BUTTON = "/Texture/Entities/BorrowKaarin/sound_button.png";
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the image from the path

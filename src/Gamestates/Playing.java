@@ -1,6 +1,7 @@
 package Gamestates;
 
 import Entities.Player;
+import GUI.PauseOverlay;
 import Levels.DrawLevel;
 import Levels.LevelManager;
 import Game.Game;
@@ -9,8 +10,6 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import static Game.Game.TILE_SIZE_SCALE;
-
 public class Playing extends State implements StateMethod{
     //Create the player
     private Player player;
@@ -18,6 +17,9 @@ public class Playing extends State implements StateMethod{
     private LevelManager levelManager;
     //Create the draw level
     private DrawLevel DrawLevel;
+    //Create the pause menu
+    private PauseOverlay pauseOverlay;
+    private boolean paused = true;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -34,6 +36,7 @@ public class Playing extends State implements StateMethod{
                 (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE));
         player.getLevelData(levelManager.getLevel1());
         DrawLevel = new DrawLevel(game);
+        pauseOverlay = new PauseOverlay();
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -55,12 +58,16 @@ public class Playing extends State implements StateMethod{
         levelManager.update();
         player.update();
 
+        if (paused) pauseOverlay.update();
+
     }
 
     @Override
     public void draw(Graphics g) {
         DrawLevel.draw(g);
         player.renderAnimations(g);
+        if (paused)
+            pauseOverlay.draw(g);
 
     }
 
@@ -74,16 +81,19 @@ public class Playing extends State implements StateMethod{
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if (paused) pauseOverlay.mousePressed(e);
 
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        if (paused) pauseOverlay.mouseReleased(e);
 
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
+        if (paused) pauseOverlay.mouseMoved(e);
 
     }
 
