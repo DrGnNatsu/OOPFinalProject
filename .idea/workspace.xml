@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ButtonMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ButtonMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gamestates/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Gamestate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gamestates/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +152,7 @@
       <workItem from="1716943195883" duration="3699000" />
       <workItem from="1716976300531" duration="901000" />
       <workItem from="1716977282261" duration="14852000" />
-      <workItem from="1717058718709" duration="7859000" />
+      <workItem from="1717058718709" duration="8262000" />
     </task>
     <servers />
   </component>

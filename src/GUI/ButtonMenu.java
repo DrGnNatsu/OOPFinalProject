@@ -12,7 +12,7 @@ public class ButtonMenu {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
     //Index - for type of button and animation
-    private int typeIndex, animationIndex = 0;
+    private int typeIndex, animationIndex = 1;
     //Position of the button
     private int xPosition, yPosition, xOffsetCenter;
     //Current state of the game
@@ -100,7 +100,7 @@ public class ButtonMenu {
 
     //Draw the button
     public void draw(Graphics g) {
-        g.drawImage(images1D[typeIndex],
+        g.drawImage(images1D[animationIndex] ,
                 xPosition - xOffsetCenter, yPosition,
                 BUTTON_WIDTH, BUTTON_HEIGHT, null);
     }
@@ -108,8 +108,9 @@ public class ButtonMenu {
     //Update the button
     public void update() {
         //Check if the mouse is on the button
-        if (mouseOver) animationIndex = 1;
-        if (mousePressed) animationIndex = 2;
+        animationIndex = 1;
+        if (mouseOver) animationIndex = 3;
+        if (mousePressed) animationIndex = 5;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
