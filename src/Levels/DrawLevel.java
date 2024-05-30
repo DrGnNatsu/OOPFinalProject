@@ -34,10 +34,14 @@ public class DrawLevel {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Draw the level
     public void draw (Graphics g){
+        drawBackground(g);
+        g.drawImage(level1Image, 0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT, null);
+    }
+
+    public void drawBackground(Graphics g){
         g.drawImage(background1, 0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT, null);
         g.drawImage(background2, 0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT, null);
         g.drawImage(background3, 0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT, null);
-        g.drawImage(level1Image, 0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT, null);
     }
 
 

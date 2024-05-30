@@ -108,9 +108,9 @@ public class ButtonMenu {
     //Update the button
     public void update() {
         //Check if the mouse is on the button
-        animationIndex = 1;
-        if (mouseOver) animationIndex = 3;
-        if (mousePressed) animationIndex = 5;
+        animationIndex = 0;
+        if (mouseOver) animationIndex = 2;
+        if (mousePressed) animationIndex = 4;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
