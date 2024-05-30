@@ -8,9 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Texture/Entities/BorrownKaarin/sound_button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Texture/Entities/BorrownKaarin/urm_buttons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Texture/Entities/BorrownKaarin/volume_buttons.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" afterDir="false" />
     </list>
@@ -160,7 +157,7 @@
       <workItem from="1716977282261" duration="14852000" />
       <workItem from="1717058718709" duration="9996000" />
       <workItem from="1717074786840" duration="9472000" />
-      <workItem from="1717085184874" duration="1183000" />
+      <workItem from="1717085184874" duration="4092000" />
     </task>
     <servers />
   </component>

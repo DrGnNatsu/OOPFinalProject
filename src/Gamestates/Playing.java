@@ -19,7 +19,7 @@ public class Playing extends State implements StateMethod{
     private DrawLevel DrawLevel;
     //Create the pause menu
     private PauseOverlay pauseOverlay;
-    private boolean paused = true;
+    private boolean paused = false;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -36,7 +36,12 @@ public class Playing extends State implements StateMethod{
                 (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE));
         player.getLevelData(levelManager.getLevel1());
         DrawLevel = new DrawLevel(game);
-        pauseOverlay = new PauseOverlay();
+        pauseOverlay = new PauseOverlay(this);
+    }
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Unpause the game
+    public void unpauseGame(){
+        paused = false;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -55,10 +60,10 @@ public class Playing extends State implements StateMethod{
     //Implement the methods from the StateMethod interface
     @Override
     public void update() {
-        levelManager.update();
-        player.update();
-
-        if (paused) pauseOverlay.update();
+        if(!paused) {
+            levelManager.update();
+            player.update();
+        } else pauseOverlay.update();
 
     }
 
@@ -108,6 +113,9 @@ public class Playing extends State implements StateMethod{
                 break;
             case KeyEvent.VK_SPACE:
                 player.setJump(true);
+                break;
+            case KeyEvent.VK_ESCAPE:
+                paused = !paused;
                 break;
             default:
                 System.out.println("Invalid key");

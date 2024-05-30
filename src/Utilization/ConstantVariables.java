@@ -75,10 +75,18 @@ public class ConstantVariables {
             public static final int BUTTON_WIDTH = BUTTON_WIDTH_DEFAULT * 5;
             public static final int BUTTON_HEIGHT = BUTTON_HEIGHT_DEFAULT * 5;
         }
+
         //Pause Button
         public static class PauseButton{
             public static final int SOUND_SIZE_DEFAULT = 42;
             public static final int SOUND_SIZE = SOUND_SIZE_DEFAULT * 3 / 2;
         }
+
+        //URM Button
+        public static class URMButton{
+            public static final int URM_BUTTON_SIZE_DEFAULT = 56;
+            public static final int URM_BUTTON_SIZE = URM_BUTTON_SIZE_DEFAULT * 7 / 4;
+        }
+
     }
 }

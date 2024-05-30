@@ -1,6 +1,8 @@
 package GUI;
 
 import Game.Game;
+import Gamestates.Gamestate;
+import Gamestates.Playing;
 import Utilization.LoadSaveFile;
 
 import java.awt.*;
@@ -9,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 import static Utilization.ConstantVariables.GUI.PauseButton.SOUND_SIZE;
+import static Utilization.ConstantVariables.GUI.URMButton.URM_BUTTON_SIZE;
 
 public class PauseOverlay {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -19,14 +22,20 @@ public class PauseOverlay {
     //Variables for sound button
     private ButtonSound musicButton, sfxButton;
 
+    //Variables for URM button
+    private ButtonURM menuButton, replayButton, unpauseButton;
+
+    //Variables for the playing gamestate
+    private Playing playing;
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
-    public PauseOverlay(){
+    public PauseOverlay(Playing playing){
+        this.playing = playing;
         loadBackground();
         createSoundButton();
+        createURMbButton();
     }
-
-
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load background
@@ -48,11 +57,37 @@ public class PauseOverlay {
         sfxButton = new ButtonSound(soundX, sfxY, SOUND_SIZE, SOUND_SIZE);
     }
 
+    //Create URM button
+    private void createURMbButton() {
+        //Supporting variables
+        int buttonOffset = 100;
+        int separation = 40;
+
+        //Variables for URM button
+        int buttonY = backgroundY + 610;
+
+        int replayX = (Game.GAME_WIDTH - URM_BUTTON_SIZE) / 2;
+        int unpauseX = replayX + URM_BUTTON_SIZE + separation;
+        int menuX = replayX - URM_BUTTON_SIZE - separation;
+
+        //Create the URM buttons
+        unpauseButton = new ButtonURM(unpauseX, buttonY, URM_BUTTON_SIZE, URM_BUTTON_SIZE, 0);
+        replayButton = new ButtonURM(replayX, buttonY, URM_BUTTON_SIZE, URM_BUTTON_SIZE, 1);
+        menuButton = new ButtonURM(menuX, buttonY, URM_BUTTON_SIZE, URM_BUTTON_SIZE, 2);
+
+    }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update
     public void update(){
+        //Update the sound button
         musicButton.update();
         sfxButton.update();
+
+        //Update the URM buttons
+        menuButton.update();
+        replayButton.update();
+        unpauseButton.update();
 
     }
 
@@ -65,6 +100,11 @@ public class PauseOverlay {
         //Draw sound button
         musicButton.draw(g);
         sfxButton.draw(g);
+
+        //Draw the URM buttons
+        menuButton.draw(g);
+        replayButton.draw(g);
+        unpauseButton.draw(g);
 
     }
 
@@ -85,6 +125,19 @@ public class PauseOverlay {
             sfxButton.setMousePressed(true);
         }
 
+        //Set the URM buttons are pressed
+        if (isIn(e, menuButton)){
+            menuButton.setMousePressed(true);
+        }
+
+        if (isIn(e, replayButton)){
+            replayButton.setMousePressed(true);
+        }
+
+        if (isIn(e, unpauseButton)){
+            unpauseButton.setMousePressed(true);
+        }
+
     }
 
     public void mouseReleased(MouseEvent e) {
@@ -98,12 +151,36 @@ public class PauseOverlay {
             sfxButton.setMuted(!sfxButton.isMuted());
         }
 
+        //Reset the booleans for the sound buttons
         musicButton.resetBoolean();
         sfxButton.resetBoolean();
+
+        //If the menu button is pressed, the game goes to the main menu
+        if (isIn(e, menuButton) && menuButton.isMousePressed()) {
+            Gamestate.currentState = Gamestate.MENU;
+            playing.unpauseGame();
+        }
+
+        //If the replay button is pressed, the game restarts
+        if (isIn(e, replayButton) && replayButton.isMousePressed()) {
+            //Gamestate.currentState = Gamestate.PLAYING;
+            System.out.println("replay");
+        }
+
+        //If the unpause button is pressed, the game continues
+        if (isIn(e, unpauseButton) && unpauseButton.isMousePressed()) {
+            playing.unpauseGame();
+        }
+
+        //Reset the URM buttons
+        menuButton.resetBooleans();
+        replayButton.resetBooleans();
+        unpauseButton.resetBooleans();
 
     }
 
     public void mouseMoved(MouseEvent e) {
+        //Reset the mouse over for the sound buttons
         musicButton.setMouseOver(false);
         sfxButton.setMouseOver(false);
 
@@ -113,6 +190,23 @@ public class PauseOverlay {
 
         if(isIn(e, sfxButton)){
             sfxButton.setMouseOver(true);
+        }
+
+        //Reset the mouse over for the URM buttons
+        menuButton.setMouseOver(false);
+        replayButton.setMouseOver(false);
+        unpauseButton.setMouseOver(false);
+
+        if(isIn(e, menuButton)){
+            menuButton.setMouseOver(true);
+        }
+
+        if(isIn(e, replayButton)){
+            replayButton.setMouseOver(true);
+        }
+
+        if(isIn(e, unpauseButton)){
+            unpauseButton.setMouseOver(true);
         }
 
     }
