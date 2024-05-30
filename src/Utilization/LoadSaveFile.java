@@ -16,6 +16,9 @@ public class LoadSaveFile {
     //Path for tiles sprite
     public static final String TILE_ATLAS = "/Texture/Entities/OakWoods/oak_woods_tileset.png";
 
+    //Path for the pixel art
+    public static final String BUTTON_MENU = "src/Texture/Entities/ButtonsPixel";
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the image from the path
     public static BufferedImage importMap(String path){

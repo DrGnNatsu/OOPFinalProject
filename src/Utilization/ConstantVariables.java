@@ -3,17 +3,8 @@ package Utilization;
 public class ConstantVariables {
     public static class PlayerConstant {
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //Player
-        public static final int PLAYER_WIDTH = 64;
-        public static final int PLAYER_HEIGHT = 64;
-        public static final int PLAYER_SPEED = 4;
+        //Button
 
-        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //Player direction
-        public static final int LEFT = 0;
-        public static final int RIGHT = 1;
-        public static final int UP = 2;
-        public static final int DOWN = 3;
 
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //Animation

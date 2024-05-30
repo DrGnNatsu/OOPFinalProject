@@ -51,17 +51,17 @@ public class SupportMethods {
     //Get the entity y position Under the roof or above floor
     public static float getEntityYPositionUnderRoofOrAboveFloor(Rectangle2D.Float hitbox, float airSpeed){
         //Get the current tile
-        int currentTile = (int) (hitbox.y / (Game.TILE_SIZE_SCALE * Game.PLAYER_SCALE));
+        int currentTile = (int) (hitbox.y / (Game.TILE_SIZE * Game.PLAYER_SCALE));
         int tileYPosition, yOffset;
         // If ySpeed < 0, No collision
         if (airSpeed > 0) {
             //Down - Falling - touching the floor
-            tileYPosition = (int) (currentTile * Game.TILE_SIZE_SCALE * Game.PLAYER_SCALE);
-            yOffset = (int) (Game.TILE_SIZE_SCALE * Game.PLAYER_SCALE - hitbox.height);
+            tileYPosition = (int) (currentTile * Game.TILE_SIZE * Game.PLAYER_SCALE);
+            yOffset = (int) (Game.TILE_SIZE * Game.PLAYER_SCALE - hitbox.height);
             return tileYPosition + yOffset - 1 + Game.TILE_SIZE_SCALE; //-1 because the edge of hitbox - bug.
         }
         //Up - Jumping
-        return currentTile * Game.TILE_SIZE_SCALE * Game.PLAYER_SCALE;
+        return currentTile * Game.TILE_SIZE * Game.PLAYER_SCALE;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
