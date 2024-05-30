@@ -5,10 +5,10 @@
     },
     "activeFile": "Map/LevelOne.tmx",
     "expandedProjectPaths": [
-        "Borrow",
-        ".",
         "OakWood",
-        "Map"
+        "Borrow",
+        "Map",
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -50,11 +50,11 @@
             "scaleInEditor": 1
         },
         "Map/LevelOne.tmx": {
-            "scale": 1.6079,
+            "scale": 1.4871,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 393.68119907954474,
-                "y": 562.8459481311027
+                "x": 451.21377177056024,
+                "y": 329.5003698473539
             }
         },
         "OakWood/OakWoodLand.tsx": {

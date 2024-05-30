@@ -12,6 +12,8 @@ import java.awt.image.BufferedImage;
 
 import static Utilization.ConstantVariables.GUI.PauseButton.SOUND_SIZE;
 import static Utilization.ConstantVariables.GUI.URMButton.URM_BUTTON_SIZE;
+import static Utilization.ConstantVariables.GUI.VolumeButton.SLIDER_WIDTH;
+import static Utilization.ConstantVariables.GUI.VolumeButton.VOLUME_HEIGHT;
 
 public class PauseOverlay {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -25,6 +27,9 @@ public class PauseOverlay {
     //Variables for URM button
     private ButtonURM menuButton, replayButton, unpauseButton;
 
+    //Varibles for volume button
+    private ButtonVolume volumeButton;
+
     //Variables for the playing gamestate
     private Playing playing;
 
@@ -35,6 +40,7 @@ public class PauseOverlay {
         loadBackground();
         createSoundButton();
         createURMbButton();
+        createVolumeButton();
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -77,6 +83,13 @@ public class PauseOverlay {
 
     }
 
+    //Create volume button
+    private void createVolumeButton(){
+        int volumeX = (Game.GAME_WIDTH - SLIDER_WIDTH) / 2 ;
+        int volumeY = backgroundY + 513;
+        volumeButton = new ButtonVolume(volumeX, volumeY, SLIDER_WIDTH, VOLUME_HEIGHT);
+    }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update
     public void update(){
@@ -88,6 +101,9 @@ public class PauseOverlay {
         menuButton.update();
         replayButton.update();
         unpauseButton.update();
+
+        //Update the volume button
+        volumeButton.update();
 
     }
 
@@ -106,11 +122,17 @@ public class PauseOverlay {
         replayButton.draw(g);
         unpauseButton.draw(g);
 
+        //Draw the volume button
+        volumeButton.draw(g);
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Mouse
     public void mouseDragged(MouseEvent e){
+        if (volumeButton.isMousePressed()){
+            volumeButton.changeX(e.getX());
+        }
 
     }
 
@@ -136,6 +158,11 @@ public class PauseOverlay {
 
         if (isIn(e, unpauseButton)){
             unpauseButton.setMousePressed(true);
+        }
+
+        //Set the volume button is pressed
+        if (isIn(e, volumeButton)){
+            volumeButton.setMousePressed(true);
         }
 
     }
@@ -177,6 +204,9 @@ public class PauseOverlay {
         replayButton.resetBooleans();
         unpauseButton.resetBooleans();
 
+        //If the volume button is pressed, the volume changes
+        volumeButton.resetBooleans();
+
     }
 
     public void mouseMoved(MouseEvent e) {
@@ -207,6 +237,13 @@ public class PauseOverlay {
 
         if(isIn(e, unpauseButton)){
             unpauseButton.setMouseOver(true);
+        }
+
+        //Reset the mouse over for the volume button
+        volumeButton.setMouseOver(false);
+
+        if(isIn(e, volumeButton)){
+            volumeButton.setMouseOver(true);
         }
 
     }

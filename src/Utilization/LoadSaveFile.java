@@ -32,6 +32,9 @@ public class LoadSaveFile {
     //Path for unpause, replay, menu button
     public static final String URM_BUTTON = "/Texture/Entities/BorrowKaarin/urm_buttons.png";
 
+    //Path for volume button
+    public static final String VOLUME_BUTTON = "/Texture/Entities/BorrowKaarin/volume_buttons.png";
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the image from the path
     public static BufferedImage importMap(String path){

@@ -6,7 +6,7 @@ public class ButtonPause {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
     protected int x, y, width, height;
-    private Rectangle bounds;
+    protected Rectangle bounds;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor

@@ -57,6 +57,12 @@ public class Playing extends State implements StateMethod{
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //MouseDragged
+    public void mouseDragged(MouseEvent e) {
+        if (paused) pauseOverlay.mouseDragged(e);
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Implement the methods from the StateMethod interface
     @Override
     public void update() {

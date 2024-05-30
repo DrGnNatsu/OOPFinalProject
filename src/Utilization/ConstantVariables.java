@@ -88,5 +88,16 @@ public class ConstantVariables {
             public static final int URM_BUTTON_SIZE = URM_BUTTON_SIZE_DEFAULT * 7 / 4;
         }
 
+        //Volume Button
+        public static class VolumeButton {
+            public static final int VOLUME_WIDTH_DEFAULT = 28;
+            public static final int VOLUME_HEIGHT_DEFAULT = 44;
+            public static final int VOLUME_WIDTH = VOLUME_WIDTH_DEFAULT * 2;
+            public static final int VOLUME_HEIGHT = VOLUME_HEIGHT_DEFAULT * 2;
+            public static final int SLIDER_WIDTH_DEFAULT = 215;
+            public static final int SLIDER_WIDTH = SLIDER_WIDTH_DEFAULT * 2;
+        }
+
     }
+
 }
