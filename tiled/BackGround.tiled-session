@@ -3,12 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Map/LevelOne.tmx",
+    "activeFile": "Map/LevelOneLong.tmx",
     "expandedProjectPaths": [
-        "OakWood",
-        "Borrow",
+        ".",
         "Map",
-        "."
+        "OakWood",
+        "Borrow"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -50,16 +50,32 @@
             "scaleInEditor": 1
         },
         "Map/LevelOne.tmx": {
-            "scale": 1.4871,
-            "selectedLayer": 2,
+            "scale": 0.8666,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 451.21377177056024,
-                "y": 329.5003698473539
+                "x": 604.6618970690052,
+                "y": 399.83844911147014
             }
+        },
+        "Map/LevelOneLong.tmx": {
+            "scale": 0.7025,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 762.9893238434165,
+                "y": 148.75444839857653
+            }
+        },
+        "OakWood/OakWoodFence.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "OakWood/OakWoodLand.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1.5535,
+            "scaleInEditor": 1
+        },
+        "OakWood/OakWoodamp.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "OakWoodLand.tsx": {
@@ -69,8 +85,8 @@
         }
     },
     "last.externalTilesetPath": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/tiled/Borrow",
-    "last.imagePath": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/src/Texture/Entities/Borrow",
-    "map.fixedSize": true,
+    "last.imagePath": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/src/Texture/Entities/OakWoods/decorations",
+    "map.fixedSize": false,
     "map.height": 32,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 24,
@@ -79,29 +95,32 @@
     "openFiles": [
         "Borrow/BorrowTree2.tsx",
         "Borrow/BorrowSalt.tsx",
-        "Map/LevelOne.tmx",
         "Borrow/BorrowBrush.tsx",
         "Borrow/BorrowTree.tsx",
-        "Borrow/BorrowLand.tsx"
+        "Borrow/BorrowLand.tsx",
+        "Map/LevelOneLong.tmx",
+        "OakWood/OakWoodFence.tsx",
+        "OakWood/OakWoodamp.tsx"
     ],
     "project": "BackGround.tiled-project",
     "recentFiles": [
         "Borrow/BorrowTree2.tsx",
         "Borrow/BorrowSalt.tsx",
-        "Borrow/BorrowLand.tsx",
-        "Borrow/BorrowTree.tsx",
         "Borrow/BorrowBrush.tsx",
+        "Borrow/BorrowTree.tsx",
+        "Borrow/BorrowLand.tsx",
+        "OakWood/OakWoodamp.tsx",
+        "OakWood/OakWoodFence.tsx",
+        "Map/LevelOneLong.tmx",
         "Map/LevelOne.tmx",
         "Map/Background.tmx",
         "Map/BorrowTree.tsx",
-        "OakWood/OakWoodLand.tsx",
-        "OakWoodLand.tsx",
-        "BorrowLand.tsx"
+        "OakWood/OakWoodLand.tsx"
     ],
     "tileset.lastUsedFilter": "All Files (*)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 24,
-        "width": 24
+        "height": 57,
+        "width": 23
     }
 }
