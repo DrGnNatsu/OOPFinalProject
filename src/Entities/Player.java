@@ -58,8 +58,8 @@ public class Player extends Entity{
         updateAnimation();
     }
 
-    public void renderAnimations(Graphics g){
-        g.drawImage(animation[playerAction][animationIndex], (int) (hitbox.x - xDrawOffset), (int) (hitbox.y - yDrawOffset), width, height, null);
+    public void renderAnimations(Graphics g, int levelOffset){
+        g.drawImage(animation[playerAction][animationIndex], (int) (hitbox.x - xDrawOffset) - levelOffset, (int) (hitbox.y - yDrawOffset), width, height, null);
 
     }
 
@@ -91,7 +91,9 @@ public class Player extends Entity{
         if (jump) jumpMethod();
 
         //Check if the player is moving
-        if (!left && !right && !inAir) return;
+        if (!inAir)
+            if((!left && !right) || (left && right))
+                return;
 
         //Set the speed of the player
         float xSpeed = 0;
@@ -102,7 +104,7 @@ public class Player extends Entity{
         if (right) xSpeed += speed;
 
         //Check
-        if (!inAir && !isEntityOnFloor(hitbox, levelData)) inAir = true;
+        if (!inAir && isEntityOnFloor(hitbox, levelData)) inAir = true;
 
         //Check if the player is jumping
         if (inAir) {
@@ -183,7 +185,7 @@ public class Player extends Entity{
     //Get information of level data
     public void getLevelData(int[][] levelData){
         this.levelData = levelData;
-        if(!isEntityOnFloor(hitbox, levelData)) inAir = true;
+        if(isEntityOnFloor(hitbox, levelData)) inAir = true;
     }
 
 
@@ -263,4 +265,5 @@ public class Player extends Entity{
     public boolean isJump() {
         return jump;
     }
+
 }

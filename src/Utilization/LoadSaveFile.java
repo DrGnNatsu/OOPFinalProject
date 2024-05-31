@@ -1,17 +1,22 @@
 package Utilization;
 
+import Entities.Crabby;
+import Levels.LevelManager;
+
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
+import java.util.ArrayList;
 
-import static Game.Game.*;
 
 public class LoadSaveFile {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Path for the player sprite
     public static final String PLAYER_ATLAS1 = "/Texture/Entities/GenericChar/png/blue/CharBlue1.png";
     public static final String PLAYER_ATLAS2 = "/Texture/Entities/GenericChar/png/blue/CharBlue2.png";
+
+    //Path for crabby sprite
+    public static final String CRABBY_ATLAS = "/Texture/Entities/BorrowKaarin/crabby_sprite.png";
 
     //Path for tiles sprite
     public static final String TILE_ATLAS = "/Texture/Entities/OakWoods/oak_woods_tileset.png";
@@ -22,6 +27,11 @@ public class LoadSaveFile {
     //Path for the border and inside the menu
     public static final String BORDER_MENU_BACKGROUND= "/Texture/Entities/Border/01Border03.png";
     public static final String INSIDE_MENU_BACKGROUND = "/Texture/Entities/CryoGUI/GUI/GUI_4x.png";
+
+    //Path for background menu
+    public static final String BACKGROUND1_LSF = "/Texture/Entities/OakWoods/background/background_layer_1.png";
+    public static final String BACKGROUND2_LSF = "/Texture/Entities/OakWoods/background/background_layer_2.png";
+    public static final String BACKGROUND3_LSF = "/Texture/Entities/OakWoods/background/background_layer_3.png";
 
     //Path for pause menu
     public static final String PAUSE_MENU = "/Texture/Entities/BorrowKaarin/pause_menu.png";
@@ -34,6 +44,11 @@ public class LoadSaveFile {
 
     //Path for volume button
     public static final String VOLUME_BUTTON = "/Texture/Entities/BorrowKaarin/volume_buttons.png";
+
+    //Path for playing background
+    public static final String PLAYING_BACKGROUND = "/Texture/Entities/BorrowKaarin/playing_bg_img.png";
+    public static final String BIG_CLOUDS = "/Texture/Entities/BorrowKaarin/big_clouds.png";
+    public static final String SMALL_CLOUDS = "/Texture/Entities/BorrowKaarin/clouds.png";
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the image from the path
@@ -55,6 +70,7 @@ public class LoadSaveFile {
         return image;
 
     }
+
 
     //=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Get level data

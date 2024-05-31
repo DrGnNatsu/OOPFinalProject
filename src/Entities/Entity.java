@@ -39,4 +39,5 @@ public abstract class Entity {
     public void setHitbox(Rectangle2D.Float hitbox) {
         this.hitbox = hitbox;
     }
+
 }

@@ -70,8 +70,8 @@ public class SupportMethods {
     //Check entities on floor
     public static boolean isEntityOnFloor(Rectangle2D.Float hitbox, int[][] levelData){
         //Check if the player is on the floor
-        return isSolid(hitbox.x, hitbox.y + hitbox.height +1, levelData) ||
-                isSolid(hitbox.x + hitbox.width, hitbox.y + hitbox.height + 1, levelData);
+        return !isSolid(hitbox.x, hitbox.y + hitbox.height + 1, levelData) &&
+                !isSolid(hitbox.x + hitbox.width, hitbox.y + hitbox.height + 1, levelData);
     }
 
 }

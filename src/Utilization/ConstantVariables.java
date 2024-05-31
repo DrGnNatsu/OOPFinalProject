@@ -1,6 +1,37 @@
 package Utilization;
 
 public class ConstantVariables {
+    public static class EnemyConstant {
+        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        public static final int CRABBY = 0;
+        //No of Animation
+        public static final int IDLE = 0;
+        public static final int RUNNING = 1;
+        public static final int ATTACK = 2;
+        public static final int HIT = 3;
+        public static final int DEATH = 4;
+        //Size of crab enemy
+        public static final int CRABBY_WIDTH_DEFAULT = 72;
+        public static final int CRABBY_HEIGHT_DEFAULT = 32;
+        public static final int CRABBY_WIDTH = CRABBY_WIDTH_DEFAULT * 5 / 2;
+        public static final int CRABBY_HEIGHT = CRABBY_HEIGHT_DEFAULT * 5 / 2;
+        //Get amount of sprite
+        public static int getSpriteAmountEnemy(int enemyType, int enemyState) {
+            return switch (enemyType) {
+                case CRABBY -> switch (enemyState) {
+                    case IDLE -> 9;
+                    case RUNNING -> 6;
+                    case ATTACK -> 7;
+                    case HIT -> 4;
+                    case DEATH -> 5;
+                    default -> 0;
+                };
+                default -> 0;
+            };
+
+        }
+
+    }
     public static class PlayerConstant {
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //Animation
@@ -98,6 +129,18 @@ public class ConstantVariables {
             public static final int SLIDER_WIDTH = SLIDER_WIDTH_DEFAULT * 2;
         }
 
+    }
+
+    public static class Environment{
+        public static final int BIG_CLOUDS_WIDTH_DEFAULT = 448;
+        public static final int BIG_CLOUDS_HEIGHT_DEFAULT = 101;
+        public static final int BIG_CLOUDS_WIDTH = BIG_CLOUDS_WIDTH_DEFAULT * 11 / 10;
+        public static final int BIG_CLOUDS_HEIGHT = BIG_CLOUDS_HEIGHT_DEFAULT * 11 / 10;
+
+        public static final int SMALL_CLOUDS_WIDTH_DEFAULT = 74;
+        public static final int SMALL_CLOUDS_HEIGHT_DEFAULT = 24;
+        public static final int SMALL_CLOUDS_WIDTH = SMALL_CLOUDS_WIDTH_DEFAULT * 3 / 2;
+        public static final int SMALL_CLOUDS_HEIGHT = SMALL_CLOUDS_HEIGHT_DEFAULT * 2;
     }
 
 }

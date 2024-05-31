@@ -67,8 +67,6 @@ public class MouseInputs implements MouseListener, MouseMotionListener{
             case PLAYING:
                 gamePanel.getGame().getPlaying().mouseDragged(e);
                 break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + Gamestate.currentState);
         }
 
     }
