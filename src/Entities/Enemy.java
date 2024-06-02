@@ -1,13 +1,25 @@
 package Entities;
 
-import static Utilization.ConstantVariables.EnemyConstant.getSpriteAmountEnemy;
-import static Utilization.ConstantVariables.PlayerConstant.getSpriteAmount;
+import static Utilization.ConstantVariables.EnemyConstant.*;
+
+import static Utilization.ConstantVariables.PlayerConstant.*;
+
+import static Utilization.SupportMethods.*;
 
 public abstract class Enemy extends Entity{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
     private int enemyState, enemyType;
-    private int animationIndex, animationTick, animationSpeed = 25;
+    private int animationIndex, animationTick, animationSpeed = 20;
+    //Falling
+    private boolean inAir = false;
+    private float fallSpeed;
+    private final float gravity = 0.04f ;
+    //Walking
+    private float walkSpeed = 0.75f;
+    private int walkDirection = LEFT;
+    //Support
+    private boolean firstUpdate = true ;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -17,6 +29,8 @@ public abstract class Enemy extends Entity{
         createHitbox(x, y, width, height);
     }
 
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Update Animation Tick
     private void updateAnimationTick(){
         animationTick++;
         if (animationTick >= animationSpeed) {
@@ -30,8 +44,61 @@ public abstract class Enemy extends Entity{
 
     }
 
-    public void update(){
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Update
+    public void update(int[][] levelData){
         updateAnimationTick();
+        updateMovement(levelData);
+    }
+
+    //Update movement
+    private void updateMovement(int[][] levelData){
+        if (firstUpdate && !isEntityOnFloor(hitbox, levelData)){
+            inAir = true;
+        }
+        firstUpdate = false;
+
+        if (inAir){
+            if(canMove(hitbox.x, hitbox.y + 1, hitbox.width, hitbox.height, levelData)){
+                hitbox.y += fallSpeed;
+                fallSpeed += gravity;
+            } else {
+                inAir = false;
+                hitbox.y = getEntityYPositionUnderRoofOrAboveFloor(hitbox, fallSpeed);
+            }
+
+        } else {
+            switch (enemyState){
+                case IDLE_C:
+                    enemyState = RUNNING_C;
+                    break;
+                case RUNNING_C:
+                    float xSpeed = 0;
+                    if (walkDirection == LEFT)
+                        xSpeed = -walkSpeed;
+                    else
+                        xSpeed = walkSpeed;
+
+                    if(canMove(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, levelData)
+                    && isEntityOnFloor(hitbox, levelData)){
+                            hitbox.x += xSpeed;
+                            return;
+                    }
+
+                    changeWalkDirection();
+                    break;
+
+            }
+
+        }
+
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Change walk direction
+    private void changeWalkDirection(){
+        if (walkDirection == LEFT) walkDirection = RIGHT;
+        else walkDirection = LEFT;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

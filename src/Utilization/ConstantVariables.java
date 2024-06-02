@@ -1,12 +1,14 @@
 package Utilization;
 
+import Game.Game;
+
 public class ConstantVariables {
     public static class EnemyConstant {
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         public static final int CRABBY = 0;
         //No of Animation
-        public static final int IDLE = 0;
-        public static final int RUNNING = 1;
+        public static final int IDLE_C = 0;
+        public static final int RUNNING_C = 1;
         public static final int ATTACK = 2;
         public static final int HIT = 3;
         public static final int DEATH = 4;
@@ -15,12 +17,15 @@ public class ConstantVariables {
         public static final int CRABBY_HEIGHT_DEFAULT = 32;
         public static final int CRABBY_WIDTH = CRABBY_WIDTH_DEFAULT * 5 / 2;
         public static final int CRABBY_HEIGHT = CRABBY_HEIGHT_DEFAULT * 5 / 2;
+        //Offset of the hitbox
+        public static final int CRABBY_DRAWOFFSET_X = (int) (26 * Game.TILE_SCALE);
+        public static final int CRABBY_DRAWOFFSET_Y = (int) (9* Game.TILE_SCALE);
         //Get amount of sprite
         public static int getSpriteAmountEnemy(int enemyType, int enemyState) {
             return switch (enemyType) {
                 case CRABBY -> switch (enemyState) {
-                    case IDLE -> 9;
-                    case RUNNING -> 6;
+                    case IDLE_C -> 9;
+                    case RUNNING_C -> 6;
                     case ATTACK -> 7;
                     case HIT -> 4;
                     case DEATH -> 5;
@@ -33,6 +38,11 @@ public class ConstantVariables {
 
     }
     public static class PlayerConstant {
+        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        //Direction
+        public static final int LEFT = 0;
+        public static final int RIGHT = 1;
+
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //Animation
         public static final int PLAYER_IDLE_ANIMATION = 6;

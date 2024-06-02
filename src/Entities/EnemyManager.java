@@ -52,9 +52,9 @@ public class EnemyManager {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Draw
-    public void update(){
+    public void update(int[][] levelData){
         for (Crabby crabby : crabbyList){
-            crabby.update();
+            crabby.update(levelData);
         }
 
     }
@@ -63,7 +63,7 @@ public class EnemyManager {
     //Add crab enemy
     private void addCrabArmy(int[][] levelData){
         crabbyList = Crabby.getCrabArmy(levelData);
-        System.out.println("Size of crabs" + crabbyList.size());
+
     }
 
 

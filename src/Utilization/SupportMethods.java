@@ -27,8 +27,7 @@ public class SupportMethods {
         //Check which sprite is solid or not
         int value = levelData[(int) yIndex][(int) xIndex];
 
-
-        return value != 0;
+        return value == 1;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -72,6 +71,14 @@ public class SupportMethods {
         //Check if the player is on the floor
         return !isSolid(hitbox.x, hitbox.y + hitbox.height + 1, levelData) &&
                 !isSolid(hitbox.x + hitbox.width, hitbox.y + hitbox.height + 1, levelData);
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Check floor
+    public static boolean isFloor(Rectangle2D.Float hitbox, int[][] levelData, float xSpeed){
+        //Check if the player is on the floor
+        return isSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, levelData);
+
     }
 
 }

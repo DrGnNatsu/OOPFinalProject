@@ -155,8 +155,6 @@ public class Game {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Getters and Setters
-
-
     public Menu getMenu() {
         return menu;
     }
@@ -172,4 +170,5 @@ public class Game {
     public void setPlaying(Playing playing) {
         this.playing = playing;
     }
+
 }

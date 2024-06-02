@@ -10,4 +10,5 @@ public enum Gamestate {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     public static Gamestate currentState = MENU;
+
 }

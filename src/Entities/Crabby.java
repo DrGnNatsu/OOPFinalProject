@@ -15,6 +15,7 @@ public class Crabby extends Enemy{
     //Constructor
     public Crabby(float x, float y) {
         super(x, y, CRABBY_WIDTH, CRABBY_HEIGHT, CRABBY);
+        createHitbox(x, y, (int) (CRABBY_WIDTH * Game.PLAYER_SCALE), (int) (CRABBY_HEIGHT * Game.PLAYER_SCALE));
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -25,17 +26,12 @@ public class Crabby extends Enemy{
             for (int j = 0; j < levelData[i].length ; j++){
                 if (levelData[i][j] == 2){
                     //Add the crab
-                    crabArmy.add(new Crabby(j * Game.TILE_SIZE_SCALE, i * Game.TILE_SIZE_SCALE - 30));
+                    crabArmy.add(new Crabby(j * Game.TILE_SIZE_SCALE, i * Game.TILE_SIZE_SCALE - CRABBY_HEIGHT_DEFAULT - 1));
                 }
             }
         }
-        return crabArmy;
-    }
 
-    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Get Level data
-    public static int[][] getLevelData(int[][] levelData){
-        return levelData;
+        return crabArmy;
     }
 
 }

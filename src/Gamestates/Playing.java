@@ -31,9 +31,9 @@ public class Playing extends State implements StateMethod{
     private boolean paused = false;
     //Create variables for level move to left or right
     private int xLevelOffset;
-    private int leftBorder = (int) (Game.GAME_WIDTH * 0.3);
-    private int rightBorder = (int) (Game.GAME_WIDTH * 0.7);
-    private int levelTilesWide = 130;
+    private final int leftBorder = (int) (Game.GAME_WIDTH * 0.3);
+    private final int rightBorder = (int) (Game.GAME_WIDTH * 0.7);
+    private final int levelTilesWide = 130;
     private int maxTileOffset = levelTilesWide  - Game.TILE_WIDTH;
     private int maxLevelOffsetX = maxTileOffset * Game.TILE_SIZE_SCALE;
     //Create background image
@@ -41,7 +41,6 @@ public class Playing extends State implements StateMethod{
     private BufferedImage bigClouds, smallClouds;
     private Random random = new Random();
     int[] smallCloudPosition = new int[8];
-
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -121,7 +120,7 @@ public class Playing extends State implements StateMethod{
     public void update() {
         if(!paused) {
             levelManager.update();
-            enemyManager.update();
+            enemyManager.update(levelManager.getLevel1());
             player.update();
             checkCloseToBorder();
 
