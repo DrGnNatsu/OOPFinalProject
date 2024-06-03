@@ -37,6 +37,20 @@ public class Player extends Entity{
     private final float jumpSpeed = -1f * Game.PLAYER_SCALE;
     private final float fallSpeedAfterJump = 0.2f * Game.PLAYER_SCALE;
     private boolean inAir = false;
+    //Status bar UI - health and energy
+    private BufferedImage statusBarImage;
+    private final int statusBarWidth = 330;
+    private final int statusBarHeight = 110;
+    private final int statusBarX = 20;
+    private final int statusBarY = 20;
+    private final int healthBarWidth = 225;
+    private final int healthBarHeight = 10;
+    private final int healthBarX = 55;
+    private final int healthBarY = 25;
+    //Status
+    private int maxHealth = 100;
+    private int currentHealth = maxHealth;
+    private int healthWidth = healthBarWidth;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -52,15 +66,26 @@ public class Player extends Entity{
 
     }
 
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Update the player
     public void update(){
         setAnimation();
         updatePosition();
         updateAnimation();
     }
 
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Render the player
     public void renderAnimations(Graphics g, int levelOffset){
+        //Draw the player
         g.drawImage(animation[playerAction][animationIndex], (int) (hitbox.x - xDrawOffset) - levelOffset, (int) (hitbox.y - yDrawOffset), width, height, null);
 
+        //Draw the status bar
+        drawUI(g);
+    }
+
+    private void drawUI(Graphics g) {
+        g.drawImage(statusBarImage, statusBarX, statusBarY, statusBarWidth, statusBarHeight, null);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -179,6 +204,8 @@ public class Player extends Entity{
                 animation[i][j] = image.getSubimage(j * 56, i * 56, 56, 56);
             }
         }
+
+        statusBarImage = LoadSaveFile.importMap(LoadSaveFile.HEALTH_BAR);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
