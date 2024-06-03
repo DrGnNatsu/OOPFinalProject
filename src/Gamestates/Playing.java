@@ -1,6 +1,5 @@
 package Gamestates;
 
-import Entities.Crabby;
 import Entities.EnemyManager;
 import Entities.Player;
 import GUI.PauseOverlay;
@@ -13,7 +12,6 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.Random;
 
 import static Utilization.ConstantVariables.Environment.*;
@@ -111,8 +109,8 @@ public class Playing extends State implements StateMethod{
         for (int i = 0; i < 8; i++) {
             g.drawImage(smallClouds, SMALL_CLOUDS_WIDTH * i * 2 - (int) (xLevelOffset * 0.7), smallCloudPosition[i], SMALL_CLOUDS_WIDTH, SMALL_CLOUDS_HEIGHT, null);
         }
-    }
 
+    }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Implement the methods from the StateMethod interface
@@ -120,7 +118,7 @@ public class Playing extends State implements StateMethod{
     public void update() {
         if(!paused) {
             levelManager.update();
-            enemyManager.update(levelManager.getLevel1());
+            enemyManager.update(levelManager.getLevel1(), player);
             player.update();
             checkCloseToBorder();
 

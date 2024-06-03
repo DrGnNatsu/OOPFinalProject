@@ -25,7 +25,12 @@ public class SupportMethods {
         float yIndex = y / Game.TILE_SIZE_SCALE;
 
         //Check which sprite is solid or not
-        int value = levelData[(int) yIndex][(int) xIndex];
+        return isTileSolid((int) xIndex, (int) yIndex, levelData);
+    }
+
+    //Support solid
+    public static boolean isTileSolid(float xTile, float yTile, int[][] levelData) {
+        int value = levelData[(int) yTile][(int) xTile];
 
         return value == 1;
     }
@@ -77,7 +82,35 @@ public class SupportMethods {
     //Check floor
     public static boolean isFloor(Rectangle2D.Float hitbox, int[][] levelData, float xSpeed){
         //Check if the player is on the floor
-        return isSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, levelData);
+        return !isSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, levelData);
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Walkable tile
+    public static boolean isAllWalkableTile(int[][] levelData, int xStart, int xEnd, int y){
+        //Check if the tile is walkable
+        for(int i = 0; i < xEnd - xStart; i++){
+            if(isTileSolid(xStart + i, y, levelData)) return false;
+
+            if(isTileSolid(xStart + i, y + 1, levelData)) return false;
+
+        }
+
+        return true;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Sight clear
+    public static boolean isSightClear(int[][] levelData, Rectangle2D.Float hitbox,
+                                       Rectangle2D.Float playerHitbox, int yTile) {
+        //Check if the sight is clear
+        int firstXTile = (int) (hitbox.x / Game.TILE_SIZE_SCALE);
+        int secondXTile = (int) ((playerHitbox.x) / Game.TILE_SIZE_SCALE);
+        //Check if it is clear on the left or right
+        if(firstXTile > secondXTile)
+            return isAllWalkableTile(levelData, secondXTile, firstXTile, yTile);
+        else
+            return isAllWalkableTile(levelData, firstXTile, secondXTile, yTile);
 
     }
 

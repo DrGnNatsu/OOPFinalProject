@@ -6,10 +6,10 @@ import Game.*;
 
 import static Utilization.ConstantVariables.EnemyConstant.*;
 
+
 public class Crabby extends Enemy{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
-    private static int[][] levelData;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -32,6 +32,40 @@ public class Crabby extends Enemy{
         }
 
         return crabArmy;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Update
+    public void update(int[][] levelData, Player player){
+        updateAnimationTick();
+        updateMovement(levelData, player);
+    }
+
+    //Update movement
+    private void updateMovement(int[][] levelData, Player player) {
+        if (firstUpdate) firstCheckUpdate(levelData);
+
+        if (inAir)
+            updateInAir(levelData);
+        else {
+            switch (enemyState) {
+                case IDLE_C:
+                    newState(RUNNING_C);
+                    break;
+                case RUNNING_C:
+                    if(canSeePlayer(levelData, player))
+                        turnTowardPlayer(player);
+
+                    if(isPlayerCloseToAttack(player))
+                        newState(ATTACK_C);
+
+                    move(levelData);
+                    break;
+
+            }
+
+        }
+
     }
 
 }

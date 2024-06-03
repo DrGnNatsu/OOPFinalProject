@@ -52,9 +52,9 @@ public class EnemyManager {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Draw
-    public void update(int[][] levelData){
+    public void update(int[][] levelData, Player player){
         for (Crabby crabby : crabbyList){
-            crabby.update(levelData);
+            crabby.update(levelData, player);
         }
 
     }

@@ -9,7 +9,7 @@ public class ConstantVariables {
         //No of Animation
         public static final int IDLE_C = 0;
         public static final int RUNNING_C = 1;
-        public static final int ATTACK = 2;
+        public static final int ATTACK_C = 2;
         public static final int HIT = 3;
         public static final int DEATH = 4;
         //Size of crab enemy
@@ -26,7 +26,7 @@ public class ConstantVariables {
                 case CRABBY -> switch (enemyState) {
                     case IDLE_C -> 9;
                     case RUNNING_C -> 6;
-                    case ATTACK -> 7;
+                    case ATTACK_C -> 7;
                     case HIT -> 4;
                     case DEATH -> 5;
                     default -> 0;
