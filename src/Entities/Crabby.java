@@ -1,21 +1,35 @@
 package Entities;
 
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
 import Game.*;
 
 import static Utilization.ConstantVariables.EnemyConstant.*;
+import static Utilization.ConstantVariables.PlayerConstant.*;
 
 
 public class Crabby extends Enemy{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
+    //Attack box
+    private Rectangle2D.Float attackBox;
+    private int attackBoxOffsetX;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Crabby(float x, float y) {
         super(x, y, CRABBY_WIDTH, CRABBY_HEIGHT, CRABBY);
-        createHitbox(x, y, (int) (CRABBY_WIDTH * Game.PLAYER_SCALE), (int) (CRABBY_HEIGHT * Game.PLAYER_SCALE));
+        createHitbox(x, y, CRABBY_WIDTH - 80, CRABBY_HEIGHT - 20);
+        createAttackBox();
+
+    }
+
+    //crate attack box
+    private void createAttackBox(){
+        attackBox = new Rectangle2D.Float(x, y, 82 * 2,  19 * 2);
+        attackBoxOffsetX = 30 * 2;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -38,11 +52,12 @@ public class Crabby extends Enemy{
     //Update
     public void update(int[][] levelData, Player player){
         updateAnimationTick();
-        updateMovement(levelData, player);
+        updateBehavior(levelData, player);
+        updateAttackBox();
     }
 
-    //Update movement
-    private void updateMovement(int[][] levelData, Player player) {
+    //Update behavior
+    private void updateBehavior(int[][] levelData, Player player) {
         if (firstUpdate) firstCheckUpdate(levelData);
 
         if (inAir)
@@ -61,11 +76,43 @@ public class Crabby extends Enemy{
 
                     move(levelData);
                     break;
+                case ATTACK_C:
+                    if (animationIndex == 0) attackChecked = false;
+                    if (animationIndex == 3 && !attackChecked){
+                        checkPlayerHit(attackBox, player);
+                    }
+                    break;
+
+                case HIT_C:
+                    break;
 
             }
 
         }
 
+    }
+
+    //update attack box
+    private void updateAttackBox(){
+        attackBox.x = hitbox.x - attackBoxOffsetX + 5;
+        attackBox.y = hitbox.y + 15;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Flip
+    public int flipX(){
+        return walkDirection == RIGHT ? width : 0;
+    }
+
+    public int flipW(){
+        return walkDirection == RIGHT ? -1 : 1;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //draw
+    public void drawAttackBox(Graphics g, int xLevelOffset){
+        g.setColor(Color.RED);
+        g.drawRect((int) (attackBox.x - xLevelOffset + 5), (int) attackBox.y +15, (int) attackBox.width, (int) attackBox.height);
     }
 
 }

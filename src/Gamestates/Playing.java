@@ -2,6 +2,7 @@ package Gamestates;
 
 import Entities.EnemyManager;
 import Entities.Player;
+import GUI.GameOver_OverLay;
 import GUI.PauseOverlay;
 import Levels.DrawLevel;
 import Levels.LevelManager;
@@ -11,6 +12,7 @@ import Utilization.LoadSaveFile;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
@@ -27,6 +29,9 @@ public class Playing extends State implements StateMethod{
     //Create the pause menu
     private PauseOverlay pauseOverlay;
     private boolean paused = false;
+    //Create the game over
+    private GameOver_OverLay gameOverOverlay;
+    private boolean gameOver = false;
     //Create variables for level move to left or right
     private int xLevelOffset;
     private final int leftBorder = (int) (Game.GAME_WIDTH * 0.3);
@@ -62,10 +67,11 @@ public class Playing extends State implements StateMethod{
         levelManager = new LevelManager(game);
         enemyManager = new EnemyManager(this, levelManager.getLevel1());
         player = new Player(100, (Game.TILE_HEIGHT - 10 ) * Game.TILE_SIZE_SCALE,
-                (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE));
+                (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE), this);
         player.getLevelData(levelManager.getLevel1());
         DrawLevel = new DrawLevel(game);
         pauseOverlay = new PauseOverlay(this);
+        gameOverOverlay = new GameOver_OverLay(this);
     }
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Unpause the game
@@ -113,10 +119,26 @@ public class Playing extends State implements StateMethod{
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Reset the game
+    public void restartAll(){
+        gameOver = false;
+        paused = false;
+        player.resetAll();
+        enemyManager.resetAllEnemies();
+        initializeClasses();
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Check enemy hit
+    public void checkEnemyHit(Rectangle2D.Float attackBox){
+        enemyManager.checkEnemyHit(attackBox);
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Implement the methods from the StateMethod interface
     @Override
     public void update() {
-        if(!paused) {
+        if(!paused && !gameOver) {
             levelManager.update();
             enemyManager.update(levelManager.getLevel1(), player);
             player.update();
@@ -141,79 +163,91 @@ public class Playing extends State implements StateMethod{
             pauseOverlay.draw(g);
         }
 
+        if(gameOver){
+            gameOverOverlay.draw(g);
+        }
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         //Left click
-        if (e.getButton() == MouseEvent.BUTTON1)
+        if(!gameOver && e.getButton() == MouseEvent.BUTTON1)
             player.setAttack(true);
 
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (paused) pauseOverlay.mousePressed(e);
+        if (paused && !gameOver) pauseOverlay.mousePressed(e);
 
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if (paused) pauseOverlay.mouseReleased(e);
+        if (paused && !gameOver) pauseOverlay.mouseReleased(e);
 
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        if (paused) pauseOverlay.mouseMoved(e);
+        if (paused && !gameOver) pauseOverlay.mouseMoved(e);
 
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_A:
-                player.setLeft(true);
-                break;
-            case KeyEvent.VK_D:
-                player.setRight(true);
-                break;
-            case KeyEvent.VK_SPACE:
-                player.setJump(true);
-                break;
-            case KeyEvent.VK_ESCAPE:
-                paused = !paused;
-                break;
-            default:
-                System.out.println("Invalid key");
-                break;
-        }
+        if (gameOver)
+            gameOverOverlay.keyPressed(e);
+        else
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_A:
+                    player.setLeft(true);
+                    break;
+                case KeyEvent.VK_D:
+                    player.setRight(true);
+                    break;
+                case KeyEvent.VK_SPACE:
+                    player.setJump(true);
+                    break;
+                case KeyEvent.VK_ESCAPE:
+                    paused = !paused;
+                    break;
+                default:
+                    System.out.println("Invalid key");
+                    break;
+            }
 
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_A:
-                player.setLeft(false);
-                break;
-            case KeyEvent.VK_D:
-                player.setRight(false);
-                break;
-            case KeyEvent.VK_SPACE:
-                player.setJump(false);
-                break;
-            case KeyEvent.VK_BACK_SPACE:
-                Gamestate.currentState = Gamestate.MENU;
-                break;
-            default:
-                System.out.println("Invalid key");
-                break;
-        }
+        if (gameOver)
+            gameOverOverlay.keyReleased(e);
+        else{
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_A:
+                    player.setLeft(false);
+                    break;
+                case KeyEvent.VK_D:
+                    player.setRight(false);
+                    break;
+                case KeyEvent.VK_SPACE:
+                    player.setJump(false);
+                    break;
+                case KeyEvent.VK_BACK_SPACE:
+                    Gamestate.currentState = Gamestate.MENU;
+                    break;
+                default:
+                    System.out.println("Invalid key");
+                    break;
+            }
 
-        if (!player.isUp() && !player.isDown() &&
-                !player.isLeft() && !player.isRight())
-            player.setPlayerMoving(false);
+            if (!player.isUp() && !player.isDown() &&
+                    !player.isLeft() && !player.isRight())
+                player.setPlayerMoving(false);
+
+        }
 
     }
 
@@ -221,6 +255,11 @@ public class Playing extends State implements StateMethod{
     //Getters and Setters
     public Player getPlayer() {
         return player;
+    }
+
+    //Game Over
+    public void setGameOver(boolean gameOver){
+        this.gameOver = gameOver;
     }
 
 }

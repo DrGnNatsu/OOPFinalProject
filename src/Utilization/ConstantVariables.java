@@ -10,8 +10,8 @@ public class ConstantVariables {
         public static final int IDLE_C = 0;
         public static final int RUNNING_C = 1;
         public static final int ATTACK_C = 2;
-        public static final int HIT = 3;
-        public static final int DEATH = 4;
+        public static final int HIT_C = 3;
+        public static final int DEATH_C = 4;
         //Size of crab enemy
         public static final int CRABBY_WIDTH_DEFAULT = 72;
         public static final int CRABBY_HEIGHT_DEFAULT = 32;
@@ -27,13 +27,27 @@ public class ConstantVariables {
                     case IDLE_C -> 9;
                     case RUNNING_C -> 6;
                     case ATTACK_C -> 7;
-                    case HIT -> 4;
-                    case DEATH -> 5;
+                    case HIT_C -> 4;
+                    case DEATH_C -> 5;
                     default -> 0;
                 };
                 default -> 0;
             };
 
+        }
+
+        public static int getMaxHealth (int enemyType){
+            return switch (enemyType) {
+                case CRABBY -> 100;
+                default -> 1;
+            };
+        }
+
+        public static int getEnemyDamage(int enemyType){
+            return switch (enemyType) {
+                case CRABBY -> 15;
+                default -> 0;
+            };
         }
 
     }
@@ -68,7 +82,7 @@ public class ConstantVariables {
         public static final int RUN = 2;
         public static final int JUMP = 3;
         public static final int LAND = 4;
-        public static final int DAMAGED = 5;
+        public static final int HIT = 5;
         public static final int DEATH = 6;
         public static final int SPELL_CAST = 7;
         public static final int CROUCH = 8;
@@ -88,7 +102,7 @@ public class ConstantVariables {
                 case RUN -> PLAYER_RUN_ANIMATION;
                 case JUMP -> PLAYER_JUMP_ANIMATION;
                 case LAND -> PLAYER_LAND_ANIMATION;
-                case DAMAGED -> PLAYER_DAMAGED_ANIMATION;
+                case HIT -> PLAYER_DAMAGED_ANIMATION;
                 case DEATH -> PLAYER_DEATH_ANIMATION;
                 case SPELL_CAST -> PLAYER_SPELL_CAST_ANIMATION;
                 case CROUCH -> PLAYER_CROUCH_ANIMATION;

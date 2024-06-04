@@ -1,5 +1,7 @@
 package Entities;
 
+import java.awt.geom.Rectangle2D;
+
 import static Game.Game.*;
 import static Utilization.ConstantVariables.EnemyConstant.*;
 
@@ -17,13 +19,19 @@ public abstract class Enemy extends Entity{
     protected float fallSpeed;
     protected final float gravity = 0.04f ;
     //Walking
-    protected float walkSpeed = 0.75f;
+    protected float walkSpeed = 0.5f;
     protected int walkDirection = LEFT;
     //Attack
     protected int tileY;
     protected float attackDistance = TILE_SIZE;
     //Support
     protected boolean firstUpdate = true ;
+    protected boolean active = true;
+    protected boolean attackChecked;
+    //Health
+    protected int maxHealth;
+    protected int currentHealth = maxHealth;
+
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -31,6 +39,8 @@ public abstract class Enemy extends Entity{
         super(x, y, width, height);
         this.enemyType = enemyType;
         createHitbox(x, y, width, height);
+        maxHealth = getMaxHealth(enemyType);
+        currentHealth = maxHealth;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -42,7 +52,10 @@ public abstract class Enemy extends Entity{
             animationIndex++;
             if (animationIndex >= getSpriteAmountEnemy(enemyType, enemyState)) {
                 animationIndex = 0;
-                if(enemyState == ATTACK_C) enemyState = IDLE_C;
+                switch(enemyState){
+                    case ATTACK_C, HIT_C -> enemyState = IDLE_C;
+                    case DEATH_C -> active = false;
+                }
 
             }
 
@@ -90,7 +103,7 @@ public abstract class Enemy extends Entity{
             xSpeed = walkSpeed;
 
         if (canMove(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, levelData)
-                && isFloor(hitbox, levelData, xSpeed)) {
+                && isEntityOnFloor(hitbox, levelData)) {
             hitbox.x += xSpeed;
             return;
         }
@@ -134,11 +147,41 @@ public abstract class Enemy extends Entity{
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Hit
+    public void hurt(int amount){
+        currentHealth -= amount;
+        if (currentHealth <= 0) {
+            newState(DEATH_C);
+        }
+        else newState(HIT_C);
+    }
+
+    //Check if the player is close to attack
+    protected void checkPlayerHit(Rectangle2D.Float attackBox, Player player) {
+        if(attackBox.intersects(player.getHitbox())){
+            player.changeHealth(-getEnemyDamage(enemyType));
+        }
+        attackChecked = true;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Change state
     protected void newState(int enemyState){
         this.enemyState = enemyState;
         animationIndex = 0;
         animationTick = 0;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Reset all
+    public void resetEnemy(){
+        hitbox.x = x;
+        hitbox.y = y;
+        firstUpdate = true;
+        currentHealth = maxHealth;
+        newState(IDLE_C);
+        active = true;
+        fallSpeed = 0;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -183,4 +226,11 @@ public abstract class Enemy extends Entity{
         this.animationSpeed = animationSpeed;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }

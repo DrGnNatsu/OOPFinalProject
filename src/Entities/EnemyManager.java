@@ -4,6 +4,7 @@ import Gamestates.Playing;
 import Utilization.LoadSaveFile;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -42,10 +43,13 @@ public class EnemyManager {
     //Update
     public void draw(Graphics g, int xLevelOffset){
         for (Crabby crabby : crabbyList){
-            g.drawImage(crabbyArray[crabby.getEnemyState()][crabby.getAnimationIndex()],
-                    (int) crabby.getHitbox().x - xLevelOffset,
-                    (int) crabby.getHitbox().y ,
-                    CRABBY_WIDTH, CRABBY_HEIGHT, null);
+            if(crabby.isActive()) g.drawImage(crabbyArray[crabby.getEnemyState()][crabby.getAnimationIndex()],
+                    (int) crabby.getHitbox().x - xLevelOffset - CRABBY_DRAWOFFSET_X + crabby.flipX(),
+                    (int) crabby.getHitbox().y - CRABBY_DRAWOFFSET_Y + 10 ,
+                    CRABBY_WIDTH * crabby.flipW(), CRABBY_HEIGHT, null);
+            g.setColor(Color.RED);
+            g.drawRect((int) crabby.getHitbox().x - xLevelOffset, (int) crabby.getHitbox().y, (int) crabby.getHitbox().width, (int) crabby.getHitbox().height);
+            //crabby.drawAttackBox(g, xLevelOffset);
         }
 
     }
@@ -54,7 +58,7 @@ public class EnemyManager {
     //Draw
     public void update(int[][] levelData, Player player){
         for (Crabby crabby : crabbyList){
-            crabby.update(levelData, player);
+            if (crabby.isActive()) crabby.update(levelData, player);
         }
 
     }
@@ -66,5 +70,26 @@ public class EnemyManager {
 
     }
 
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Check enemy hit
+    public void checkEnemyHit(Rectangle2D.Float attackBox){
+        for (Crabby crabby : crabbyList){
+            if (attackBox.intersects(crabby.getHitbox()) && crabby.isActive()){
+                crabby.hurt(10);
+                return;
+            }
+
+        }
+
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Reset all enemies
+    public void resetAllEnemies(){
+        for (Crabby crabby : crabbyList){
+            crabby.resetEnemy();
+        }
+
+    }
 
 }

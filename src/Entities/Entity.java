@@ -21,7 +21,7 @@ public abstract class Entity {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Create hitbox for entities
     protected void createHitbox(float x, float y, float width, float height){
-        hitbox = new Rectangle2D.Float( x, y, width, height);
+        hitbox = new Rectangle2D.Float(x, y, width, height);
     }
 
     //Draw the hitbox
