@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Crabby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Crabby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/EnemyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilization/SupportMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/SupportMethods.java" afterDir="false" />
-    </list>
+    <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{

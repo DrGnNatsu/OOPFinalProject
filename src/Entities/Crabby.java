@@ -68,10 +68,9 @@ public class Crabby extends Enemy{
                     newState(RUNNING_C);
                     break;
                 case RUNNING_C:
-                    if(canSeePlayer(levelData, player)){
-                        turnTowardPlayer(player);
-                        if(isPlayerCloseToAttack(player)) newState(ATTACK_C);
-                    }
+                    if(canSeePlayer(levelData, player)) turnTowardPlayer(player);
+
+                    if(isPlayerCloseToAttack(player)) newState(ATTACK_C);
 
                     move(levelData);
                     break;

@@ -13,7 +13,7 @@ public abstract class Enemy extends Entity{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
     protected int enemyState, enemyType;
-    protected int animationIndex, animationTick, animationSpeed = 20;
+    protected int animationIndex, animationTick, animationSpeed = 48;
     //Falling
     protected boolean inAir = false;
     protected float fallSpeed;
