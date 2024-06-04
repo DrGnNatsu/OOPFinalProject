@@ -9,11 +9,9 @@
       <change beforePath="$PROJECT_DIR$/src/Entities/Crabby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Crabby.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/EnemyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inputs/MouseInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilization/SupportMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/SupportMethods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +176,7 @@
       <workItem from="1717398918482" duration="632000" />
       <workItem from="1717410206236" duration="6466000" />
       <workItem from="1717479938056" duration="13718000" />
+      <workItem from="1717518220682" duration="1715000" />
     </task>
     <servers />
   </component>

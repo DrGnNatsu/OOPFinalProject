@@ -82,7 +82,8 @@ public class SupportMethods {
     //Check floor
     public static boolean isFloor(Rectangle2D.Float hitbox, int[][] levelData, float xSpeed){
         //Check if the player is on the floor
-        return !isSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, levelData);
+        if (xSpeed > 0) return !isSolid(hitbox.x + hitbox.width + xSpeed, hitbox.y + hitbox.height + 1, levelData);
+        else return !isSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, levelData);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

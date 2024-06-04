@@ -190,8 +190,8 @@ public class PauseOverlay {
 
         //If the replay button is pressed, the game restarts
         if (isIn(e, replayButton) && replayButton.isMousePressed()) {
-            //Gamestate.currentState = Gamestate.PLAYING;
-            System.out.println("replay");
+            playing.restartAll();
+            playing.unpauseGame();
         }
 
         //If the unpause button is pressed, the game continues

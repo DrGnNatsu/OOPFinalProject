@@ -19,7 +19,7 @@ public abstract class Enemy extends Entity{
     protected float fallSpeed;
     protected final float gravity = 0.04f ;
     //Walking
-    protected float walkSpeed = 0.5f;
+    protected float walkSpeed = 0.75f;
     protected int walkDirection = LEFT;
     //Attack
     protected int tileY;
@@ -103,7 +103,7 @@ public abstract class Enemy extends Entity{
             xSpeed = walkSpeed;
 
         if (canMove(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, levelData)
-                && isEntityOnFloor(hitbox, levelData)) {
+                && isFloor(hitbox, levelData, xSpeed)) {
             hitbox.x += xSpeed;
             return;
         }

@@ -109,10 +109,6 @@ public class Player extends Entity{
         //Draw the status bar
         drawUI(g);
 
-        //Draw the attack box
-        g.setColor(Color.RED);
-        g.drawRect((int) (attackBox.x - levelOffset), (int) attackBox.y, (int) attackBox.width, (int) attackBox.height);
-
     }
 
     private void drawUI(Graphics g) {
