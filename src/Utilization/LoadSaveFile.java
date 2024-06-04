@@ -51,7 +51,7 @@ public class LoadSaveFile {
     public static final String SMALL_CLOUDS = "/Texture/Entities/BorrowKaarin/clouds.png";
 
     //Path for health and energy bar
-    public static final String HEALTH_BAR = "/Texture/Entities/BorrowKaarin/HealthPowerBar.png";
+    public static final String HEALTH = "/Texture/Entities/BorrowKaarin/HealthPowerBar.png";
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the image from the path

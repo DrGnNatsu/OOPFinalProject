@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" afterDir="false" />
     </list>
@@ -12,6 +13,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="REBUILD_ON_DEPENDENCY_CHANGE" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -166,7 +170,8 @@
       <workItem from="1717348125223" duration="2519000" />
       <workItem from="1717387369126" duration="2972000" />
       <workItem from="1717398918482" duration="632000" />
-      <workItem from="1717410206236" duration="5664000" />
+      <workItem from="1717410206236" duration="6466000" />
+      <workItem from="1717479938056" duration="170000" />
     </task>
     <servers />
   </component>

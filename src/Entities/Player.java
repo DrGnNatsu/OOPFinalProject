@@ -205,7 +205,7 @@ public class Player extends Entity{
             }
         }
 
-        statusBarImage = LoadSaveFile.importMap(LoadSaveFile.HEALTH_BAR);
+        statusBarImage = LoadSaveFile.importMap(LoadSaveFile.HEALTH);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
