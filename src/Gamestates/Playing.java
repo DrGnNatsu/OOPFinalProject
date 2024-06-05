@@ -8,6 +8,7 @@ import GUI.PauseOverlay;
 import Levels.DrawLevel;
 import Levels.LevelManager;
 import Game.Game;
+import Objects.ObjectManager;
 import Utilization.LoadSaveFile;
 
 import java.awt.*;
@@ -25,6 +26,7 @@ public class Playing extends State implements StateMethod{
     //Create the level
     private LevelManager levelManager;
     private EnemyManager enemyManager;
+    private ObjectManager objectManager;
     //Create the draw level
     private DrawLevel DrawLevel;
     //Create the pause menu
@@ -104,10 +106,11 @@ public class Playing extends State implements StateMethod{
     //Initialize the classes
     private void initializeClasses(){
         levelManager = new LevelManager(game);
+        objectManager = new ObjectManager(this);
+        switchEnemyManager();
         player = new Player(100, (Game.TILE_HEIGHT - 10 ) * Game.TILE_SIZE_SCALE,
                 (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE), this);
         switchLevel();
-        switchEnemyManager();
         DrawLevel = new DrawLevel(game, levelManager);
         pauseOverlay = new PauseOverlay(this);
         gameOverOverlay = new GameOver_OverLay(this);
@@ -137,6 +140,18 @@ public class Playing extends State implements StateMethod{
                 break;
         }
     }
+
+    public void switchEnemyManagerUpdate(){
+        switch (levelManager.getLevelIndex()){
+            case 0:
+                enemyManager.update(levelManager.getLevel1(), player);
+                break;
+            case 1:
+                enemyManager.update(levelManager.getLevel2(), player);
+                break;
+        }
+    }
+
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Unpause the game
@@ -213,8 +228,8 @@ public class Playing extends State implements StateMethod{
 
         if(!gameOver) {
             levelManager.update();
-            enemyManager.update(levelManager.getLevel1(), player);
-            //enemyManager.update(levelManager.getLevel2(), player);
+            objectManager.update();
+            switchEnemyManagerUpdate();
             player.update();
             checkCloseToBorder();
         }
@@ -229,6 +244,7 @@ public class Playing extends State implements StateMethod{
         drawClouds(g);
         player.renderAnimations(g, xLevelOffset);
         enemyManager.draw(g, xLevelOffset);
+        objectManager.draw(g, xLevelOffset);
 
         if (paused){
             g.setColor(new Color(0, 0, 0, 100));
@@ -364,5 +380,13 @@ public class Playing extends State implements StateMethod{
 
     public void setLevelCompleted(boolean levelCompleted) {
         this.levelCompleted = levelCompleted;
+    }
+
+    public ObjectManager getObjectManager() {
+        return objectManager;
+    }
+
+    public void setObjectManager(ObjectManager objectManager) {
+        this.objectManager = objectManager;
     }
 }

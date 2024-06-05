@@ -56,6 +56,10 @@ public class LoadSaveFile {
     //Path for health and energy bar
     public static final String HEALTH = "/Texture/Entities/BorrowKaarin/HealthPowerBar.png";
 
+    //Path for potion and object
+    public static final String POTION = "/Texture/Entities/BorrowKaarin/Potions.png";
+    public static final String OBJECT = "/Texture/Entities/BorrowKaarin/Object.png";
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the image from the path
     public static BufferedImage importMap(String path){
