@@ -3,6 +3,7 @@ package Gamestates;
 import Entities.EnemyManager;
 import Entities.Player;
 import GUI.GameOver_OverLay;
+import GUI.LevelCompleteOverlay;
 import GUI.PauseOverlay;
 import Levels.DrawLevel;
 import Levels.LevelManager;
@@ -32,6 +33,9 @@ public class Playing extends State implements StateMethod{
     //Create the game over
     private GameOver_OverLay gameOverOverlay;
     private boolean gameOver = false;
+    //Create the level completed
+    private LevelCompleteOverlay levelCompleteOverlay;
+    private boolean levelCompleted = false;
     //Create variables for level move to left or right
     private int xLevelOffset;
     private final int leftBorder = (int) (Game.GAME_WIDTH * 0.3);
@@ -66,12 +70,15 @@ public class Playing extends State implements StateMethod{
     private void initializeClasses(){
         levelManager = new LevelManager(game);
         enemyManager = new EnemyManager(this, levelManager.getLevel1());
+        //enemyManager = new EnemyManager(this, levelManager.getLevel2());
         player = new Player(100, (Game.TILE_HEIGHT - 10 ) * Game.TILE_SIZE_SCALE,
                 (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE), this);
         player.getLevelData(levelManager.getLevel1());
+        //player.getLevelData(levelManager.getLevel2());
         DrawLevel = new DrawLevel(game);
         pauseOverlay = new PauseOverlay(this);
         gameOverOverlay = new GameOver_OverLay(this);
+        levelCompleteOverlay = new LevelCompleteOverlay(this);
     }
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Unpause the game
@@ -138,13 +145,21 @@ public class Playing extends State implements StateMethod{
     //Implement the methods from the StateMethod interface
     @Override
     public void update() {
-        if(!paused && !gameOver) {
+        if (paused){
+            pauseOverlay.update();
+        }
+
+        if(levelCompleted){
+            levelCompleteOverlay.update();
+        }
+
+        if(!gameOver) {
             levelManager.update();
             enemyManager.update(levelManager.getLevel1(), player);
+            //enemyManager.update(levelManager.getLevel2(), player);
             player.update();
             checkCloseToBorder();
-
-        } else pauseOverlay.update();
+        }
 
     }
 
@@ -167,6 +182,10 @@ public class Playing extends State implements StateMethod{
             gameOverOverlay.draw(g);
         }
 
+        if(levelCompleted){
+            levelCompleteOverlay.draw(g);
+        }
+
     }
 
     @Override
@@ -179,19 +198,34 @@ public class Playing extends State implements StateMethod{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (paused && !gameOver) pauseOverlay.mousePressed(e);
+        if(!gameOver){
+            if (paused)
+                pauseOverlay.mousePressed(e);
+            else if (levelCompleted)
+                levelCompleteOverlay.mousePressed(e);
+        }
 
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if (paused && !gameOver) pauseOverlay.mouseReleased(e);
+        if(!gameOver){
+            if (paused)
+                pauseOverlay.mouseReleased(e);
+            else if (levelCompleted)
+                levelCompleteOverlay.mouseReleased(e);
+        }
 
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        if (paused && !gameOver) pauseOverlay.mouseMoved(e);
+        if(!gameOver){
+            if (paused)
+                pauseOverlay.mouseMoved(e);
+            else if (levelCompleted)
+                levelCompleteOverlay.mouseMoved(e);
+        }
 
     }
 

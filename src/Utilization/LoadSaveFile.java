@@ -36,6 +36,9 @@ public class LoadSaveFile {
     //Path for pause menu
     public static final String PAUSE_MENU = "/Texture/Entities/BorrowKaarin/pause_menu.png";
 
+    //Path for level completed menu
+    public static final String LEVEL_COMPLETED_MENU = "/Texture/Entities/BorrowKaarin/completed_sprite.png";
+
     //Path for sound button
     public static final String SOUND_BUTTON = "/Texture/Entities/BorrowKaarin/sound_button.png";
 

@@ -5,7 +5,6 @@ public class Level {
     //Create the level
     private int[][] levelData;
 
-
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Level(int[][] levelData){

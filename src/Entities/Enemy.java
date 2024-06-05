@@ -32,7 +32,6 @@ public abstract class Enemy extends Entity{
     protected int maxHealth;
     protected int currentHealth = maxHealth;
 
-
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Enemy(float x, float y, int width, int height, int enemyType) {
