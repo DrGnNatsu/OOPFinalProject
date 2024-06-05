@@ -5,6 +5,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
 import Game.*;
+import Levels.Level;
 
 import static Utilization.ConstantVariables.EnemyConstant.*;
 import static Utilization.ConstantVariables.PlayerConstant.*;

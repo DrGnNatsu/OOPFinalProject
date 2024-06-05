@@ -23,7 +23,7 @@ public class EnemyManager {
     public EnemyManager(Playing playing, int[][] levelData){
         this.playing = playing;
         loadEnemyImages();
-        addCrabArmy(levelData);
+        loadEnemies(levelData);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -55,15 +55,20 @@ public class EnemyManager {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Draw
     public void update(int[][] levelData, Player player){
+        boolean isAnyActive = false;
         for (Crabby crabby : crabbyList){
-            if (crabby.isActive()) crabby.update(levelData, player);
+            if (crabby.isActive()) {
+                crabby.update(levelData, player);
+                isAnyActive = true;
+            }
         }
+        if (!isAnyActive) playing.setLevelCompleted(true);
 
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Add crab enemy
-    private void addCrabArmy(int[][] levelData){
+    public void loadEnemies(int[][] levelData){
         crabbyList = Crabby.getCrabArmy(levelData);
 
     }
@@ -89,5 +94,9 @@ public class EnemyManager {
         }
 
     }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Load enemies
+
 
 }
