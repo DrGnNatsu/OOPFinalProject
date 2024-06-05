@@ -43,6 +43,7 @@ public class Playing extends State implements StateMethod{
     private final int levelTilesWide = 130;
     private int maxTileOffset = levelTilesWide  - Game.TILE_WIDTH;
     private int maxLevelOffsetX = maxTileOffset * Game.TILE_SIZE_SCALE;
+    //private int maxLevelOffsetX;
     //Create background image
     private BufferedImage background;
     private BufferedImage bigClouds, smallClouds;
@@ -63,23 +64,80 @@ public class Playing extends State implements StateMethod{
             smallCloudPosition[i] = (int) (55 * Game.TILE_SCALE) * random.nextInt((int) (100 * Game.TILE_SCALE));
         }
 
+        calculateOffset();
+        loadStartLevel();
+
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Load the start level
+    private void loadStartLevel() {
+        switch (levelManager.getLevelIndex()){
+            case 0:
+                player.getLevelData(levelManager.getLevel1());
+                break;
+            case 1:
+                player.getLevelData(levelManager.getLevel2());
+                break;
+        }
+
+    }
+
+    //load next level
+    public void loadNextLevel(){
+        levelCompleted = false;
+        paused = false;
+        gameOver = false;
+        restartAll();
+        levelManager.loadNextLevel();
+        calculateOffset();
+
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Calculate the offset
+    private void calculateOffset() {
+        maxLevelOffsetX = Game.TILE_SIZE_SCALE * maxTileOffset;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialize the classes
     private void initializeClasses(){
         levelManager = new LevelManager(game);
-        enemyManager = new EnemyManager(this, levelManager.getLevel1());
-        //enemyManager = new EnemyManager(this, levelManager.getLevel2());
         player = new Player(100, (Game.TILE_HEIGHT - 10 ) * Game.TILE_SIZE_SCALE,
                 (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE), this);
-        player.getLevelData(levelManager.getLevel1());
-        //player.getLevelData(levelManager.getLevel2());
-        DrawLevel = new DrawLevel(game);
+        switchLevel();
+        switchEnemyManager();
+        DrawLevel = new DrawLevel(game, levelManager);
         pauseOverlay = new PauseOverlay(this);
         gameOverOverlay = new GameOver_OverLay(this);
         levelCompleteOverlay = new LevelCompleteOverlay(this);
     }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Switch the level
+    public void switchLevel(){
+        switch (levelManager.getLevelIndex()){
+            case 0:
+                player.getLevelData(levelManager.getLevel1());
+                break;
+            case 1:
+                player.getLevelData(levelManager.getLevel2());
+                break;
+        }
+    }
+    //Switch enemyManager
+    public void switchEnemyManager(){
+        switch (levelManager.getLevelIndex()){
+            case 0:
+                enemyManager = new  EnemyManager(this, levelManager.getLevel1());
+                break;
+            case 1:
+                enemyManager = new  EnemyManager(this, levelManager.getLevel2());
+                break;
+        }
+    }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Unpause the game
     public void unpauseGame(){
@@ -296,4 +354,19 @@ public class Playing extends State implements StateMethod{
         this.gameOver = gameOver;
     }
 
+    public EnemyManager getEnemyManager() {
+        return enemyManager;
+    }
+
+    public void setEnemyManager(EnemyManager enemyManager) {
+        this.enemyManager = enemyManager;
+    }
+
+    public void setMaxLevelOffsetX (int maxLevelOffsetX){
+        this.maxLevelOffsetX = maxLevelOffsetX;
+    }
+
+    public void setLevelCompleted(boolean levelCompleted) {
+        this.levelCompleted = levelCompleted;
+    }
 }

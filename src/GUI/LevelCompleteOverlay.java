@@ -1,6 +1,7 @@
 package GUI;
 
 import Game.Game;
+import Gamestates.Gamestate;
 import Gamestates.Playing;
 import Utilization.LoadSaveFile;
 
@@ -47,8 +48,8 @@ public class LevelCompleteOverlay {
         int nextX = backgroundX + 90;
         int menuX = backgroundX + 360;
         int y = backgroundY + 325;
-        menuButton = new ButtonURM(nextX, y, URM_BUTTON_SIZE * 3 / 2, URM_BUTTON_SIZE * 3 / 2, 0);
-        nextButton = new ButtonURM(menuX, y, URM_BUTTON_SIZE * 3 / 2, URM_BUTTON_SIZE * 3 / 2, 2);
+        menuButton = new ButtonURM(nextX, y, URM_BUTTON_SIZE * 3 / 2, URM_BUTTON_SIZE * 3 / 2, 2);
+        nextButton = new ButtonURM(menuX, y, URM_BUTTON_SIZE * 3 / 2, URM_BUTTON_SIZE * 3 / 2, 0);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -80,11 +81,13 @@ public class LevelCompleteOverlay {
 
     public void mouseReleased(MouseEvent e){
         if (menuButton.isMousePressed() && isIn(menuButton, e)){
-            System.out.println("menu");
+            playing.restartAll();
+            Gamestate.currentState = Gamestate.MENU;
         }
 
         if (nextButton.isMousePressed() && isIn(nextButton, e)){
-            System.out.println("next");
+            playing.restartAll();
+            playing. loadNextLevel();
         }
 
         menuButton.resetBooleans();

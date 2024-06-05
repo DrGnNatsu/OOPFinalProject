@@ -3,11 +3,11 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Map/LevelOneLong.tmx",
+    "activeFile": "Map/LevelTwoLong.tmx",
     "expandedProjectPaths": [
-        ".",
         "OakWood",
         "Borrow",
+        ".",
         "Map"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -74,11 +74,11 @@
             }
         },
         "Map/LevelTwoLong.tmx": {
-            "scale": 0.6854,
-            "selectedLayer": 5,
+            "scale": 0.8796,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 1558.9436825211556,
-                "y": 384.4470382258535
+                "x": 257.5034106412005,
+                "y": 387.1077762619372
             }
         },
         "OakWood/OakWoodFence.tsx": {
@@ -87,7 +87,7 @@
         },
         "OakWood/OakWoodLand.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1.7776,
+            "scaleInDock": 0.9611,
             "scaleInEditor": 1
         },
         "OakWood/OakWoodamp.tsx": {
@@ -109,7 +109,6 @@
     "map.tileWidth": 24,
     "map.width": 130,
     "openFiles": [
-        "Map/LevelOneLong.tmx",
         "Map/LevelTwoLong.tmx",
         "Map/LevelOneLOneNew.tmx"
     ],

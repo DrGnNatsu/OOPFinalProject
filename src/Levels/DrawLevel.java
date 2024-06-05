@@ -12,6 +12,7 @@ public class DrawLevel {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Create Game
     private Game game;
+    private LevelManager levelManager;
     //Create the images
     private BufferedImage background1;
     private BufferedImage background2;
@@ -24,10 +25,13 @@ public class DrawLevel {
     private final String BACKGROUND3 = "/Texture/Entities/OakWoods/background/background_layer_3.png";
     private final String LEVEL1IMAGE = "/TextureCreated/1.png";
     private final String LEVEL2IMAGE = "/TextureCreated/2.png";
+    //Level index
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
-    public DrawLevel(Game game){
+    public DrawLevel(Game game, LevelManager levelManager){
         this.game = game;
+        this.levelManager = levelManager;
         background1 = importMap(BACKGROUND1);
         background2 = importMap(BACKGROUND2);
         background3 = importMap(BACKGROUND3);
@@ -39,8 +43,14 @@ public class DrawLevel {
     //Draw the level
     public void draw (Graphics g , int xLevelOffset){
         drawBackground(g, xLevelOffset);
-        g.drawImage(level1Image, - xLevelOffset, 0, level1Image.getWidth() * 3 / 2, level1Image.getHeight() * 3 / 2, null);
-        //g.drawImage(level2Image, - xLevelOffset, 0, level2Image.getWidth() * 3 / 2, level2Image.getHeight() * 3 / 2, null);
+        switch (levelManager.getLevelIndex()){
+            case 0:
+                g.drawImage(level1Image, - xLevelOffset, 0, level1Image.getWidth() * 3 / 2, level1Image.getHeight() * 3 / 2, null);
+                break;
+            case 1:
+                g.drawImage(level2Image, - xLevelOffset, 0, level2Image.getWidth() * 3 / 2, level2Image.getHeight() * 3 / 2, null);
+                break;
+        }
     }
 
     public void drawBackground(Graphics g, int xLevelOffset){
