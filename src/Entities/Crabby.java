@@ -22,7 +22,7 @@ public class Crabby extends Enemy{
     //Constructor
     public Crabby(float x, float y) {
         super(x, y, CRABBY_WIDTH, CRABBY_HEIGHT, CRABBY);
-        createHitbox(x, y, CRABBY_WIDTH - 80, CRABBY_HEIGHT - 20);
+        createHitbox(CRABBY_WIDTH - 80, CRABBY_HEIGHT - 20);
         createAttackBox();
 
     }
@@ -64,7 +64,7 @@ public class Crabby extends Enemy{
         if (inAir)
             updateInAir(levelData);
         else {
-            switch (enemyState) {
+            switch (this.state) {
                 case IDLE_C:
                     newState(RUNNING_C);
                     break;

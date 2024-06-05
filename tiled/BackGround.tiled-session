@@ -5,10 +5,10 @@
     },
     "activeFile": "Map/LevelTwoLong.tmx",
     "expandedProjectPaths": [
-        "OakWood",
-        "Borrow",
         ".",
-        "Map"
+        "OakWood",
+        "Map",
+        "Borrow"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -74,11 +74,11 @@
             }
         },
         "Map/LevelTwoLong.tmx": {
-            "scale": 0.8796,
-            "selectedLayer": 0,
+            "scale": 0.6158,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 257.5034106412005,
-                "y": 387.1077762619372
+                "x": 353.1990906138356,
+                "y": 411.65962974991885
             }
         },
         "OakWood/OakWoodFence.tsx": {

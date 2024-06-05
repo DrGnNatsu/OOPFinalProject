@@ -4,40 +4,39 @@ import java.awt.geom.Rectangle2D;
 
 import static Game.Game.*;
 import static Utilization.ConstantVariables.EnemyConstant.*;
-
+import static Utilization.ConstantVariables.*;
 import static Utilization.ConstantVariables.PlayerConstant.*;
+
 
 import static Utilization.SupportMethods.*;
 
 public abstract class Enemy extends Entity{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
-    protected int enemyState, enemyType;
-    protected int animationIndex, animationTick, animationSpeed = 48;
+    protected int state, enemyType;
+
     //Falling
-    protected boolean inAir = false;
-    protected float fallSpeed;
     protected final float gravity = 0.04f ;
+
     //Walking
-    protected float walkSpeed = 0.75f;
     protected int walkDirection = LEFT;
+
     //Attack
     protected int tileY;
     protected float attackDistance = TILE_SIZE;
+
     //Support
     protected boolean firstUpdate = true ;
     protected boolean active = true;
     protected boolean attackChecked;
-    //Health
-    protected int maxHealth;
-    protected int currentHealth = maxHealth;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Enemy(float x, float y, int width, int height, int enemyType) {
         super(x, y, width, height);
         this.enemyType = enemyType;
-        createHitbox(x, y, width, height);
+        this.walkSpeed = 0.75f;
+        createHitbox(width, height);
         maxHealth = getMaxHealth(enemyType);
         currentHealth = maxHealth;
     }
@@ -46,13 +45,13 @@ public abstract class Enemy extends Entity{
     //Update Animation Tick
     protected void updateAnimationTick(){
         animationTick++;
-        if (animationTick >= animationSpeed) {
+        if (animationTick >= ANIMATION_SPEED) {
             animationTick = 0;
             animationIndex++;
-            if (animationIndex >= getSpriteAmountEnemy(enemyType, enemyState)) {
+            if (animationIndex >= getSpriteAmountEnemy(enemyType, state)) {
                 animationIndex = 0;
-                switch(enemyState){
-                    case ATTACK_C, HIT_C -> enemyState = IDLE_C;
+                switch(state){
+                    case ATTACK_C, HIT_C -> state = IDLE_C;
                     case DEATH_C -> active = false;
                 }
 
@@ -75,11 +74,11 @@ public abstract class Enemy extends Entity{
     //Update in air
     protected void updateInAir(int[][] levelData){
         if (canMove(hitbox.x, hitbox.y + 1, hitbox.width, hitbox.height, levelData)) {
-            hitbox.y += fallSpeed;
-            fallSpeed += gravity;
+            hitbox.y += airSpeed;
+            airSpeed += gravity;
         } else {
             inAir = false;
-            hitbox.y = getEntityYPositionUnderRoofOrAboveFloor(hitbox, fallSpeed);
+            hitbox.y = getEntityYPositionUnderRoofOrAboveFloor(hitbox, airSpeed);
             tileY = (int) (hitbox.y / TILE_SIZE);
         }
 
@@ -165,8 +164,8 @@ public abstract class Enemy extends Entity{
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Change state
-    protected void newState(int enemyState){
-        this.enemyState = enemyState;
+    protected void newState(int state){
+        this.state = state;
         animationIndex = 0;
         animationTick = 0;
     }
@@ -180,17 +179,17 @@ public abstract class Enemy extends Entity{
         currentHealth = maxHealth;
         newState(IDLE_C);
         active = true;
-        fallSpeed = 0;
+        airSpeed = 0;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Getters and Setters
-    public int getEnemyState() {
-        return enemyState;
+    public int getState() {
+        return state;
     }
 
-    public void setEnemyState(int enemyState) {
-        this.enemyState = enemyState;
+    public void setState(int state) {
+        this.state = state;
     }
 
     public int getEnemyType() {
@@ -217,12 +216,8 @@ public abstract class Enemy extends Entity{
         this.animationTick = animationTick;
     }
 
-    public int getAnimationSpeed() {
-        return animationSpeed;
-    }
-
-    public void setAnimationSpeed(int animationSpeed) {
-        this.animationSpeed = animationSpeed;
+    public int getANIMATION_SPEED() {
+        return ANIMATION_SPEED;
     }
 
     public boolean isActive() {

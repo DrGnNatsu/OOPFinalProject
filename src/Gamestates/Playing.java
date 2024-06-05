@@ -335,10 +335,6 @@ public class Playing extends State implements StateMethod{
                     break;
             }
 
-            if (!player.isUp() && !player.isDown() &&
-                    !player.isLeft() && !player.isRight())
-                player.setPlayerMoving(false);
-
         }
 
     }

@@ -3,6 +3,9 @@ package Utilization;
 import Game.Game;
 
 public class ConstantVariables {
+    public static final float GRAVITY = 0.005f * Game.PLAYER_SCALE;
+    public static final int ANIMATION_SPEED = 28;
+
     public static class EnemyConstant {
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         public static final int CRABBY = 0;

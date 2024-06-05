@@ -9,6 +9,27 @@ public abstract class Entity {
     protected float x, y;
     protected int width, height;
     protected Rectangle2D.Float hitbox;
+
+    //Create animation variables
+    protected int animationIndex, animationTick;
+
+    //State of entity
+    protected int state;
+
+    //Gravity
+    protected float airSpeed = 0f;
+    protected boolean inAir = false;
+
+    //Health
+    protected int maxHealth;
+    protected int currentHealth;
+
+    //Attack box
+    protected Rectangle2D.Float attackBox;
+
+    //Speed
+    protected float walkSpeed;
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Entity(float x, float y, int width, int height){
@@ -20,7 +41,7 @@ public abstract class Entity {
     
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Create hitbox for entities
-    protected void createHitbox(float x, float y, float width, float height){
+    protected void createHitbox(float width, float height){
         hitbox = new Rectangle2D.Float(x, y, width, height);
     }
 
