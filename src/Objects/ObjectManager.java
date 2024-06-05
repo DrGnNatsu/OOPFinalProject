@@ -48,8 +48,8 @@ public class ObjectManager {
         containerImages = new BufferedImage[2][8];
 
         for(int i = 0; i < containerImages.length; i++){
-            for(int j = 0; j < containerImages[i].length -1; j++){
-                containerImages[i][j] = potionSprite.getSubimage(j * 40, i * 30, 40, 30);
+            for(int j = 0; j < containerImages[i].length ; j++){
+                containerImages[i][j] = containerSprite.getSubimage(j * 40, i * 30, 40, 30);
             }
         }
 
