@@ -2,8 +2,7 @@ package Levels;
 
 import Entities.Crabby;
 import Game.Game;
-import Objects.Container;
-import Objects.Potion;
+import Objects.*;
 
 import java.util.ArrayList;
 
@@ -19,6 +18,7 @@ public class Level {
     private ArrayList<Crabby> crabs = new ArrayList<>();
     private ArrayList<Potion> potions = new ArrayList<>();
     private ArrayList<Container> containers = new ArrayList<>();
+    private ArrayList<Spike> spikes = new ArrayList<>();
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -27,6 +27,7 @@ public class Level {
         createEnemy(levelData);
         createPotions(levelData);
         createObjects(levelData);
+        createSpikes(levelData);
         calculateOffset();
     }
 
@@ -51,6 +52,11 @@ public class Level {
     //Create objects
     public void createObjects(int[][] levelData){
         containers = Container.loadContainer(levelData);
+    }
+
+    //Create spikes
+    public void createSpikes(int[][] levelData){
+        spikes = Spike.loadSpikes(levelData);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

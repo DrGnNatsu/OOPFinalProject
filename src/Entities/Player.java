@@ -66,8 +66,7 @@ public class Player extends Entity{
         this.playing = playing;
         //Set the max health
         this.maxHealth = 100;
-        //this.currentHealth = maxHealth;
-        this.currentHealth = 20;
+        this.currentHealth = maxHealth;
         //Set the walk speed
         this.walkSpeed = 1f;
         //Import the image with the right file sprite.
@@ -92,7 +91,10 @@ public class Player extends Entity{
 
         setAnimation();
         updatePosition();
-        if(playerMoving) checkPotionTouched();
+        if(playerMoving) {
+            checkPotionTouched();
+            checkSpikesTouched();
+        }
 
         if (attack) checkAttack();
         updateAnimation();
@@ -252,6 +254,11 @@ public class Player extends Entity{
         playing.checkPotionTouched(this.hitbox);
     }
 
+    //Check spikes touched
+    private void checkSpikesTouched() {
+        playing.checkSpikesTouched(this);
+    }
+
     //Check attack
     private void checkAttack() {
         //if(attackChecked || animationIndex != 3 || animationIndex != 6) return;
@@ -275,6 +282,11 @@ public class Player extends Entity{
             this.attackBox.x = hitbox.x - hitbox.width - 7 * Game.TILE_SCALE;
         }
 
+    }
+
+    //Kill
+    public void kill() {
+        currentHealth = 0;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -395,5 +407,6 @@ public class Player extends Entity{
     public boolean isJump() {
         return jump;
     }
+
 
 }

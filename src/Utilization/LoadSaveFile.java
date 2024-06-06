@@ -60,6 +60,9 @@ public class LoadSaveFile {
     public static final String POTION = "/Texture/Entities/BorrowKaarin/Potions.png";
     public static final String OBJECT = "/Texture/Entities/BorrowKaarin/Object.png";
 
+    //Path for trap
+    public static final String TRAP = "/Texture/Entities/BorrowKaarin/Trap.png";
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the image from the path
     public static BufferedImage importMap(String path){

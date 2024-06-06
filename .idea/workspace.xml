@@ -8,11 +8,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/Container.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Levels/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/LevelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Objects/ObjectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/ObjectManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextureCreated/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextureCreated/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextureCreated/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextureCreated/2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/ConstantVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiled/BackGround.tiled-session" beforeDir="false" afterPath="$PROJECT_DIR$/tiled/BackGround.tiled-session" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiled/Map/LevelOneLOneNew.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/tiled/Map/LevelOneLOneNew.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiled/Map/LevelTwoLong.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/tiled/Map/LevelTwoLong.tmx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +190,7 @@
       <workItem from="1717518220682" duration="1715000" />
       <workItem from="1717555120799" duration="182000" />
       <workItem from="1717578976801" duration="4702000" />
-      <workItem from="1717665294441" duration="7504000" />
+      <workItem from="1717665294441" duration="9950000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 package Objects;
 
+import Entities.Player;
 import Gamestates.Playing;
 import Utilization.LoadSaveFile;
 
@@ -15,15 +16,29 @@ public class ObjectManager {
     //Variables
     private Playing playing;
     private BufferedImage[][] potionImages, containerImages;
+    private BufferedImage spikeImages;
     private ArrayList<Potion> potionList = new ArrayList<>();
     private ArrayList<Container> containerList = new ArrayList<>();
-
+    private ArrayList<Spike> spikeList = new ArrayList<>();
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public ObjectManager(Playing playing) {
         this.playing = playing;
         loadImages();
+
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Check spikes touched
+    public void checkSpikesTouched(Player player){
+        for (Spike spike : spikeList){
+            if (player.getHitbox().intersects(spike.getHitbox())){
+                player.kill();
+                break;
+            }
+
+        }
 
     }
 
@@ -85,6 +100,10 @@ public class ObjectManager {
             container.reset();
         }
 
+        for (Spike spike : spikeList){
+            spike.reset();
+        }
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -92,6 +111,7 @@ public class ObjectManager {
     public void loadObject(int[][] levelData){
         potionList = new ArrayList<>(Potion.loadPotion(levelData));
         containerList = new ArrayList<>(Container.loadContainer(levelData));
+        spikeList = Spike.loadSpikes(levelData);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -115,6 +135,7 @@ public class ObjectManager {
             }
         }
 
+        BufferedImage spikeSprite = LoadSaveFile.importMap(LoadSaveFile.TRAP);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -133,6 +154,18 @@ public class ObjectManager {
     public void draw(Graphics g, int xLevelOffset){
         drawPotions(g, xLevelOffset);
         drawContainers(g, xLevelOffset);
+        drawSpikes(g, xLevelOffset);
+    }
+
+    private void drawSpikes(Graphics g, int xLevelOffset){
+        for (Spike spike : spikeList){
+            g.drawImage(spikeImages,
+                    (int) spike.getHitbox().x - xLevelOffset - spike.getXDrawOffset(),
+                    (int) spike.getHitbox().y - spike.getYDrawOffset(),
+                    SPIKE_WIDTH, SPIKE_HEIGHT, null);
+
+        }
+
     }
 
     private void drawPotions(Graphics g, int xLevelOffset){

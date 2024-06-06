@@ -14,6 +14,7 @@ public class ConstantVariables {
         public static final int BLUE_POTION = 1;
         public static final int BARREL = 2;
         public static final int BOX = 3;
+        public static final int SPIKE = 4;
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         public static final int RED_POTION_VALUE = 15;
         public static final int BLUE_POTION_VALUE = 10;
@@ -27,6 +28,11 @@ public class ConstantVariables {
         public static final int POTION_HEIGHT_DEFAULT = 16;
         public static final int POTION_WIDTH = POTION_WIDTH_DEFAULT * 5 / 2;
         public static final int POTION_HEIGHT = POTION_HEIGHT_DEFAULT * 5 / 2;
+        //Width and height of spike
+        public static final int SPIKE_WIDTH_DEFAULT = 32;
+        public static final int SPIKE_HEIGHT_DEFAULT = 32;
+        public static final int SPIKE_WIDTH = (int) (SPIKE_WIDTH_DEFAULT * 0.8);
+        public static final int SPIKE_HEIGHT = (int) (SPIKE_HEIGHT_DEFAULT * 0.8);
         //Get sprite amount
         public static int getSpriteAmount(int objectType) {
             return switch (objectType) {

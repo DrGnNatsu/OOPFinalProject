@@ -222,6 +222,11 @@ public class Playing extends State implements StateMethod{
         objectManager.checkObjectHit(attackBox);
     }
 
+    //Check spike hit
+    public void checkSpikesTouched(Player player) {
+        objectManager.checkSpikesTouched(player);
+    }
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Implement the methods from the StateMethod interface
     @Override
@@ -401,5 +406,6 @@ public class Playing extends State implements StateMethod{
     public LevelManager getLevelManager() {
         return levelManager;
     }
+
 
 }
