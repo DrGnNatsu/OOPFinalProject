@@ -54,7 +54,6 @@ public class Object {
         animationIndex = 0;
         active = true;
 
-
         doAnimation = (objectType != BARREL && objectType != BOX);
     }
 

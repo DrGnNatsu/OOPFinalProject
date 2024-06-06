@@ -11,7 +11,7 @@ import static Utilization.ConstantVariables.ObjectConstants.*;
 public class Container extends Object{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
-
+    private boolean isHit = false;
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Container(int x, int y, int objectType) {
@@ -61,5 +61,15 @@ public class Container extends Object{
         }
 
         return containers;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Getters and Setters
+    public boolean isHit() {
+        return isHit;
+    }
+
+    public void setHit(boolean hit) {
+        isHit = hit;
     }
 }

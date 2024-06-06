@@ -31,7 +31,7 @@ public class ConstantVariables {
         public static int getSpriteAmount(int objectType) {
             return switch (objectType) {
                 case RED_POTION, BLUE_POTION -> 7;
-                case BARREL, BOX ->81;
+                case BARREL, BOX ->8;
                 default -> 1;
             };
         }

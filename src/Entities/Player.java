@@ -28,7 +28,6 @@ public class Player extends Entity{
     private boolean playerMoving = false;
     private boolean attack = false;
 
-
     //Define level data
     private int[][] levelData;
 
@@ -67,7 +66,8 @@ public class Player extends Entity{
         this.playing = playing;
         //Set the max health
         this.maxHealth = 100;
-        this.currentHealth = maxHealth;
+        //this.currentHealth = maxHealth;
+        this.currentHealth = 20;
         //Set the walk speed
         this.walkSpeed = 1f;
         //Import the image with the right file sprite.
@@ -92,6 +92,8 @@ public class Player extends Entity{
 
         setAnimation();
         updatePosition();
+        if(playerMoving) checkPotionTouched();
+
         if (attack) checkAttack();
         updateAnimation();
         updateAttackBox();
@@ -231,11 +233,23 @@ public class Player extends Entity{
         currentHealth += change;
 
         if (currentHealth >= maxHealth) currentHealth = maxHealth;
+
         if (currentHealth <= 0) {
             currentHealth = 0;
             //gameOver();
         }
 
+    }
+
+    //Change power
+    public void changePower(int change){
+//        currentPower += change;
+//        if (currentPower >= maxPower) currentPower = maxPower;
+    }
+
+    //Check potion touched
+    private void checkPotionTouched() {
+        playing.checkPotionTouched(this.hitbox);
     }
 
     //Check attack
@@ -244,11 +258,12 @@ public class Player extends Entity{
         attackChecked = true;
         //Check if the attack hits the enemy
         playing.checkEnemyHit(this.attackBox);
+        playing.checkObjectHit(this.attackBox);
     }
 
     //Create the attack box
     private void createAttackBox(){
-        this.attackBox = new Rectangle2D.Float(x, y, 20 * Game.PLAYER_SCALE, 22 * Game.PLAYER_SCALE  );
+        this.attackBox = new Rectangle2D.Float(x, y, 20 * Game.PLAYER_SCALE, 22 * Game.PLAYER_SCALE);
     }
 
     //Update attack box

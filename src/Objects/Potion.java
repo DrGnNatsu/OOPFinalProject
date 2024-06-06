@@ -10,6 +10,8 @@ import static Utilization.ConstantVariables.EnemyConstant.CRABBY_HEIGHT_DEFAULT;
 public class Potion extends Object{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
+    private float hoverOffset;
+    private int maxHoverOffset, hoverDirection = 1;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -19,12 +21,28 @@ public class Potion extends Object{
         createHitbox(7, 14);
         this.xDrawOffset = (int) (3 * Game.TILE_SCALE);
         this.yDrawOffset = (int) (2 * Game.TILE_SCALE);
+        maxHoverOffset = (int) (Game.TILE_SCALE * 10);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update
     public void update(){
         super.updateAnimationTick();
+        updateHover();
+    }
+
+    //Update hover
+    private void updateHover(){
+        hoverOffset += 0.05f * Game.TILE_SCALE * hoverDirection;
+        if (hoverOffset >= maxHoverOffset || hoverOffset <= 0){
+            hoverDirection *= -1;
+        }
+
+        if (hoverOffset < 0){
+            hoverDirection = 1;
+        }
+
+        hitbox.y = y + hoverOffset;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -45,5 +63,9 @@ public class Potion extends Object{
         return potions;
 
     }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Getters and Setters
+
 
 }

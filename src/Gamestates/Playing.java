@@ -202,6 +202,7 @@ public class Playing extends State implements StateMethod{
         paused = false;
         player.resetAll();
         enemyManager.resetAllEnemies();
+        objectManager.resetAllObjects();
         initializeClasses();
     }
 
@@ -209,6 +210,16 @@ public class Playing extends State implements StateMethod{
     //Check enemy hit
     public void checkEnemyHit(Rectangle2D.Float attackBox){
         enemyManager.checkEnemyHit(attackBox);
+    }
+
+    //Check potion touched
+    public void checkPotionTouched(Rectangle2D.Float hitbox){
+        objectManager.checkPotionTouched(hitbox);
+    }
+
+    //Check object hit
+    public void checkObjectHit(Rectangle2D.Float attackBox){
+        objectManager.checkObjectHit(attackBox);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -385,6 +396,10 @@ public class Playing extends State implements StateMethod{
 
     public void setObjectManager(ObjectManager objectManager) {
         this.objectManager = objectManager;
+    }
+
+    public LevelManager getLevelManager() {
+        return levelManager;
     }
 
 }

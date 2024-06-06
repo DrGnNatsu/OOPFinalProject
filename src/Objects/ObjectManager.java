@@ -4,6 +4,7 @@ import Gamestates.Playing;
 import Utilization.LoadSaveFile;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -24,21 +25,75 @@ public class ObjectManager {
         this.playing = playing;
         loadImages();
 
-        potionList.add(new Potion(100, 100, RED_POTION));
-        potionList.add(new Potion(200, 100, BLUE_POTION));
+    }
 
-        containerList.add(new Container(300, 100, BARREL));
-        containerList.add(new Container(400, 100, BOX));
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Check object touched
+    public void checkPotionTouched(Rectangle2D.Float hitbox){
+        for (Potion potions: potionList){
+            if (potions.isActive() && hitbox.intersects(potions.getHitbox())){
+                potions.setActive(false);
+                applyEffect(potions);
+                break;
+            }
+
+        }
+
+    }
+
+    //Apply effect to player
+    public void applyEffect(Potion potion){
+        switch (potion.getObjectType()){
+            case RED_POTION -> playing.getPlayer().changeHealth(RED_POTION_VALUE);
+            case BLUE_POTION -> playing.getPlayer().changePower(BLUE_POTION_VALUE);
+        }
+
+    }
+
+    //Check object hit
+    public void checkObjectHit(Rectangle2D.Float attackBox){
+        int type;
+        for (Container container: containerList){
+            if (container.isActive() && container.getHitbox().intersects(attackBox) && !container.isHit()){
+                container.setDoAnimation(true);
+                container.setHit(true);
+                type = 0;
+                if(container.getObjectType() == BARREL){
+                    type = 1;
+                }
+                potionList.add(new Potion((int) (container.getHitbox().x + container.getHitbox().width / 2),
+                        (int) container.getHitbox().y , type));
+
+                return;
+
+            }
+
+        }
+
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Reset all objects
+    public void resetAllObjects(){
+        loadObject(playing.getLevelManager().getCurrentLevel());
+
+        for (Potion potion : potionList){
+            potion.reset();
+        }
+
+        for (Container container : containerList){
+            container.reset();
+        }
 
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load object
     public void loadObject(int[][] levelData){
-        potionList = Potion.loadPotion(levelData);
-        containerList = Container.loadContainer(levelData);
+        potionList = new ArrayList<>(Potion.loadPotion(levelData));
+        containerList = new ArrayList<>(Container.loadContainer(levelData));
     }
-    
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the images
     private void loadImages() {
