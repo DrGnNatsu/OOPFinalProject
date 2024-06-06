@@ -8,6 +8,16 @@ public class ConstantVariables {
     public static final int ANIMATION_SPEED = 28;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    public static class Projectiles {
+        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        public static final int CANNON_BALL_DEFAULT_WIDTH = 15;
+        public static final int CANNON_BALL_DEFAULT_HEIGHT = 15;
+        public static final int CANNON_BALL_WIDTH = CANNON_BALL_DEFAULT_WIDTH * 2;
+        public static final int CANNON_BALL_HEIGHT = CANNON_BALL_DEFAULT_HEIGHT * 2;
+        public static final float CANNON_BALL_SPEED = 1f;
+        public static final int CANNON_BALL_DAMAGE = 15;
+    }
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     public static class ObjectConstants{
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         public static final int RED_POTION = 0;

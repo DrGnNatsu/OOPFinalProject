@@ -119,4 +119,7 @@ public class Object {
         return objectType;
     }
 
+    public int getAnimationTick() {
+        return animationTick;
+    }
 }

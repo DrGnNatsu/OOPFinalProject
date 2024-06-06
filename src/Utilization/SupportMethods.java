@@ -1,6 +1,7 @@
 package Utilization;
 
 import Game.Game;
+import Objects.Projectile;
 
 import java.awt.geom.Rectangle2D;
 
@@ -128,9 +129,9 @@ public class SupportMethods {
         int secondXTile = (int) ((hitbox1.x) / Game.TILE_SIZE_SCALE);
         //Check if it is clear on the left or right
         if(firstXTile > secondXTile)
-            return isAllTileClear(levelData, secondXTile, firstXTile, tileY);
+            return isAllTileClear(levelData, firstXTile, secondXTile , tileY);
         else
-            return isAllTileClear(levelData, firstXTile, secondXTile, tileY);
+            return isAllTileClear(levelData, secondXTile, firstXTile, tileY);
 
     }
 
@@ -139,10 +140,22 @@ public class SupportMethods {
     public static boolean isAllTileClear(int[][] levelData, int xStart, int xEnd, int y){
         //Check if the tile is clear
         for(int i = 0; i < xEnd - xStart; i++){
-            if(isTileSolid(xStart + i, y, levelData)) return false;
+            if(isTileSolid(xStart + i, y, levelData) ||
+                    !isTileSolid(xStart + i, y + 1, levelData))
+                return false;
+
         }
 
         return true;
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Is projectile hit level
+    public static boolean isProjectileHitLevel(Projectile projectile, int[][] levelData){
+        //Check if the projectile hit the level
+        return isSolid(projectile.getHitbox().x + projectile.getHitbox().width / 2,
+                projectile.getHitbox().y + projectile.getHitbox().height / 2, levelData);
+
     }
 
 }
