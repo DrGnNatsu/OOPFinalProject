@@ -42,6 +42,11 @@ public class Object {
                     active = false;
                 }
 
+                if (objectType == CANNON_LEFT || objectType == CANNON_RIGHT){
+                    doAnimation = false;
+
+                }
+
             }
 
         }
@@ -54,18 +59,14 @@ public class Object {
         animationIndex = 0;
         active = true;
 
-        doAnimation = (objectType != BARREL && objectType != BOX);
+        doAnimation = (objectType != BARREL && objectType != BOX
+                && objectType != CANNON_LEFT && objectType != CANNON_RIGHT);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialize the hitbox
     protected void createHitbox(int width, int height){
-        hitbox = new Rectangle2D.Float(x, y, width * 5 / 2, height * 5 / 2);
-    }
-    //Draw hitbox
-    protected void drawHitbox(java.awt.Graphics g){
-        g.setColor(java.awt.Color.RED);
-        g.drawRect((int) hitbox.x, (int) hitbox.y, (int) hitbox.width, (int) hitbox.height);
+        hitbox = new Rectangle2D.Float(x, y, width * 2, height *  2);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

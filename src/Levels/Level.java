@@ -19,6 +19,7 @@ public class Level {
     private ArrayList<Potion> potions = new ArrayList<>();
     private ArrayList<Container> containers = new ArrayList<>();
     private ArrayList<Spike> spikes = new ArrayList<>();
+    private ArrayList<Cannon> cannons = new ArrayList<>();
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -28,6 +29,7 @@ public class Level {
         createPotions(levelData);
         createObjects(levelData);
         createSpikes(levelData);
+        createCannons(levelData);
         calculateOffset();
     }
 
@@ -57,6 +59,11 @@ public class Level {
     //Create spikes
     public void createSpikes(int[][] levelData){
         spikes = Spike.loadSpikes(levelData);
+    }
+
+    //Create cannons
+    public void createCannons(int[][] levelData){
+        cannons = Cannon.loadCannon(levelData);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

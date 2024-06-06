@@ -58,6 +58,9 @@ public class Player extends Entity{
     //Status
     private int healthWidth = healthBarWidth;
 
+    //Tile Y
+    private int tileY = 0;
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Player(float x, float y, int width , int height, Playing playing){
@@ -94,6 +97,7 @@ public class Player extends Entity{
         if(playerMoving) {
             checkPotionTouched();
             checkSpikesTouched();
+            tileY = (int) (hitbox.y / 36);
         }
 
         if (attack) checkAttack();
@@ -406,6 +410,14 @@ public class Player extends Entity{
 
     public boolean isJump() {
         return jump;
+    }
+
+    public int getTileY() {
+        return tileY;
+    }
+
+    public void setTileY(int tileY) {
+        this.tileY = tileY;
     }
 
 

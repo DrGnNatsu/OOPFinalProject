@@ -11,7 +11,7 @@ public class Spike extends Object{
     //Constructor
     public Spike(int x, int y, int objectType) {
         super(x, y, objectType);
-        this.doAnimation = true;
+
         createHitbox(32, 16);
         this.xDrawOffset = 0;
         this.yDrawOffset = 16;

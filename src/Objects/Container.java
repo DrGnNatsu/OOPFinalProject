@@ -53,7 +53,7 @@ public class Container extends Object{
             for (int j = 0; j < levelData[i].length; j++) {
                 if (levelData[i][j] == 5 || levelData[i][j] == 6) {
                     //Get potion
-                    containers.add(new Container(j * Game.TILE_SIZE_SCALE, i * Game.TILE_SIZE_SCALE - CRABBY_HEIGHT_DEFAULT - 1, levelData[i][j] - 3));
+                    containers.add(new Container(j * Game.TILE_SIZE_SCALE, i * Game.TILE_SIZE_SCALE - 35, levelData[i][j] - 3));
                 }
 
             }

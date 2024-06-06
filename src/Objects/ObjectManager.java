@@ -10,16 +10,19 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import static Utilization.ConstantVariables.ObjectConstants.*;
+import static Utilization.SupportMethods.*;
 
 public class ObjectManager {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
     private Playing playing;
     private BufferedImage[][] potionImages, containerImages;
+    private BufferedImage[] cannonImages = new BufferedImage[7];
     private BufferedImage spikeImages;
     private ArrayList<Potion> potionList = new ArrayList<>();
     private ArrayList<Container> containerList = new ArrayList<>();
     private ArrayList<Spike> spikeList = new ArrayList<>();
+    private ArrayList<Cannon> cannonList = new ArrayList<>();
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -104,6 +107,10 @@ public class ObjectManager {
             spike.reset();
         }
 
+        for (Cannon cannon : cannonList){
+            cannon.reset();
+        }
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -112,11 +119,13 @@ public class ObjectManager {
         potionList = new ArrayList<>(Potion.loadPotion(levelData));
         containerList = new ArrayList<>(Container.loadContainer(levelData));
         spikeList = Spike.loadSpikes(levelData);
+        cannonList = Cannon.loadCannon(levelData);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the images
     private void loadImages() {
+        //Load the potion image
         BufferedImage potionSprite = LoadSaveFile.importMap(LoadSaveFile.POTION);
         potionImages = new BufferedImage[2][7];
 
@@ -126,6 +135,7 @@ public class ObjectManager {
             }
         }
 
+        //Load the container image
         BufferedImage containerSprite = LoadSaveFile.importMap(LoadSaveFile.OBJECT);
         containerImages = new BufferedImage[2][8];
 
@@ -135,12 +145,19 @@ public class ObjectManager {
             }
         }
 
+        //Load the spike image
         BufferedImage spikeSprite = LoadSaveFile.importMap(LoadSaveFile.TRAP);
+
+        //Load the cannon image
+        BufferedImage cannonSprite = LoadSaveFile.importMap(LoadSaveFile.CANNON);
+        for(int i = 0; i < cannonImages.length; i++){
+            cannonImages[i] = cannonSprite.getSubimage(i * 40, 0, 40, 26);
+        }
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update
-    public void update(){
+    public void update(int[][] levelData, Player player){
         for (Potion potion : potionList){
             if(potion.isActive()) potion.update();
         }
@@ -148,6 +165,45 @@ public class ObjectManager {
         for (Container container : containerList){
             if(container.isActive()) container.update();
         }
+
+        updateCannon(levelData, player);
+    }
+
+    private void updateCannon(int[][] levelData, Player player){
+        /*
+        if the cannon is not animating.
+        TileY is same if the player in front of the cannon.
+        If the player is in front of the cannon, the cannon will shoot.
+         */
+        for (Cannon cannon : cannonList){
+            if (!cannon.doAnimation && isPlayerInRange(cannon, player)
+                    && cannon.getTileY() == player.getTileY() && isPlayerInFrontOfCannon(cannon, player)
+                    && canCannonSeePlayer(levelData, player.getHitbox(), cannon.getHitbox(), cannon.getTileY())){
+                System.out.println("Cannon shoot");
+                cannonShoot(cannon);
+            }
+
+            cannon.update();
+        }
+
+    }
+
+    //Cannon shoot
+    private void cannonShoot(Cannon cannon){
+        cannon.setDoAnimation(true);
+
+    }
+
+    //Check if the player is in front of the cannon
+    private boolean isPlayerInFrontOfCannon(Cannon cannon, Player player) {
+        return (cannon.getObjectType() == CANNON_LEFT && player.getHitbox().x < cannon.getHitbox().x)
+                || (cannon.getObjectType() == CANNON_RIGHT && player.getHitbox().x > cannon.getHitbox().x);
+    }
+
+    //Check if the player is in range of the cannon
+    private boolean isPlayerInRange(Cannon cannon, Player player) {
+        int absValue = (int) Math.abs(cannon.getHitbox().x - player.getHitbox().x);
+        return absValue <= 10 * 36;
     }
 
     //Draw
@@ -155,8 +211,25 @@ public class ObjectManager {
         drawPotions(g, xLevelOffset);
         drawContainers(g, xLevelOffset);
         drawSpikes(g, xLevelOffset);
+        drawCannons(g, xLevelOffset);
     }
 
+    private void drawCannons(Graphics g, int xLevelOffset){
+        int x, width ;
+        for (Cannon cannon : cannonList){
+            x = (int) cannon.getHitbox().x - xLevelOffset - cannon.getXDrawOffset();
+            width = CANNON_WIDTH;
+            if (cannon.getObjectType() == CANNON_RIGHT){
+                x += width;
+                width *= -1;
+            }
+
+            g.drawImage(cannonImages[cannon.getAnimationIndex()],
+                    x, (int) cannon.getHitbox().y - cannon.getYDrawOffset(),
+                    CANNON_WIDTH, CANNON_HEIGHT, null);
+        }
+
+    }
     private void drawSpikes(Graphics g, int xLevelOffset){
         for (Spike spike : spikeList){
             g.drawImage(spikeImages,

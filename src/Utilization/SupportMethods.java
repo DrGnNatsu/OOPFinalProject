@@ -90,14 +90,17 @@ public class SupportMethods {
     //Walkable tile
     public static boolean isAllWalkableTile(int[][] levelData, int xStart, int xEnd, int y){
         //Check if the tile is walkable
-        for(int i = 0; i < xEnd - xStart; i++){
-            if(isTileSolid(xStart + i, y, levelData)) return false;
+        if (y < 0 || y >= levelData.length) return false;
+        if (isAllTileClear(levelData, xStart, xEnd, y))
+            for(int i = 0; i < xEnd - xStart; i++){
+                if(!isTileSolid(xStart + i, y, levelData)) return false;
 
-            if(isTileSolid(xStart + i, y + 1, levelData)) return false;
+                if(!isTileSolid(xStart + i, y + 1, levelData)) return false;
 
-        }
+            }
 
         return true;
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -113,6 +116,33 @@ public class SupportMethods {
         else
             return isAllWalkableTile(levelData, firstXTile, secondXTile, yTile);
 
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Check cannon can see player
+    public static boolean canCannonSeePlayer(int[][] levelData, Rectangle2D.Float hitbox,
+                                             Rectangle2D.Float hitbox1, int tileY) {
+        //Check if the cannon can see the player
+
+        int firstXTile = (int) (hitbox.x / Game.TILE_SIZE_SCALE);
+        int secondXTile = (int) ((hitbox1.x) / Game.TILE_SIZE_SCALE);
+        //Check if it is clear on the left or right
+        if(firstXTile > secondXTile)
+            return isAllTileClear(levelData, secondXTile, firstXTile, tileY);
+        else
+            return isAllTileClear(levelData, firstXTile, secondXTile, tileY);
+
+    }
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Is all tile clear
+    public static boolean isAllTileClear(int[][] levelData, int xStart, int xEnd, int y){
+        //Check if the tile is clear
+        for(int i = 0; i < xEnd - xStart; i++){
+            if(isTileSolid(xStart + i, y, levelData)) return false;
+        }
+
+        return true;
     }
 
 }

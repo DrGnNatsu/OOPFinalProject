@@ -15,6 +15,8 @@ public class ConstantVariables {
         public static final int BARREL = 2;
         public static final int BOX = 3;
         public static final int SPIKE = 4;
+        public static final int CANNON_LEFT = 5;
+        public static final int CANNON_RIGHT = 6;
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         public static final int RED_POTION_VALUE = 15;
         public static final int BLUE_POTION_VALUE = 10;
@@ -33,11 +35,17 @@ public class ConstantVariables {
         public static final int SPIKE_HEIGHT_DEFAULT = 32;
         public static final int SPIKE_WIDTH = (int) (SPIKE_WIDTH_DEFAULT * 0.8);
         public static final int SPIKE_HEIGHT = (int) (SPIKE_HEIGHT_DEFAULT * 0.8);
+        //Width and height of cannon
+        public static final int CANNON_WIDTH_DEFAULT = 40;
+        public static final int CANNON_HEIGHT_DEFAULT = 26;
+        public static final int CANNON_WIDTH = CANNON_WIDTH_DEFAULT * 5 / 2;
+        public static final int CANNON_HEIGHT = CANNON_HEIGHT_DEFAULT * 5 / 2;
         //Get sprite amount
         public static int getSpriteAmount(int objectType) {
             return switch (objectType) {
-                case RED_POTION, BLUE_POTION -> 7;
+                case RED_POTION, BLUE_POTION, CANNON_LEFT, CANNON_RIGHT -> 7;
                 case BARREL, BOX ->8;
+                case SPIKE -> 1;
                 default -> 1;
             };
         }
