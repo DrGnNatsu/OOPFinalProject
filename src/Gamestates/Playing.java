@@ -77,9 +77,13 @@ public class Playing extends State implements StateMethod{
         switch (levelManager.getLevelIndex()){
             case 0:
                 player.getLevelData(levelManager.getLevel1());
+                enemyManager = new  EnemyManager(this, levelManager.getLevel1());
+                objectManager.loadObject(levelManager.getLevel1());
                 break;
             case 1:
                 player.getLevelData(levelManager.getLevel2());
+                enemyManager = new  EnemyManager(this, levelManager.getLevel2());
+                objectManager.loadObject(levelManager.getLevel2());
                 break;
         }
 
@@ -107,10 +111,9 @@ public class Playing extends State implements StateMethod{
     private void initializeClasses(){
         levelManager = new LevelManager(game);
         objectManager = new ObjectManager(this);
-        switchEnemyManager();
         player = new Player(100, (Game.TILE_HEIGHT - 10 ) * Game.TILE_SIZE_SCALE,
                 (int) (56 * Game.PLAYER_SCALE) , (int) (56 * Game.PLAYER_SCALE), this);
-        switchLevel();
+        switchMethod();
         DrawLevel = new DrawLevel(game, levelManager);
         pauseOverlay = new PauseOverlay(this);
         gameOverOverlay = new GameOver_OverLay(this);
@@ -119,28 +122,22 @@ public class Playing extends State implements StateMethod{
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Switch the level
-    public void switchLevel(){
+    public void switchMethod(){
         switch (levelManager.getLevelIndex()){
             case 0:
                 player.getLevelData(levelManager.getLevel1());
+                enemyManager = new  EnemyManager(this, levelManager.getLevel1());
+                objectManager.loadObject(levelManager.getLevel1());
                 break;
             case 1:
                 player.getLevelData(levelManager.getLevel2());
-                break;
-        }
-    }
-    //Switch enemyManager
-    public void switchEnemyManager(){
-        switch (levelManager.getLevelIndex()){
-            case 0:
-                enemyManager = new  EnemyManager(this, levelManager.getLevel1());
-                break;
-            case 1:
                 enemyManager = new  EnemyManager(this, levelManager.getLevel2());
+                objectManager.loadObject(levelManager.getLevel2());
                 break;
         }
     }
 
+    //Update switch
     public void switchEnemyManagerUpdate(){
         switch (levelManager.getLevelIndex()){
             case 0:
@@ -389,4 +386,5 @@ public class Playing extends State implements StateMethod{
     public void setObjectManager(ObjectManager objectManager) {
         this.objectManager = objectManager;
     }
+
 }

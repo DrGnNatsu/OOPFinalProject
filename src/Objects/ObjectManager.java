@@ -33,6 +33,13 @@ public class ObjectManager {
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //Load object
+    public void loadObject(int[][] levelData){
+        potionList = Potion.loadPotion(levelData);
+        containerList = Container.loadContainer(levelData);
+    }
+    
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Load the images
     private void loadImages() {
         BufferedImage potionSprite = LoadSaveFile.importMap(LoadSaveFile.POTION);
