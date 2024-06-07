@@ -28,6 +28,7 @@ public class Player extends Entity{
     private boolean playerMoving = false;
     private boolean attack = false;
 
+
     //Define level data
     private int[][] levelData;
 
@@ -88,7 +89,18 @@ public class Player extends Entity{
     public void update(){
         updateHealthBar();
         if (currentHealth <= 0) {
-            playing.setGameOver(true);
+            if (state != DEATH) {
+                state = DEATH;
+                resetAnimationTick();
+                playing.setPlayerDeath(true);
+            }
+
+            if((animationIndex == getSpriteAmount(DEATH) - 1) && animationTick >= ANIMATION_SPEED - 1){
+                playing.setGameOver(true);
+            } else {
+                updateAnimation();
+            }
+
             return;
         }
 

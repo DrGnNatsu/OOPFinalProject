@@ -35,6 +35,7 @@ public class Playing extends State implements StateMethod{
     //Create the game over
     private GameOver_OverLay gameOverOverlay;
     private boolean gameOver = false;
+    private boolean playerDeath = false;
     //Create the level completed
     private LevelCompleteOverlay levelCompleteOverlay;
     private boolean levelCompleted = false;
@@ -200,6 +201,7 @@ public class Playing extends State implements StateMethod{
     public void restartAll(){
         gameOver = false;
         paused = false;
+        playerDeath = false;
         player.resetAll();
         enemyManager.resetAllEnemies();
         objectManager.resetAllObjects();
@@ -233,19 +235,29 @@ public class Playing extends State implements StateMethod{
     public void update() {
         if (paused){
             pauseOverlay.update();
+            return;
         }
 
         if(levelCompleted){
             levelCompleteOverlay.update();
+            return;
         }
 
-        if(!gameOver) {
-            levelManager.update();
-            objectManager.update(levelManager.getCurrentLevel(), player);
-            switchEnemyManagerUpdate();
-            player.update();
-            checkCloseToBorder();
+        if (gameOver){
+            //gameOverOverlay.update();
+            return;
         }
+
+        if (playerDeath){
+            player.update();
+            return;
+        }
+
+        levelManager.update();
+        objectManager.update(levelManager.getCurrentLevel(), player);
+        switchEnemyManagerUpdate();
+        player.update();
+        checkCloseToBorder();
 
     }
 
@@ -290,6 +302,8 @@ public class Playing extends State implements StateMethod{
                 pauseOverlay.mousePressed(e);
             else if (levelCompleted)
                 levelCompleteOverlay.mousePressed(e);
+        } else {
+            gameOverOverlay.mousePressed(e);
         }
 
     }
@@ -302,6 +316,9 @@ public class Playing extends State implements StateMethod{
             else if (levelCompleted)
                 levelCompleteOverlay.mouseReleased(e);
         }
+        else {
+            gameOverOverlay.mouseReleased(e);
+        }
 
     }
 
@@ -312,6 +329,9 @@ public class Playing extends State implements StateMethod{
                 pauseOverlay.mouseMoved(e);
             else if (levelCompleted)
                 levelCompleteOverlay.mouseMoved(e);
+        }
+        else {
+            gameOverOverlay.mouseMoved(e);
         }
 
     }
@@ -407,5 +427,11 @@ public class Playing extends State implements StateMethod{
         return levelManager;
     }
 
+    public boolean isPlayerDeath() {
+        return playerDeath;
+    }
 
+    public void setPlayerDeath(boolean playerDeath) {
+        this.playerDeath = playerDeath;
+    }
 }

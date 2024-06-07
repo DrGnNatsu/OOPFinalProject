@@ -70,13 +70,17 @@ public class LevelCompleteOverlay {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Mouse
     public void mouseMoved(MouseEvent e){
-        menuButton.setMouseOver(isIn(menuButton, e));
-        nextButton.setMouseOver(isIn(nextButton, e));
+        menuButton.setMouseOver(false);
+        nextButton.setMouseOver(false);
+        if (isIn(menuButton, e)) menuButton.setMouseOver(true);
+        if (isIn(nextButton, e)) nextButton.setMouseOver(true);
+
     }
 
     public void mousePressed(MouseEvent e){
-        menuButton.setMousePressed(isIn(menuButton, e));
-        nextButton.setMousePressed(isIn(nextButton, e));
+        if (isIn(menuButton, e)) menuButton.setMousePressed(true);
+        if (isIn(nextButton, e)) nextButton.setMousePressed(true);
+
     }
 
     public void mouseReleased(MouseEvent e){

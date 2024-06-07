@@ -124,7 +124,7 @@ public class ConstantVariables {
         public static final int PLAYER_JUMP_ANIMATION = 8;
         public static final int PLAYER_LAND_ANIMATION = 8;
         public static final int PLAYER_DAMAGED_ANIMATION = 4;
-        public static final int PLAYER_DEATH_ANIMATION = 12;
+        public static final int PLAYER_DEATH_ANIMATION = 8; // 12
         public static final int PLAYER_SPELL_CAST_ANIMATION = 8;
         public static final int PLAYER_CROUCH_ANIMATION = 3;
         public static final int PLAYER_DEFENSE_ANIMATION = 3;
