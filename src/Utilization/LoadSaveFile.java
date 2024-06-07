@@ -42,6 +42,9 @@ public class LoadSaveFile {
     //Path for death menu
     public static final String DEATH_MENU = "/Texture/Entities/BorrowKaarin/Death.png";
 
+    //Path for options menu
+    public static final String OPTIONS_MENU = "/Texture/Entities/BorrowKaarin/OptionsBackground.png";
+
     //Path for sound button
     public static final String SOUND_BUTTON = "/Texture/Entities/BorrowKaarin/sound_button.png";
 

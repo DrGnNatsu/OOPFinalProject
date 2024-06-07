@@ -244,7 +244,7 @@ public class Playing extends State implements StateMethod{
         }
 
         if (gameOver){
-            //gameOverOverlay.update();
+            gameOverOverlay.update();
             return;
         }
 

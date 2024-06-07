@@ -27,6 +27,7 @@ public class ButtonURM extends ButtonPause{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update
     public void update(){
+        index = 0;
         if (mouseOver) index = 1;
         if (mousePressed) index = 2;
 

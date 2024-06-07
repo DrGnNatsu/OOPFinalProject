@@ -1,6 +1,8 @@
 package Game;
 
+import GUI.AudioOptions;
 import Gamestates.Gamestate;
+import Gamestates.Options;
 import Gamestates.Playing;
 import Gamestates.Menu;
 
@@ -22,6 +24,8 @@ public class Game {
     //Create game states
     private Playing playing;
     private Menu menu;
+    private AudioOptions audioOptions;
+    private Options options;
 
     //Create tiles
     public final static int TILE_SIZE = 24;
@@ -45,9 +49,10 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialize the classes
     private void initializeClasses(){
+        audioOptions = new AudioOptions();
         playing = new Playing(this);
         menu = new Menu(this);
-
+        options = new Options(this);
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -60,7 +65,7 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Update the game panel
     public void updateGamePanel(){
-        //Switch gamestate
+        //Switch games tate
         switch(Gamestate.currentState){
             case MENU:
                 menu.update();
@@ -69,9 +74,9 @@ public class Game {
                 playing.update();
                 break;
             case OPTIONS:
+                options.update();
                 break;
-            case QUIT:
-                break;
+
             default:
                 System.exit(0);
                 break;
@@ -89,6 +94,9 @@ public class Game {
                 break;
             case PLAYING:
                 playing.draw(g);
+                break;
+            case OPTIONS:
+                options.draw(g);
                 break;
             default:
                 break;
@@ -169,6 +177,18 @@ public class Game {
 
     public void setPlaying(Playing playing) {
         this.playing = playing;
+    }
+
+    public AudioOptions getAudioOptions() {
+        return audioOptions;
+    }
+
+    public Options getOptions() {
+        return options;
+    }
+
+    public void setOptions(Options options) {
+        this.options = options;
     }
 
 }

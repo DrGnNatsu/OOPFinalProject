@@ -36,8 +36,8 @@ public class Menu extends State implements StateMethod {
     private void loadButton() {
         //load the buttons and set position
         button[0] = new ButtonMenu(Game.GAME_WIDTH / 2 - BUTTON_WIDTH / 2, Game.GAME_HEIGHT / 2 - BUTTON_HEIGHT * 2 - 75, 0, Gamestate.PLAYING);
-        button[1] = new ButtonMenu(Game.GAME_WIDTH / 2 - BUTTON_WIDTH / 2, Game.GAME_HEIGHT / 2 - BUTTON_HEIGHT / 2 - 75, 1, Gamestate.QUIT);
-        button[2] = new ButtonMenu(Game.GAME_WIDTH / 2 - BUTTON_WIDTH / 2, Game.GAME_HEIGHT / 2 + BUTTON_HEIGHT - 75, 2, Gamestate.OPTIONS);
+        button[1] = new ButtonMenu(Game.GAME_WIDTH / 2 - BUTTON_WIDTH / 2, Game.GAME_HEIGHT / 2 - BUTTON_HEIGHT / 2 - 75, 2, Gamestate.QUIT);
+        button[2] = new ButtonMenu(Game.GAME_WIDTH / 2 - BUTTON_WIDTH / 2, Game.GAME_HEIGHT / 2 + BUTTON_HEIGHT - 75, 1, Gamestate.OPTIONS);
 
     }
 
@@ -123,10 +123,14 @@ public class Menu extends State implements StateMethod {
             if(isIn(e, buttonMenu)){
                 if(buttonMenu.isMousePressed()){
                     buttonMenu.applyGameStates();
+
                 }
                 break;
+
             }
+
         }
+
         resetButton();
     }
 
@@ -134,8 +138,8 @@ public class Menu extends State implements StateMethod {
     public void mouseMoved(MouseEvent e) {
         for (ButtonMenu buttonMenu : button) {
             buttonMenu.setMouseOver(isIn(e, buttonMenu));
-
         }
+
     }
 
     @Override

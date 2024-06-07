@@ -35,15 +35,6 @@ public class ButtonMenu {
         initializeBounds();
     }
 
-    public ButtonMenu(int xPosition, int yPosition, Gamestate currentState) {
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
-        this.currentState = currentState;
-        loadImages();
-        initializeBounds();
-
-    }
-
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialize the bounds
     private void initializeBounds() {
