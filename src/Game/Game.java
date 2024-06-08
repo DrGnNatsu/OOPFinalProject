@@ -190,15 +190,8 @@ public class Game {
         return options;
     }
 
-    public void setOptions(Options options) {
-        this.options = options;
-    }
-
     public AudioPlayer getAudioPlayer() {
         return audioPlayer;
     }
 
-    public void setAudioPlayer(AudioPlayer audioPlayer) {
-        this.audioPlayer = audioPlayer;
-    }
 }

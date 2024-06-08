@@ -106,9 +106,6 @@ public class ButtonMenu {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Getters and Setters
-    public boolean isMouseOver() {
-        return mouseOver;
-    }
 
     public void setMouseOver(boolean mouseOver) {
         this.mouseOver = mouseOver;
@@ -126,9 +123,6 @@ public class ButtonMenu {
         return bounds;
     }
 
-    public void setBounds(Rectangle bounds) {
-        this.bounds = bounds;
-    }
 
     public Gamestate getCurrentState() {
         return currentState;

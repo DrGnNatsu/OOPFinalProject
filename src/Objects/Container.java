@@ -4,7 +4,6 @@ import Game.Game;
 
 import java.util.ArrayList;
 
-import static Utilization.ConstantVariables.EnemyConstant.CRABBY_HEIGHT_DEFAULT;
 import static Utilization.ConstantVariables.ObjectConstants.*;
 
 

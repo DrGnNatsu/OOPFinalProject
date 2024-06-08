@@ -5,7 +5,6 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
 import Game.*;
-import Levels.Level;
 
 import static Utilization.ConstantVariables.EnemyConstant.*;
 import static Utilization.ConstantVariables.PlayerConstant.*;
@@ -108,7 +107,7 @@ public class Crabby extends Enemy{
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //draw
+    //draw - debug
     public void drawAttackBox(Graphics g, int xLevelOffset){
         g.setColor(Color.RED);
         g.drawRect((int) (attackBox.x - xLevelOffset + 5), (int) attackBox.y +15, (int) attackBox.width, (int) attackBox.height);

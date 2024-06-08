@@ -1,6 +1,5 @@
 package Objects;
 
-import Entities.Crabby;
 import Game.Game;
 
 import java.util.ArrayList;

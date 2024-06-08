@@ -32,12 +32,6 @@ public class Projectile {
 //        }
     }
 
-    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Set position
-    public void setPosition(int x, int y){
-        hitbox.x = x;
-        hitbox.y = y;
-    }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Getters and Setters

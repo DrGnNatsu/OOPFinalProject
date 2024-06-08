@@ -192,39 +192,12 @@ public abstract class Enemy extends Entity{
         this.state = state;
     }
 
-    public int getEnemyType() {
-        return enemyType;
-    }
-
-    public void setEnemyType(int enemyType) {
-        this.enemyType = enemyType;
-    }
-
     public int getAnimationIndex() {
         return animationIndex;
-    }
-
-    public void setAnimationIndex(int animationIndex) {
-        this.animationIndex = animationIndex;
-    }
-
-    public int getAnimationTick() {
-        return animationTick;
-    }
-
-    public void setAnimationTick(int animationTick) {
-        this.animationTick = animationTick;
-    }
-
-    public int getANIMATION_SPEED() {
-        return ANIMATION_SPEED;
     }
 
     public boolean isActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 }

@@ -75,16 +75,8 @@ public class Object {
         return xDrawOffset;
     }
 
-    public void setXDrawOffset(int xDrawOffset) {
-        this.xDrawOffset = xDrawOffset;
-    }
-
     public int getYDrawOffset() {
         return yDrawOffset;
-    }
-
-    public void setYDrawOffset(int yDrawOffset) {
-        this.yDrawOffset = yDrawOffset;
     }
 
     public boolean isActive() {
@@ -101,10 +93,6 @@ public class Object {
 
     public void setHitbox(Rectangle2D.Float hitbox) {
         this.hitbox = hitbox;
-    }
-
-    public boolean isDoAnimation() {
-        return doAnimation;
     }
 
     public void setDoAnimation(boolean doAnimation) {

@@ -1,7 +1,7 @@
 package Objects;
 
 import java.util.ArrayList;
-import Game.Game;
+
 
 public class Spike extends Object{
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

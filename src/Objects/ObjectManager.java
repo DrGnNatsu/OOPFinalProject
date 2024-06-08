@@ -2,7 +2,7 @@ package Objects;
 
 import Entities.Player;
 import Gamestates.Playing;
-import Utilization.ConstantVariables;
+
 import Utilization.LoadSaveFile;
 
 import java.awt.*;

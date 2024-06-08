@@ -65,10 +65,6 @@ public class ButtonSound extends ButtonPause {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Getters and Setters
-    public boolean isMouseOver() {
-        return mouseOver;
-    }
-
     public void setMouseOver(boolean mouseOver) {
         this.mouseOver = mouseOver;
     }

@@ -407,10 +407,6 @@ public class Playing extends State implements StateMethod{
         return enemyManager;
     }
 
-    public void setEnemyManager(EnemyManager enemyManager) {
-        this.enemyManager = enemyManager;
-    }
-
     public void setMaxLevelOffsetX (int maxLevelOffsetX){
         this.maxLevelOffsetX = maxLevelOffsetX;
     }
@@ -425,16 +421,9 @@ public class Playing extends State implements StateMethod{
         return objectManager;
     }
 
-    public void setObjectManager(ObjectManager objectManager) {
-        this.objectManager = objectManager;
-    }
 
     public LevelManager getLevelManager() {
         return levelManager;
-    }
-
-    public boolean isPlayerDeath() {
-        return playerDeath;
     }
 
     public void setPlayerDeath(boolean playerDeath) {

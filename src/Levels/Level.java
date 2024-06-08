@@ -68,21 +68,12 @@ public class Level {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Getters and Setters
-
     public int[][] getLevelData() {
         return levelData;
     }
 
     public void setLevelData(int[][] levelData) {
         this.levelData = levelData;
-    }
-
-    public int getMaxLevelOffsetX() {
-        return maxLevelOffsetX;
-    }
-
-    public ArrayList<Crabby> getCrabs() {
-        return crabs;
     }
 
 }

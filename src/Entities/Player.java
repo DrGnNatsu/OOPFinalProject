@@ -511,20 +511,8 @@ public class Player extends Entity{
         this.right = right;
     }
 
-    public boolean isLeft() {
-        return left;
-    }
-
     public void setLeft(boolean left) {
         this.left = left;
-    }
-
-    public boolean isPlayerMoving() {
-        return playerMoving;
-    }
-
-    public void setPlayerMoving(boolean playerMoving) {
-        this.playerMoving = playerMoving;
     }
 
     public void setAttack(boolean attack) {
@@ -539,16 +527,8 @@ public class Player extends Entity{
         this.jump = jump;
     }
 
-    public boolean isJump() {
-        return jump;
-    }
-
     public int getTileY() {
         return tileY;
     }
 
-    public void setTileY(int tileY) {
-        this.tileY = tileY;
-    }
-    
 }

@@ -98,10 +98,6 @@ public class ButtonVolume extends ButtonPause{
         this.mousePressed = mousePressed;
     }
 
-    public boolean isMouseOver() {
-        return mouseOver;
-    }
-
     public void setMouseOver(boolean mouseOver) {
         this.mouseOver = mouseOver;
     }

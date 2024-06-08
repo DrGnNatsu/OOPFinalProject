@@ -1,13 +1,8 @@
 package Utilization;
 
-import Entities.Crabby;
-import Levels.LevelManager;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
-import java.util.ArrayList;
-
 
 public class LoadSaveFile {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -93,26 +88,5 @@ public class LoadSaveFile {
         return image;
 
     }
-
-
-    //=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    //Get level data
-    //hien tai khong sd vi sai
-//    public static int[][] getLeveData(){
-//        //Create the level data
-//        int[][] levelData = new int[TILE_HEIGHT][TILE_WIDTH];
-//        BufferedImage image = importMap(LEVEL_ONE);
-//        //Define color
-//        int value = 0;
-//        for (int i = 0; i < image.getHeight(); i ++){
-//            for (int j = 0; j < image.getWidth(); j++){
-//                Color color = new Color(image.getRGB(j, i));
-//                value = color.getRed();
-//                if (value >= 315) value = 0;
-//                levelData[i][j] = value;
-//            }
-//        }
-//        return levelData;
-//    }
 
 }
