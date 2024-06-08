@@ -29,7 +29,6 @@ public class Player extends Entity{
     private boolean playerMoving = false;
     private boolean attack = false;
 
-
     //Define level data
     private int[][] levelData;
 
@@ -66,7 +65,7 @@ public class Player extends Entity{
     private final int powerBarX = 73;
     private final int powerBarY = 63;
     private int powerWidth = powerBarWidth;
-    private final int powerMaxValue = 200;
+    private final int powerMaxValue = 1000;
     private int powerValue = powerMaxValue;
 
     //Tile Y
@@ -134,7 +133,7 @@ public class Player extends Entity{
 
             if(powerAttackActive){
                 powerAttackTick++;
-                if (powerAttackTick >= 35) {
+                if (powerAttackTick >= 100) {
                     powerAttackActive = false;
                     powerAttackTick = 0;
                 }
@@ -348,12 +347,12 @@ public class Player extends Entity{
     }
 
     //Power attack
-public void powerAttack(){
+    public void powerAttack(){
         if (powerAttackActive) return;
 
-        if (powerValue >= 150) {
+        if (powerValue >= 990) {
             powerAttackActive = true;
-            changePower(-150);
+            changePower(-990);
 
         }
 
