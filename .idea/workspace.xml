@@ -7,17 +7,7 @@
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/AudioOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AudioOptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ButtonMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ButtonMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ButtonVolume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ButtonVolume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/GameOver_OverLay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/GameOver_OverLay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/LevelCompleteOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LevelCompleteOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gamestates/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Gamestate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gamestates/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/State.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +182,7 @@
       <workItem from="1717578976801" duration="4702000" />
       <workItem from="1717665294441" duration="21901000" />
       <workItem from="1717729101051" duration="17381000" />
-      <workItem from="1717810148747" duration="13752000" />
+      <workItem from="1717810148747" duration="16065000" />
     </task>
     <servers />
   </component>
@@ -229,6 +219,11 @@
           <url>file://$PROJECT_DIR$/src/Levels/LevelManager.java</url>
           <line>78</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Entities/Player.java</url>
+          <line>242</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

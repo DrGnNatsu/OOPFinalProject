@@ -294,6 +294,9 @@ public class Playing extends State implements StateMethod{
         if(!gameOver && e.getButton() == MouseEvent.BUTTON1)
             player.setAttack(true);
 
+        //Right click
+        if(!gameOver && e.getButton() == MouseEvent.BUTTON3)
+            player.powerAttack();
     }
 
     @Override
