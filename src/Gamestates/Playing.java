@@ -53,6 +53,7 @@ public class Playing extends State implements StateMethod{
     private Random random = new Random();
     int[] smallCloudPosition = new int[8];
 
+
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
     public Playing(Game game) {
@@ -413,6 +414,8 @@ public class Playing extends State implements StateMethod{
 
     public void setLevelCompleted(boolean levelCompleted) {
         this.levelCompleted = levelCompleted;
+        if (levelCompleted)
+            game.getAudioPlayer().playLevelCompleted();
     }
 
     public ObjectManager getObjectManager() {

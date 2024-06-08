@@ -2,7 +2,7 @@ package Gamestates;
 
 public enum Gamestate {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    //Games tates
+    //Games states
     PLAYING,
     MENU,
     OPTIONS,

@@ -20,6 +20,8 @@ public class ButtonVolume extends ButtonPause{
     //Position
     private int buttonX = 0;
     private int minX, maxX;
+    //
+    private float floatValue = 0f;
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
@@ -57,8 +59,14 @@ public class ButtonVolume extends ButtonPause{
         if (x < minX) x = minX;
         if (x > maxX) x = maxX;
         buttonX = x;
-
+        updateFloatValue();
         bounds.x = buttonX - VOLUME_WIDTH / 2;
+    }
+
+    private void updateFloatValue() {
+        float range = maxX - minX;
+        float value = buttonX - minX;
+        floatValue = value / range;
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -98,4 +106,7 @@ public class ButtonVolume extends ButtonPause{
         this.mouseOver = mouseOver;
     }
 
+    public float getFloatValue() {
+        return floatValue;
+    }
 }

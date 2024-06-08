@@ -104,11 +104,13 @@ public class GameOver_OverLay {
     public void mouseReleased(MouseEvent e){
         if (menuButton.isMousePressed() && isIn(menuButton, e)){
             playing.restartAll();
-            Gamestate.currentState = Gamestate.MENU;
+            playing.setGameState(Gamestate.MENU);
+
         }
 
         if (replayButton.isMousePressed() && isIn(replayButton, e)){
             playing.restartAll();
+            playing.getGame().getAudioPlayer().setLevelSong(playing.getLevelManager().getLevelIndex());
         }
 
         menuButton.resetBooleans();

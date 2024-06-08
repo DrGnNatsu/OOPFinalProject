@@ -14,6 +14,7 @@ import static Utilization.ConstantVariables.GUI.VolumeButton.VOLUME_HEIGHT;
 public class AudioOptions {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Variables
+    private Game game;
     //Variables for volume button
     private ButtonVolume volumeButton;
 
@@ -26,7 +27,8 @@ public class AudioOptions {
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Constructor
-    public AudioOptions() {
+    public AudioOptions(Game game) {
+        this.game = game;
         loadPosition();
         createVolumeButton();
         createSoundButton();
@@ -79,7 +81,14 @@ public class AudioOptions {
     //Mouse
     public void mouseDragged(MouseEvent e){
         if (volumeButton.isMousePressed()){
+            float valueBefore = volumeButton.getFloatValue();
             volumeButton.changeX(e.getX());
+            float valueAfter = volumeButton.getFloatValue();
+
+            if (valueBefore != valueAfter){
+                game.getAudioPlayer().setVolume(valueAfter);
+            }
+
         }
 
     }
@@ -106,11 +115,13 @@ public class AudioOptions {
         //If the musicButton was muted, it becomes unmuted and vice versa
         if (isIn(e, musicButton) && musicButton.isMousePressed()){
             musicButton.setMuted(!musicButton.isMuted());
+            game.getAudioPlayer().toggleSongMute();
         }
 
         //If the sfxButton was muted, it becomes unmuted and vice versa
         if (isIn(e, sfxButton) && sfxButton.isMousePressed()){
             sfxButton.setMuted(!sfxButton.isMuted());
+            game.getAudioPlayer().toggleEffectMute();
         }
 
         //Reset the booleans for the sound buttons

@@ -129,4 +129,8 @@ public class ButtonMenu {
     public void setBounds(Rectangle bounds) {
         this.bounds = bounds;
     }
+
+    public Gamestate getCurrentState() {
+        return currentState;
+    }
 }

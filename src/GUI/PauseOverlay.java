@@ -124,7 +124,7 @@ public class PauseOverlay {
 
         //If the menu button is pressed, the game goes to the main menu
         if (isIn(e, menuButton) && menuButton.isMousePressed()) {
-            Gamestate.currentState = Gamestate.MENU;
+            playing.setGameState(Gamestate.MENU);
             playing.unpauseGame();
         }
 

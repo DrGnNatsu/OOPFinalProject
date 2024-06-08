@@ -1,5 +1,6 @@
 package Game;
 
+import Audio.AudioPlayer;
 import GUI.AudioOptions;
 import Gamestates.Gamestate;
 import Gamestates.Options;
@@ -26,6 +27,7 @@ public class Game {
     private Menu menu;
     private AudioOptions audioOptions;
     private Options options;
+    private AudioPlayer audioPlayer;
 
     //Create tiles
     public final static int TILE_SIZE = 24;
@@ -49,7 +51,8 @@ public class Game {
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //Initialize the classes
     private void initializeClasses(){
-        audioOptions = new AudioOptions();
+        audioOptions = new AudioOptions(this);
+        audioPlayer = new AudioPlayer();
         playing = new Playing(this);
         menu = new Menu(this);
         options = new Options(this);
@@ -191,4 +194,11 @@ public class Game {
         this.options = options;
     }
 
+    public AudioPlayer getAudioPlayer() {
+        return audioPlayer;
+    }
+
+    public void setAudioPlayer(AudioPlayer audioPlayer) {
+        this.audioPlayer = audioPlayer;
+    }
 }
