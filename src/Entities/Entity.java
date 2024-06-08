@@ -61,4 +61,7 @@ public abstract class Entity {
         this.hitbox = hitbox;
     }
 
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
 }

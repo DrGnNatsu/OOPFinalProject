@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/EnemyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PauseOverlay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +184,7 @@
       <workItem from="1717578976801" duration="4702000" />
       <workItem from="1717665294441" duration="21901000" />
       <workItem from="1717729101051" duration="17381000" />
-      <workItem from="1717810148747" duration="16731000" />
+      <workItem from="1717810148747" duration="18059000" />
     </task>
     <servers />
   </component>
@@ -218,11 +221,6 @@
           <url>file://$PROJECT_DIR$/src/Levels/LevelManager.java</url>
           <line>78</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Entities/Player.java</url>
-          <line>241</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

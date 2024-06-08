@@ -224,13 +224,13 @@ public class Player extends Entity{
         float xSpeed = 0;
 
         //Move the player left and right
-        if (left) {
+        if (left && !right) {
             xSpeed -= walkSpeed;
             flipX = width;
             flipWidth = -1;
         }
 
-        if (right) {
+        if (right && !left) {
             xSpeed += walkSpeed;
             flipX = 0;
             flipWidth = 1;
@@ -238,7 +238,7 @@ public class Player extends Entity{
 
         //Check power attack
         if (powerAttackActive) {
-            if (!left && !right){
+            if ((!left && !right) || (left && right))  {
                 if (flipWidth == -1) xSpeed = -walkSpeed;
                 else xSpeed = walkSpeed;
             }
@@ -286,7 +286,7 @@ public class Player extends Entity{
     //Reset the inAir
     private void resetInAir(){
         inAir = false;
-        airSpeed = 0;
+        airSpeed = 0f;
     }
 
     //Jump method
@@ -387,11 +387,22 @@ public class Player extends Entity{
     //Create the attack box
     private void createAttackBox(){
         this.attackBox = new Rectangle2D.Float(x, y, 20 * Game.PLAYER_SCALE, 22 * Game.PLAYER_SCALE);
+        resetAttackBox();
     }
 
     //Update attack box
     private void updateAttackBox(){
         this.attackBox.y = hitbox.y + 6 * Game.TILE_SCALE;
+        //Make the hit box not in the wri=ong direction
+        if (left && right){
+            if (flipWidth == 1){
+                this.attackBox.x = hitbox.x + hitbox.width + 7 * Game.TILE_SCALE;
+            } else {
+                this.attackBox.x = hitbox.x - hitbox.width - 7 * Game.TILE_SCALE;
+            }
+
+        }
+
         if (right || (powerAttackActive && flipWidth == 1)) {
             this.attackBox.x = hitbox.x + hitbox.width + 7 * Game.TILE_SCALE;
         } else if (left || (powerAttackActive && flipWidth == -1)) {
@@ -420,6 +431,18 @@ public class Player extends Entity{
         hitbox.y = 0;
 
         if (!isEntityOnFloor(hitbox, levelData)) inAir = true;
+
+        resetAttackBox();
+
+    }
+
+    private void resetAttackBox(){
+        if (flipWidth == 1){
+            attackBox.x = hitbox.x + hitbox.width + 7 * Game.TILE_SCALE;
+        } else {
+            attackBox.x = hitbox.x - hitbox.width - 7 * Game.TILE_SCALE;
+        }
+
     }
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -512,10 +535,6 @@ public class Player extends Entity{
         return state;
     }
 
-    public void setstate(int state) {
-        this.state = state;
-    }
-
     public void setJump(boolean jump) {
         this.jump = jump;
     }
@@ -531,6 +550,5 @@ public class Player extends Entity{
     public void setTileY(int tileY) {
         this.tileY = tileY;
     }
-
-
+    
 }
