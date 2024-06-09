@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="575092ff-e58e-483a-8bba-666022b8570f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Entities/Crabby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Crabby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ButtonMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ButtonMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ButtonSound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ButtonSound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ButtonURM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ButtonURM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ButtonVolume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ButtonVolume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/GameOver_OverLay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/GameOver_OverLay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gamestates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Levels/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/LevelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/Container.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/Object.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/ObjectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/ObjectManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/Potion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/Projectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objects/Spike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objects/Spike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilization/LoadSaveFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,28 +60,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/[3]Code/GithubDesktop/OOPFinalProject/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/src/Main.java",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5086705",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/[3]Code/GithubDesktop/OOPFinalProject/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Applications/[1]Disk/UNI/STUDY/OOP_H.T.Quốc/OOPFinalProject/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5086705&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\[3]Code\GithubDesktop\OOPFinalProject\src" />
@@ -198,7 +180,8 @@
       <workItem from="1717578976801" duration="4702000" />
       <workItem from="1717665294441" duration="21901000" />
       <workItem from="1717729101051" duration="17381000" />
-      <workItem from="1717810148747" duration="18368000" />
+      <workItem from="1717810148747" duration="18417000" />
+      <workItem from="1717926435152" duration="5710000" />
     </task>
     <servers />
   </component>
