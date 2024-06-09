@@ -38,7 +38,6 @@ Contact:
 Picture ingame:
   
 ![Screenshot 2024-06-09 at 21 01 04](https://github.com/DrGnNatsu/OOPFinalProject/assets/139894085/f3a9a367-de18-45e2-aa6e-c6edd808b1b9)
-![Screenshot 2024-06-09 at 21 01 16](https://github.com/DrGnNatsu/OOPFinalProject/assets/139894085/ce5df25d-2710-4
+![Screenshot 2024-06-09 at 21 01 16](https://github.com/DrGnNatsu/OOPFinalProject/assets/139894085/ce5df25d-2710-410b-ad1d-990ca8b92fb3)
 ![Screenshot 2024-06-09 at 21 02 22](https://github.com/DrGnNatsu/OOPFinalProject/assets/139894085/44438bdf-d949-41cd-bc45-968231155de0)
-10b-ad1d-990ca8b92fb3)
 ![Screenshot 2024-06-09 at 21 01 45](https://github.com/DrGnNatsu/OOPFinalProject/assets/139894085/64a74cc8-a662-468b-9c0a-30713eff9fc1)
